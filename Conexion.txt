@@ -1,0 +1,4 @@
+{
+"connectionstring":"Data Source=webaccess.ddns.net,14338;Initial Catalog=aarTransportes_OriginalPRODUCCIONOCT31;User ID=desarrollosql;Password=desarrollosql",
+"tiempo":"02:00:00.00"
+}

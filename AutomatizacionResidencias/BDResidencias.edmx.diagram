@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="85c66a4311094ba48485e2453e7b7a2a" Name="Diagram1">
+        <EntityTypeShape EntityType="ResidenciasModel.Asesor_Interno" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResidenciasModel.BitacoraTransacciones" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResidenciasModel.Proyecto_Residencia" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResidenciasModel.Status" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResidenciasModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno" ManuallyRouted="false" />
+        <AssociationConnector Association="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" ManuallyRouted="false" />
+        <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Status" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ResidenciasModel.Alumno" Width="1.5" PointX="9.625" PointY="3.25" />
+        <EntityTypeShape EntityType="ResidenciasModel.Grupos" Width="1.5" PointX="6" PointY="9" />
+        <EntityTypeShape EntityType="ResidenciasModel.HorarioPresentacion" Width="1.5" PointX="8.25" PointY="7.625" />
+        <AssociationConnector Association="ResidenciasModel.FK_Alumno_Proyecto_Residencia" />
+        <AssociationConnector Association="ResidenciasModel.FK_HorarioPresentacion_Grupos" />
+        <AssociationConnector Association="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" />
+        <EntityTypeShape EntityType="ResidenciasModel.Usuario" Width="1.5" PointX="5.375" PointY="1.375" />
+        <AssociationConnector Association="ResidenciasModel.FK_Alumno_Usuario" />
+        <AssociationConnector Association="ResidenciasModel.FK_BitacoraTransacciones_Usuario" />
+        <EntityTypeShape EntityType="ResidenciasModel.Params" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

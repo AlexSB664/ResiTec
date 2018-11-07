@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ResidenciasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="NoControl" />
+    </Key>
+    <Property Name="NoControl" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido Paterno" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido Materno" Type="varchar" MaxLength="50" />
+    <Property Name="Semestre" Type="int" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+    <Property Name="NoProyecto" Type="int" />
+  </EntityType>
+  <EntityType Name="Asesor Interno">
+    <Key>
+      <PropertyRef Name="IdAsesor" />
+    </Key>
+    <Property Name="IdAsesor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+    <Property Name="Turno" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BitacoraTransacciones">
+    <Key>
+      <PropertyRef Name="IdTransaccion" />
+    </Key>
+    <Property Name="IdTransaccion" Type="int" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="Descripcion" Type="varchar(max)" />
+    <Property Name="Campos" Type="varchar(max)" />
+    <Property Name="ValoresOriginales" Type="varchar(max)" />
+    <Property Name="ValoresNuevos" Type="varchar(max)" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="No Proyecto" Type="int" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+    </Key>
+    <Property Name="IdGrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Fechainicio" Type="varchar" MaxLength="50" />
+    <Property Name="Fechafin" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HorarioPresentacion">
+    <Key>
+      <PropertyRef Name="IdPresentacion" />
+    </Key>
+    <Property Name="IdPresentacion" Type="int" Nullable="false" />
+    <Property Name="No Proyecto" Type="int" />
+    <Property Name="Id Grupo" Type="int" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Horainicio" Type="time" Precision="7" />
+    <Property Name="HoraFin" Type="time" Precision="7" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Params">
+    <Key>
+      <PropertyRef Name="Idparam" />
+    </Key>
+    <Property Name="Llave" Type="varchar" MaxLength="50" />
+    <Property Name="Valor" Type="varchar" MaxLength="50" />
+    <Property Name="Idparam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proyecto Residencia">
+    <Key>
+      <PropertyRef Name="No Proyecto" />
+    </Key>
+    <Property Name="No Proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre Proyecto" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre de la Empresa" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre Asesor Externo" Type="varchar" MaxLength="50" />
+    <Property Name="Cargo Asesor Externo" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono Asesor Externo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Correo Asesor Externo" Type="varchar" MaxLength="50" />
+    <Property Name="Fecha Registro" Type="datetime" />
+    <Property Name="IdAsesorInterno" Type="int" />
+    <Property Name="IdStatus" Type="int" />
+    <Property Name="Periodo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="IdStatus" />
+    </Key>
+    <Property Name="IdStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Usuario" />
+    </Key>
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="10" />
+    <Property Name="Rol" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Alumno_Proyecto Residencia">
+    <End Role="Proyecto Residencia" Type="Self.Proyecto Residencia" Multiplicity="0..1" />
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto Residencia">
+        <PropertyRef Name="No Proyecto" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="NoProyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Usuario" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="Correo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraTransacciones_Proyecto Residencia">
+    <End Role="Proyecto Residencia" Type="Self.Proyecto Residencia" Multiplicity="0..1" />
+    <End Role="BitacoraTransacciones" Type="Self.BitacoraTransacciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto Residencia">
+        <PropertyRef Name="No Proyecto" />
+      </Principal>
+      <Dependent Role="BitacoraTransacciones">
+        <PropertyRef Name="No Proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraTransacciones_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="BitacoraTransacciones" Type="Self.BitacoraTransacciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Usuario" />
+      </Principal>
+      <Dependent Role="BitacoraTransacciones">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HorarioPresentacion_Grupos">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="0..1" />
+    <End Role="HorarioPresentacion" Type="Self.HorarioPresentacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="IdGrupo" />
+      </Principal>
+      <Dependent Role="HorarioPresentacion">
+        <PropertyRef Name="Id Grupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HorarioPresentacion_Proyecto Residencia">
+    <End Role="Proyecto Residencia" Type="Self.Proyecto Residencia" Multiplicity="0..1" />
+    <End Role="HorarioPresentacion" Type="Self.HorarioPresentacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto Residencia">
+        <PropertyRef Name="No Proyecto" />
+      </Principal>
+      <Dependent Role="HorarioPresentacion">
+        <PropertyRef Name="No Proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proyecto Residencia_Asesor Interno">
+    <End Role="Asesor Interno" Type="Self.Asesor Interno" Multiplicity="0..1" />
+    <End Role="Proyecto Residencia" Type="Self.Proyecto Residencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asesor Interno">
+        <PropertyRef Name="IdAsesor" />
+      </Principal>
+      <Dependent Role="Proyecto Residencia">
+        <PropertyRef Name="IdAsesorInterno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proyecto Residencia_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Proyecto Residencia" Type="Self.Proyecto Residencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="IdStatus" />
+      </Principal>
+      <Dependent Role="Proyecto Residencia">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="generarnip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ResidenciasModelStoreContainer">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Asesor Interno" EntityType="Self.Asesor Interno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BitacoraTransacciones" EntityType="Self.BitacoraTransacciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HorarioPresentacion" EntityType="Self.HorarioPresentacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Params" EntityType="Self.Params" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proyecto Residencia" EntityType="Self.Proyecto Residencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Alumno_Proyecto Residencia" Association="Self.FK_Alumno_Proyecto Residencia">
+      <End Role="Proyecto Residencia" EntitySet="Proyecto Residencia" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Usuario" Association="Self.FK_Alumno_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraTransacciones_Proyecto Residencia" Association="Self.FK_BitacoraTransacciones_Proyecto Residencia">
+      <End Role="Proyecto Residencia" EntitySet="Proyecto Residencia" />
+      <End Role="BitacoraTransacciones" EntitySet="BitacoraTransacciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraTransacciones_Usuario" Association="Self.FK_BitacoraTransacciones_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="BitacoraTransacciones" EntitySet="BitacoraTransacciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HorarioPresentacion_Grupos" Association="Self.FK_HorarioPresentacion_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="HorarioPresentacion" EntitySet="HorarioPresentacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HorarioPresentacion_Proyecto Residencia" Association="Self.FK_HorarioPresentacion_Proyecto Residencia">
+      <End Role="Proyecto Residencia" EntitySet="Proyecto Residencia" />
+      <End Role="HorarioPresentacion" EntitySet="HorarioPresentacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proyecto Residencia_Asesor Interno" Association="Self.FK_Proyecto Residencia_Asesor Interno">
+      <End Role="Asesor Interno" EntitySet="Asesor Interno" />
+      <End Role="Proyecto Residencia" EntitySet="Proyecto Residencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proyecto Residencia_Status" Association="Self.FK_Proyecto Residencia_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Proyecto Residencia" EntitySet="Proyecto Residencia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AutomatizacionResidencias.Decorator.Agregados">
+    <Position X="5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorator\Agregados.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatizacionResidencias.Decorator.AsesorInterno">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Decorator\AsesorInterno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatizacionResidencias.Decorator.Datosalumno" Collapsed="true">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Decorator\Datosalumno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatizacionResidencias.Decorator.EdicionDatosalumno" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Decorator\EdicionDatosalumno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatizacionResidencias.Decorator.Proyectoresidencia">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Decorator\Proyectoresidencia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatizacionResidencias.Decorator.REGISTRO" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAIAAAAAgAEAAAAAAAgBAAAAAAAAA=</HashCode>
+      <FileName>Decorator\registro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatizacionResidencias.Decorator.Usuario">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Decorator\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
