@@ -12,8 +12,9 @@ namespace AutomatizacionResidencias.Decorator
         {
             return JsonConvert.SerializeObject(alumno.Proyecto_Residencia.Asesor_Interno);
         }
-        public override void Registrardatos(string datos)
+        public override void Registrardatos(string datos,out string Errores)
         {
+            Errores = null;
             var asesor = JsonConvert.DeserializeObject<Asesor_Interno>(datos);
             alumno.Proyecto_Residencia.Asesor_Interno = asesor;
 

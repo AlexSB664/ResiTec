@@ -12,4 +12,4 @@ namespace AutomatizacionResidencias.Modelos
         public string tiempo { get; set; }
     }
 }
-}
+

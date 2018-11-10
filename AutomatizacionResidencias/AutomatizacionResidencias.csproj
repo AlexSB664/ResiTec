@@ -91,12 +91,6 @@
     <Compile Include="Decorator\Proyectoresidencia.cs" />
     <Compile Include="Decorator\registro.cs" />
     <Compile Include="Decorator\Usuario.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Grupos.cs">
       <DependentUpon>BDResidencias.tt</DependentUpon>
     </Compile>
@@ -104,9 +98,6 @@
       <DependentUpon>BDResidencias.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Settings.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Observer\Alumno.cs" />
     <Compile Include="Observer\AlumnoObserver.cs" />
     <Compile Include="Observer\BitacoraTransacciones.cs" />
@@ -119,12 +110,6 @@
     <Compile Include="Proyecto_Residencia.cs">
       <DependentUpon>BDResidencias.tt</DependentUpon>
     </Compile>
-    <Compile Include="RegiAlumno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegiAlumno.Designer.cs">
-      <DependentUpon>RegiAlumno.cs</DependentUpon>
-    </Compile>
     <Compile Include="ResidenciasEntities.cs" />
     <Compile Include="Status.cs">
       <DependentUpon>BDResidencias.tt</DependentUpon>
@@ -135,9 +120,6 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>BDResidencias.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -147,9 +129,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegiAlumno.resx">
-      <DependentUpon>RegiAlumno.cs</DependentUpon>
-    </EmbeddedResource>
     <EntityDeploy Include="BDResidencias.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BDResidencias.Designer.cs</LastGenOutput>
@@ -157,7 +136,6 @@
     <None Include="BDResidencias.edmx.diagram">
       <DependentUpon>BDResidencias.edmx</DependentUpon>
     </None>
-    <None Include="bin\Debug\AutomatizacionResidencias.exe.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="ClassDiagram3.cd" />
@@ -186,22 +164,12 @@
       <DependentUpon>BDResidencias.edmx</DependentUpon>
       <LastGenOutput>BDResidencias.cs</LastGenOutput>
     </Content>
-    <Content Include="bin\Debug\AutomatizacionResidencias.exe" />
-    <Content Include="bin\Debug\AutomatizacionResidencias.pdb" />
-    <Content Include="bin\Debug\EntityFramework.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Debug\EntityFramework.xml" />
-    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
-    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
     <Content Include="Conexion.txt" />
     <Content Include="Templates\recovery.html" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Release\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

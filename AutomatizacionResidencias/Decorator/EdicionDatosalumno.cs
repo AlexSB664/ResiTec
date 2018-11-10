@@ -8,8 +8,9 @@ namespace AutomatizacionResidencias.Decorator
 {
     class EdicionDatosalumno : REGISTRO
     {
-        public override void Registrardatos(string datos)
+        public override void Registrardatos(string datos,out string Errores)
         {
+            Errores = null;
             var alumno = JsonConvert.DeserializeObject<Alumno>(datos);
             var anteriores = JsonConvert.SerializeObject(alumno);
             Administrador bitacora = new Administrador();

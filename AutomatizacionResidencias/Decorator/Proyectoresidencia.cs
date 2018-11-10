@@ -14,8 +14,9 @@ namespace AutomatizacionResidencias.Decorator
         }
 
 
-        public override void Registrardatos(string datos)
+        public override void Registrardatos(string datos,out string Errores)
         {
+            Errores = null;
             var proyecto = JsonConvert.DeserializeObject<Proyecto_Residencia>(datos);
             alumno.Proyecto_Residencia = proyecto;
 

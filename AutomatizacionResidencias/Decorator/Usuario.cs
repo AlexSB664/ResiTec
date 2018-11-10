@@ -12,8 +12,9 @@ namespace AutomatizacionResidencias.Decorator
         {
             return JsonConvert.SerializeObject(alumno.Usuario);
         }
-        public override void Registrardatos(string datos)
+        public override void Registrardatos(string datos,out string Errores)
         {
+            Errores = null;
             using (var context = new ResidenciasEntities()) {
                 alumno.Usuario.Password =context.generarnip().ToString();
             }

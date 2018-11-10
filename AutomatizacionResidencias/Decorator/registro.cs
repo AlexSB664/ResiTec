@@ -10,7 +10,7 @@ namespace AutomatizacionResidencias.Decorator
     public abstract class REGISTRO
     {
         public AutomatizacionResidencias.Alumno alumno = new AutomatizacionResidencias.Alumno();
-        public abstract void Registrardatos(string datos);
+        public abstract void Registrardatos(string datos,out string Errores);
         string description;
         public string getdatos() {
             description = "No hay datos de alumno";
