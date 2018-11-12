@@ -385,6 +385,7 @@
             this.AsesoresInternos.Name = "AsesoresInternos";
             this.AsesoresInternos.Size = new System.Drawing.Size(121, 21);
             this.AsesoresInternos.TabIndex = 28;
+            this.AsesoresInternos.SelectedIndexChanged += new System.EventHandler(this.AsesoresInternos_SelectedIndexChanged);
             // 
             // Correoasesorinterno
             // 

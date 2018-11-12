@@ -59,7 +59,6 @@
             this.numsemestre = new System.Windows.Forms.TextBox();
             this.Apellidomalumno = new System.Windows.Forms.TextBox();
             this.Apellidopalumno = new System.Windows.Forms.TextBox();
-            this.NoControl = new System.Windows.Forms.TextBox();
             this.nombrealumno = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,7 +66,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -312,7 +310,6 @@
             this.panel1.Controls.Add(this.numsemestre);
             this.panel1.Controls.Add(this.Apellidomalumno);
             this.panel1.Controls.Add(this.Apellidopalumno);
-            this.panel1.Controls.Add(this.NoControl);
             this.panel1.Controls.Add(this.nombrealumno);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label9);
@@ -320,7 +317,6 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label14);
             this.panel1.Location = new System.Drawing.Point(12, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(839, 157);
@@ -370,13 +366,6 @@
             this.Apellidopalumno.Name = "Apellidopalumno";
             this.Apellidopalumno.Size = new System.Drawing.Size(100, 20);
             this.Apellidopalumno.TabIndex = 24;
-            // 
-            // NoControl
-            // 
-            this.NoControl.Location = new System.Drawing.Point(107, 46);
-            this.NoControl.Name = "NoControl";
-            this.NoControl.Size = new System.Drawing.Size(100, 20);
-            this.NoControl.TabIndex = 23;
             // 
             // nombrealumno
             // 
@@ -439,15 +428,6 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "Nombre";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(33, 46);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 13);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Nocontrol";
-            // 
             // Editardatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,7 +483,6 @@
         private System.Windows.Forms.TextBox numsemestre;
         private System.Windows.Forms.TextBox Apellidomalumno;
         private System.Windows.Forms.TextBox Apellidopalumno;
-        private System.Windows.Forms.TextBox NoControl;
         private System.Windows.Forms.TextBox nombrealumno;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -511,6 +490,5 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
     }
 }

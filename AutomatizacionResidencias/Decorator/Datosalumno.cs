@@ -43,5 +43,45 @@ namespace AutomatizacionResidencias.Decorator
 
             }
         }
+
+
+
+
+        public  void Registrardatosresidenciaelegida(string datos, out string Errores)
+        {
+            try
+            {
+                Errores = null;
+                var al = JsonConvert.DeserializeObject<Alumno>(datos);
+
+                alumno.NoControl = al.NoControl;
+                alumno.Nombre = al.Nombre;
+                alumno.Semestre = al.Semestre;
+                alumno.Telefono = al.Telefono;
+                alumno.Correo = al.Correo;
+                alumno.Apellido_Paterno = al.Apellido_Paterno;
+                alumno.Apellido_Materno = al.Apellido_Materno;
+                alumno.Usuario = al.Usuario;
+                alumno.NoProyecto = al.NoProyecto;
+            }
+            catch (Exception ex)
+            {
+                Errores = ex.Message;
+            }
+            try
+            {
+
+                alumno.RegisterObserver(out Errores);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Errores = ex.Message;
+
+            }
+        }
+
     }
 }

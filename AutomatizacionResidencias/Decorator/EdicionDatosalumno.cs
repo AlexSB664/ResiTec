@@ -26,6 +26,24 @@ namespace AutomatizacionResidencias.Decorator
                 this.alumno = context.Alumno.FirstOrDefault(x=>x.Correo==correo);
             }
 
+
+          
 }
+
+        public void Guardarcambios()
+        {
+            using (var context = new ResidenciasEntities(new AutomatizacionResidencias.Acciones.Conexion().returnconexion().ConnectionString))
+            {
+                var alumnoo = context.Alumno.FirstOrDefault(x => x.Correo == this.alumno.Correo);
+                alumnoo.Nombre = this.alumno.Nombre;
+                alumnoo.Semestre = this.alumno.Semestre;
+                alumnoo.Telefono = this.alumno.Telefono;
+                alumnoo.Apellido_Paterno = this.alumno.Apellido_Paterno;
+                alumnoo.Apellido_Materno = this.alumno.Apellido_Materno;
+                alumnoo.Correo = this.alumno.Correo;
+
+                context.SaveChanges();
+            }
+        }
     }
 }
