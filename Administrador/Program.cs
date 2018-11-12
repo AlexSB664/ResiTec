@@ -16,7 +16,7 @@ namespace Administrador
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Administradorprincipal());
+            Application.Run(new Login());
         }
     }
 }

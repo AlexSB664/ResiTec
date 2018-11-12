@@ -1,133 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ResidenciasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Asesor_Interno">
-    <Key>
-      <PropertyRef Name="IdAsesor" />
-    </Key>
-    <Property Name="IdAsesor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Proyecto_Residencia" Relationship="Self.FK_Proyecto_Residencia_Asesor_Interno" FromRole="Asesor_Interno" ToRole="Proyecto_Residencia" />
-  </EntityType>
-  <EntityType Name="BitacoraTransacciones">
-    <Key>
-      <PropertyRef Name="IdTransaccion" />
-    </Key>
-    <Property Name="IdTransaccion" Type="Int32" Nullable="false" />
-    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
-    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Campos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="ValoresOriginales" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="ValoresNuevos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Estado" Type="Boolean" />
-    <Property Name="No_Proyecto" Type="Int32" />
-    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Proyecto_Residencia" Relationship="Self.FK_BitacoraTransacciones_Proyecto_Residencia" FromRole="BitacoraTransacciones" ToRole="Proyecto_Residencia" />
-    <NavigationProperty Name="Usuario1" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Usuario" FromRole="BitacoraTransacciones" ToRole="Usuario" />
-  </EntityType>
-  <EntityType Name="Proyecto_Residencia">
-    <Key>
-      <PropertyRef Name="No_Proyecto" />
-    </Key>
-    <Property Name="No_Proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre_Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Nombre_de_la_Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Nombre_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Cargo_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Telefono_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Correo_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
-    <Property Name="IdAsesorInterno" Type="Int32" />
-    <Property Name="IdStatus" Type="Int32" />
-    <NavigationProperty Name="Asesor_Interno" Relationship="Self.FK_Proyecto_Residencia_Asesor_Interno" FromRole="Proyecto_Residencia" ToRole="Asesor_Interno" />
-    <NavigationProperty Name="BitacoraTransacciones" Relationship="Self.FK_BitacoraTransacciones_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="BitacoraTransacciones" />
-    <NavigationProperty Name="Status" Relationship="Self.FK_Proyecto_Residencia_Status" FromRole="Proyecto_Residencia" ToRole="Status" />
-    <Property Name="Periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Alumno" Relationship="ResidenciasModel.FK_Alumno_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="Alumno" />
-    <NavigationProperty Name="HorarioPresentacion" Relationship="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="HorarioPresentacion" />
-  </EntityType>
-  <EntityType Name="Status">
-    <Key>
-      <PropertyRef Name="IdStatus" />
-    </Key>
-    <Property Name="IdStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Proyecto_Residencia" Relationship="Self.FK_Proyecto_Residencia_Status" FromRole="Status" ToRole="Proyecto_Residencia" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <Association Name="FK_Proyecto_Residencia_Asesor_Interno">
-    <End Role="Asesor_Interno" Type="Self.Asesor_Interno" Multiplicity="0..1" />
-    <End Role="Proyecto_Residencia" Type="Self.Proyecto_Residencia" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Asesor_Interno">
-        <PropertyRef Name="IdAsesor" />
-      </Principal>
-      <Dependent Role="Proyecto_Residencia">
-        <PropertyRef Name="IdAsesorInterno" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BitacoraTransacciones_Proyecto_Residencia">
-    <End Role="Proyecto_Residencia" Type="Self.Proyecto_Residencia" Multiplicity="0..1" />
-    <End Role="BitacoraTransacciones" Type="Self.BitacoraTransacciones" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Proyecto_Residencia">
-        <PropertyRef Name="No_Proyecto" />
-      </Principal>
-      <Dependent Role="BitacoraTransacciones">
-        <PropertyRef Name="No_Proyecto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Proyecto_Residencia_Status">
-    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-    <End Role="Proyecto_Residencia" Type="Self.Proyecto_Residencia" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="IdStatus" />
-      </Principal>
-      <Dependent Role="Proyecto_Residencia">
-        <PropertyRef Name="IdStatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="ResidenciasEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Asesor_Interno" EntityType="Self.Asesor_Interno" />
-    <EntitySet Name="BitacoraTransacciones" EntityType="Self.BitacoraTransacciones" />
-    <EntitySet Name="Proyecto_Residencia" EntityType="Self.Proyecto_Residencia" />
-    <EntitySet Name="Status" EntityType="Self.Status" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <AssociationSet Name="FK_Proyecto_Residencia_Asesor_Interno" Association="Self.FK_Proyecto_Residencia_Asesor_Interno">
-      <End Role="Asesor_Interno" EntitySet="Asesor_Interno" />
-      <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BitacoraTransacciones_Proyecto_Residencia" Association="Self.FK_BitacoraTransacciones_Proyecto_Residencia">
-      <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
-      <End Role="BitacoraTransacciones" EntitySet="BitacoraTransacciones" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Proyecto_Residencia_Status" Association="Self.FK_Proyecto_Residencia_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
-    </AssociationSet>
+    <FunctionImport Name="generarnip" />
     <EntitySet Name="Alumno" EntityType="ResidenciasModel.Alumno" />
+    <EntitySet Name="Asesor_Interno" EntityType="ResidenciasModel.Asesor_Interno" />
+    <EntitySet Name="BitacoraTransacciones" EntityType="ResidenciasModel.BitacoraTransacciones" />
     <EntitySet Name="Grupos" EntityType="ResidenciasModel.Grupos" />
     <EntitySet Name="HorarioPresentacion" EntityType="ResidenciasModel.HorarioPresentacion" />
+    <EntitySet Name="Params" EntityType="ResidenciasModel.Params" />
+    <EntitySet Name="Proyecto_Residencia" EntityType="ResidenciasModel.Proyecto_Residencia" />
+    <EntitySet Name="Status" EntityType="ResidenciasModel.Status" />
+    <EntitySet Name="sysdiagrams" EntityType="ResidenciasModel.sysdiagrams" />
+    <EntitySet Name="Usuario" EntityType="ResidenciasModel.Usuario" />
     <AssociationSet Name="FK_Alumno_Proyecto_Residencia" Association="ResidenciasModel.FK_Alumno_Proyecto_Residencia">
       <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
       <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Alumno_Usuario" Association="ResidenciasModel.FK_Alumno_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proyecto_Residencia_Asesor_Interno" Association="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno">
+      <End Role="Asesor_Interno" EntitySet="Asesor_Interno" />
+      <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraTransacciones_Proyecto_Residencia" Association="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia">
+      <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
+      <End Role="BitacoraTransacciones" EntitySet="BitacoraTransacciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraTransacciones_Usuario" Association="ResidenciasModel.FK_BitacoraTransacciones_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="BitacoraTransacciones" EntitySet="BitacoraTransacciones" />
     </AssociationSet>
     <AssociationSet Name="FK_HorarioPresentacion_Grupos" Association="ResidenciasModel.FK_HorarioPresentacion_Grupos">
       <End Role="Grupos" EntitySet="Grupos" />
@@ -137,17 +40,10 @@
       <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
       <End Role="HorarioPresentacion" EntitySet="HorarioPresentacion" />
     </AssociationSet>
-    <EntitySet Name="Usuario" EntityType="ResidenciasModel.Usuario" />
-    <AssociationSet Name="FK_Alumno_Usuario" Association="ResidenciasModel.FK_Alumno_Usuario">
-      <End Role="Usuario" EntitySet="Usuario" />
-      <End Role="Alumno" EntitySet="Alumno" />
+    <AssociationSet Name="FK_Proyecto_Residencia_Status" Association="ResidenciasModel.FK_Proyecto_Residencia_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
     </AssociationSet>
-    <AssociationSet Name="FK_BitacoraTransacciones_Usuario" Association="ResidenciasModel.FK_BitacoraTransacciones_Usuario">
-      <End Role="Usuario" EntitySet="Usuario" />
-      <End Role="BitacoraTransacciones" EntitySet="BitacoraTransacciones" />
-    </AssociationSet>
-    <FunctionImport Name="generarnip" />
-    <EntitySet Name="Params" EntityType="ResidenciasModel.Params" />
   </EntityContainer>
   <EntityType Name="Alumno">
     <Key>
@@ -163,6 +59,33 @@
     <Property Name="NoProyecto" Type="Int32" />
     <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_Alumno_Proyecto_Residencia" FromRole="Alumno" ToRole="Proyecto_Residencia" />
     <NavigationProperty Name="Usuario" Relationship="ResidenciasModel.FK_Alumno_Usuario" FromRole="Alumno" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Asesor_Interno">
+    <Key>
+      <PropertyRef Name="IdAsesor" />
+    </Key>
+    <Property Name="IdAsesor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno" FromRole="Asesor_Interno" ToRole="Proyecto_Residencia" />
+  </EntityType>
+  <EntityType Name="BitacoraTransacciones">
+    <Key>
+      <PropertyRef Name="IdTransaccion" />
+    </Key>
+    <Property Name="IdTransaccion" Type="Int32" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Campos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ValoresOriginales" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ValoresNuevos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="No_Proyecto" Type="Int32" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" FromRole="BitacoraTransacciones" ToRole="Proyecto_Residencia" />
+    <NavigationProperty Name="Usuario1" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Usuario" FromRole="BitacoraTransacciones" ToRole="Usuario" />
   </EntityType>
   <EntityType Name="Grupos">
     <Key>
@@ -190,6 +113,64 @@
     <NavigationProperty Name="Grupos" Relationship="ResidenciasModel.FK_HorarioPresentacion_Grupos" FromRole="HorarioPresentacion" ToRole="Grupos" />
     <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" FromRole="HorarioPresentacion" ToRole="Proyecto_Residencia" />
   </EntityType>
+  <EntityType Name="Params">
+    <Key>
+      <PropertyRef Name="Idparam" />
+    </Key>
+    <Property Name="Llave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Idparam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Proyecto_Residencia">
+    <Key>
+      <PropertyRef Name="No_Proyecto" />
+    </Key>
+    <Property Name="No_Proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_de_la_Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cargo_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Correo_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="3" />
+    <Property Name="IdAsesorInterno" Type="Int32" />
+    <Property Name="IdStatus" Type="Int32" />
+    <Property Name="Periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Alumno" Relationship="ResidenciasModel.FK_Alumno_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="Alumno" />
+    <NavigationProperty Name="Asesor_Interno" Relationship="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno" FromRole="Proyecto_Residencia" ToRole="Asesor_Interno" />
+    <NavigationProperty Name="BitacoraTransacciones" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="BitacoraTransacciones" />
+    <NavigationProperty Name="HorarioPresentacion" Relationship="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="HorarioPresentacion" />
+    <NavigationProperty Name="Status" Relationship="ResidenciasModel.FK_Proyecto_Residencia_Status" FromRole="Proyecto_Residencia" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="IdStatus" />
+    </Key>
+    <Property Name="IdStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_Proyecto_Residencia_Status" FromRole="Status" ToRole="Proyecto_Residencia" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Usuario1" />
+    </Key>
+    <Property Name="Usuario1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Alumno" Relationship="ResidenciasModel.FK_Alumno_Usuario" FromRole="Usuario" ToRole="Alumno" />
+    <NavigationProperty Name="BitacoraTransacciones" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Usuario" FromRole="Usuario" ToRole="BitacoraTransacciones" />
+  </EntityType>
   <Association Name="FK_Alumno_Proyecto_Residencia">
     <End Type="ResidenciasModel.Proyecto_Residencia" Role="Proyecto_Residencia" Multiplicity="0..1" />
     <End Type="ResidenciasModel.Alumno" Role="Alumno" Multiplicity="*" />
@@ -199,6 +180,54 @@
       </Principal>
       <Dependent Role="Alumno">
         <PropertyRef Name="NoProyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Alumno_Usuario">
+    <End Type="ResidenciasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="ResidenciasModel.Alumno" Role="Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Usuario1" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="Correo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proyecto_Residencia_Asesor_Interno">
+    <End Type="ResidenciasModel.Asesor_Interno" Role="Asesor_Interno" Multiplicity="0..1" />
+    <End Type="ResidenciasModel.Proyecto_Residencia" Role="Proyecto_Residencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asesor_Interno">
+        <PropertyRef Name="IdAsesor" />
+      </Principal>
+      <Dependent Role="Proyecto_Residencia">
+        <PropertyRef Name="IdAsesorInterno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraTransacciones_Proyecto_Residencia">
+    <End Type="ResidenciasModel.Proyecto_Residencia" Role="Proyecto_Residencia" Multiplicity="0..1" />
+    <End Type="ResidenciasModel.BitacoraTransacciones" Role="BitacoraTransacciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto_Residencia">
+        <PropertyRef Name="No_Proyecto" />
+      </Principal>
+      <Dependent Role="BitacoraTransacciones">
+        <PropertyRef Name="No_Proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraTransacciones_Usuario">
+    <End Type="ResidenciasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="ResidenciasModel.BitacoraTransacciones" Role="BitacoraTransacciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Usuario1" />
+      </Principal>
+      <Dependent Role="BitacoraTransacciones">
+        <PropertyRef Name="Usuario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -226,46 +255,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Usuario">
-    <Key>
-      <PropertyRef Name="Usuario1" />
-    </Key>
-    <Property Name="Usuario1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Alumno" Relationship="ResidenciasModel.FK_Alumno_Usuario" FromRole="Usuario" ToRole="Alumno" />
-    <NavigationProperty Name="BitacoraTransacciones" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Usuario" FromRole="Usuario" ToRole="BitacoraTransacciones" />
-  </EntityType>
-  <Association Name="FK_Alumno_Usuario">
-    <End Type="ResidenciasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
-    <End Type="ResidenciasModel.Alumno" Role="Alumno" Multiplicity="*" />
+  <Association Name="FK_Proyecto_Residencia_Status">
+    <End Type="ResidenciasModel.Status" Role="Status" Multiplicity="0..1" />
+    <End Type="ResidenciasModel.Proyecto_Residencia" Role="Proyecto_Residencia" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="Usuario1" />
+      <Principal Role="Status">
+        <PropertyRef Name="IdStatus" />
       </Principal>
-      <Dependent Role="Alumno">
-        <PropertyRef Name="Correo" />
+      <Dependent Role="Proyecto_Residencia">
+        <PropertyRef Name="IdStatus" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_BitacoraTransacciones_Usuario">
-    <End Type="ResidenciasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
-    <End Type="ResidenciasModel.BitacoraTransacciones" Role="BitacoraTransacciones" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="Usuario1" />
-      </Principal>
-      <Dependent Role="BitacoraTransacciones">
-        <PropertyRef Name="Usuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Params">
-    <Key>
-      <PropertyRef Name="Idparam" />
-    </Key>
-    <Property Name="Llave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Valor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Idparam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
 </Schema>

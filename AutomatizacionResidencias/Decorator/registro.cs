@@ -18,7 +18,8 @@ namespace AutomatizacionResidencias.Decorator
         }
 
         public void notificarregistro() {
-            alumno.NotifyObserver();
+            string Errores;
+            alumno.NotifyObserver(out Errores);
         }
 
         public string MostrarNip() {

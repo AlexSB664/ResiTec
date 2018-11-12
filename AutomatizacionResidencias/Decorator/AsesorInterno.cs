@@ -16,7 +16,10 @@ namespace AutomatizacionResidencias.Decorator
         {
             Errores = null;
             var asesor = JsonConvert.DeserializeObject<Asesor_Interno>(datos);
-            alumno.Proyecto_Residencia.Asesor_Interno = asesor;
+
+            asesor.RegisterObserver(out Errores);
+
+      
 
         }
     }

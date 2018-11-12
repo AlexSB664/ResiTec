@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutomatizacionResidencias.Acciones;
 using Newtonsoft.Json;
+
+using AutomatizacionResidencias.Acciones;
+using AutomatizacionResidencias;
 namespace AutomatizacionResidencias
 {
-    public partial class Proyecto_Residencia : Subject
+   public partial class Asesor_Interno:Subject
     {
-        public void NotifyObserver(out string Errores)
-        {
-            Errores = "";
-      
-        }
 
         public void RegisterObserver(out string Errores)
         {
@@ -21,36 +18,51 @@ namespace AutomatizacionResidencias
 
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
+                        context.Asesor_Interno.Add(this);
 
-                context.Proyecto_Residencia.Add(this);
-                context.SaveChanges();
+
+                 
+                        context.SaveChanges();
+
+            
+
             }
-            NotifyObserver(out Errores);
+
         }
 
         public void RemoveObserver(out string Errores)
         {
             Errores = "";
-
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
 
-                context.Proyecto_Residencia.Remove(this);
+
+                context.Asesor_Interno.Remove(this);
                 context.SaveChanges();
             }
             NotifyObserver(out Errores);
         }
 
-        public void ActualizarDatosResidencia(string nuevosdatos, out string Errores) {
+        public void ActualizarDatosAlumno(string nuevosdatos, out string Errores)
+        {
             Errores = "";
-
             Administrador a = new Administrador();
-            var al = JsonConvert.DeserializeObject<Proyecto_Residencia>(nuevosdatos);
+            var al = JsonConvert.DeserializeObject<Alumno>(nuevosdatos);
             a.Update();
-            Proyecto_Residencia alumno = new Proyecto_Residencia();
-            a.Update();
+            Alumno alumno = new Alumno();
+            AlumnoObserver ao = new AlumnoObserver();
+            ao.Correo = alumno.Correo;
+            ao.Update();
 
             NotifyObserver(out Errores);
+        }
+
+        public void NotifyObserver(out string Errores)
+        {
+            Errores = "";
+
+          
+
         }
     }
 }

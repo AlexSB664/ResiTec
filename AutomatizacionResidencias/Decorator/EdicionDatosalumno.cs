@@ -15,7 +15,7 @@ namespace AutomatizacionResidencias.Decorator
             var anteriores = JsonConvert.SerializeObject(alumno);
             Administrador bitacora = new Administrador();
             string nuevosdatos = "";
-            alumno.ActualizarDatosAlumno(nuevosdatos);
+            alumno.ActualizarDatosAlumno(nuevosdatos,out Errores);
            
             
         }

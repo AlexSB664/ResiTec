@@ -1,70 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ResidenciasModelStoreContainer" CdmEntityContainer="ResidenciasEntities">
-    <EntitySetMapping Name="Asesor_Interno">
-      <EntityTypeMapping TypeName="ResidenciasModel.Asesor_Interno">
-        <MappingFragment StoreEntitySet="Asesor Interno">
-          <ScalarProperty Name="IdAsesor" ColumnName="IdAsesor" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-          <ScalarProperty Name="Correo" ColumnName="Correo" />
-          <ScalarProperty Name="Turno" ColumnName="Turno" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BitacoraTransacciones">
-      <EntityTypeMapping TypeName="ResidenciasModel.BitacoraTransacciones">
-        <MappingFragment StoreEntitySet="BitacoraTransacciones">
-          <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
-          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Campos" ColumnName="Campos" />
-          <ScalarProperty Name="ValoresOriginales" ColumnName="ValoresOriginales" />
-          <ScalarProperty Name="ValoresNuevos" ColumnName="ValoresNuevos" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="No_Proyecto" ColumnName="No Proyecto" />
-          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Proyecto_Residencia">
-      <EntityTypeMapping TypeName="ResidenciasModel.Proyecto_Residencia">
-        <MappingFragment StoreEntitySet="Proyecto Residencia">
-          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
-          <ScalarProperty Name="No_Proyecto" ColumnName="No Proyecto" />
-          <ScalarProperty Name="Nombre_Proyecto" ColumnName="Nombre Proyecto" />
-          <ScalarProperty Name="Nombre_de_la_Empresa" ColumnName="Nombre de la Empresa" />
-          <ScalarProperty Name="Nombre_Asesor_Externo" ColumnName="Nombre Asesor Externo" />
-          <ScalarProperty Name="Cargo_Asesor_Externo" ColumnName="Cargo Asesor Externo" />
-          <ScalarProperty Name="Telefono_Asesor_Externo" ColumnName="Telefono Asesor Externo" />
-          <ScalarProperty Name="Correo_Asesor_Externo" ColumnName="Correo Asesor Externo" />
-          <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha Registro" />
-          <ScalarProperty Name="IdAsesorInterno" ColumnName="IdAsesorInterno" />
-          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Status">
-      <EntityTypeMapping TypeName="ResidenciasModel.Status">
-        <MappingFragment StoreEntitySet="Status">
-          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="ResidenciasModel.sysdiagrams">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="generarnip" FunctionName="ResidenciasModel.Store.generarnip" />
     <EntitySetMapping Name="Alumno">
       <EntityTypeMapping TypeName="ResidenciasModel.Alumno">
         <MappingFragment StoreEntitySet="Alumno">
@@ -76,6 +13,32 @@
           <ScalarProperty Name="Apellido_Paterno" ColumnName="Apellido Paterno" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="NoControl" ColumnName="NoControl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asesor_Interno">
+      <EntityTypeMapping TypeName="ResidenciasModel.Asesor_Interno">
+        <MappingFragment StoreEntitySet="Asesor Interno">
+          <ScalarProperty Name="Turno" ColumnName="Turno" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdAsesor" ColumnName="IdAsesor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BitacoraTransacciones">
+      <EntityTypeMapping TypeName="ResidenciasModel.BitacoraTransacciones">
+        <MappingFragment StoreEntitySet="BitacoraTransacciones">
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="No_Proyecto" ColumnName="No Proyecto" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="ValoresNuevos" ColumnName="ValoresNuevos" />
+          <ScalarProperty Name="ValoresOriginales" ColumnName="ValoresOriginales" />
+          <ScalarProperty Name="Campos" ColumnName="Campos" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -104,22 +67,58 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Usuario">
-      <EntityTypeMapping TypeName="ResidenciasModel.Usuario">
-        <MappingFragment StoreEntitySet="Usuario">
-          <ScalarProperty Name="Rol" ColumnName="Rol" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="generarnip" FunctionName="ResidenciasModel.Store.generarnip" />
     <EntitySetMapping Name="Params">
       <EntityTypeMapping TypeName="ResidenciasModel.Params">
         <MappingFragment StoreEntitySet="Params">
           <ScalarProperty Name="Idparam" ColumnName="Idparam" />
           <ScalarProperty Name="Valor" ColumnName="Valor" />
           <ScalarProperty Name="Llave" ColumnName="Llave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proyecto_Residencia">
+      <EntityTypeMapping TypeName="ResidenciasModel.Proyecto_Residencia">
+        <MappingFragment StoreEntitySet="Proyecto Residencia">
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+          <ScalarProperty Name="IdAsesorInterno" ColumnName="IdAsesorInterno" />
+          <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha Registro" />
+          <ScalarProperty Name="Correo_Asesor_Externo" ColumnName="Correo Asesor Externo" />
+          <ScalarProperty Name="Telefono_Asesor_Externo" ColumnName="Telefono Asesor Externo" />
+          <ScalarProperty Name="Cargo_Asesor_Externo" ColumnName="Cargo Asesor Externo" />
+          <ScalarProperty Name="Nombre_Asesor_Externo" ColumnName="Nombre Asesor Externo" />
+          <ScalarProperty Name="Nombre_de_la_Empresa" ColumnName="Nombre de la Empresa" />
+          <ScalarProperty Name="Nombre_Proyecto" ColumnName="Nombre Proyecto" />
+          <ScalarProperty Name="No_Proyecto" ColumnName="No Proyecto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="ResidenciasModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ResidenciasModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="ResidenciasModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

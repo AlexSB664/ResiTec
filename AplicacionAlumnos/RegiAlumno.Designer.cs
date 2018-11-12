@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.correoelectronicoalumno = new System.Windows.Forms.TextBox();
             this.numtelefonoalumno = new System.Windows.Forms.TextBox();
             this.numsemestre = new System.Windows.Forms.TextBox();
@@ -44,7 +43,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cargoasesor = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Residencias = new System.Windows.Forms.ComboBox();
             this.correoasesorext = new System.Windows.Forms.TextBox();
             this.telefonoasesorext = new System.Windows.Forms.TextBox();
             this.NombreAsesorexterno = new System.Windows.Forms.TextBox();
@@ -56,6 +59,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.AsesoresInternos = new System.Windows.Forms.ComboBox();
             this.Correoasesorinterno = new System.Windows.Forms.TextBox();
             this.Telefonoasesorinterno = new System.Windows.Forms.TextBox();
             this.NombreAsesorinterno = new System.Windows.Forms.TextBox();
@@ -71,7 +75,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.correoelectronicoalumno);
             this.panel1.Controls.Add(this.numtelefonoalumno);
             this.panel1.Controls.Add(this.numsemestre);
@@ -90,16 +93,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(839, 157);
             this.panel1.TabIndex = 15;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(616, 95);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.guardardatosalumno);
             // 
             // correoelectronicoalumno
             // 
@@ -223,8 +216,21 @@
             this.label14.TabIndex = 15;
             this.label14.Text = "Nocontrol";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(369, 493);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Guardar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.guardardatosalumno);
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cargoasesor);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.Residencias);
             this.panel2.Controls.Add(this.correoasesorext);
             this.panel2.Controls.Add(this.telefonoasesorext);
             this.panel2.Controls.Add(this.NombreAsesorexterno);
@@ -239,6 +245,32 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(839, 157);
             this.panel2.TabIndex = 16;
+            // 
+            // cargoasesor
+            // 
+            this.cargoasesor.Location = new System.Drawing.Point(723, 43);
+            this.cargoasesor.Name = "cargoasesor";
+            this.cargoasesor.Size = new System.Drawing.Size(100, 20);
+            this.cargoasesor.TabIndex = 29;
+            this.cargoasesor.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(614, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Cargo asesor";
+            // 
+            // Residencias
+            // 
+            this.Residencias.FormattingEnabled = true;
+            this.Residencias.Location = new System.Drawing.Point(705, 3);
+            this.Residencias.Name = "Residencias";
+            this.Residencias.Size = new System.Drawing.Size(121, 21);
+            this.Residencias.TabIndex = 27;
+            this.Residencias.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // correoasesorext
             // 
@@ -259,7 +291,7 @@
             // 
             // telefonoasesorext
             // 
-            this.telefonoasesorext.Location = new System.Drawing.Point(705, 39);
+            this.telefonoasesorext.Location = new System.Drawing.Point(357, 101);
             this.telefonoasesorext.Name = "telefonoasesorext";
             this.telefonoasesorext.Size = new System.Drawing.Size(100, 20);
             this.telefonoasesorext.TabIndex = 25;
@@ -297,7 +329,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(613, 43);
+            this.label4.Location = new System.Drawing.Point(248, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 18;
@@ -332,6 +364,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.AsesoresInternos);
             this.panel3.Controls.Add(this.Correoasesorinterno);
             this.panel3.Controls.Add(this.Telefonoasesorinterno);
             this.panel3.Controls.Add(this.NombreAsesorinterno);
@@ -344,6 +377,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(839, 95);
             this.panel3.TabIndex = 17;
+            // 
+            // AsesoresInternos
+            // 
+            this.AsesoresInternos.FormattingEnabled = true;
+            this.AsesoresInternos.Location = new System.Drawing.Point(645, 3);
+            this.AsesoresInternos.Name = "AsesoresInternos";
+            this.AsesoresInternos.Size = new System.Drawing.Size(121, 21);
+            this.AsesoresInternos.TabIndex = 28;
             // 
             // Correoasesorinterno
             // 
@@ -414,11 +455,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 579);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "RegiAlumno";
             this.Text = "RegiAlumno";
+            this.Load += new System.EventHandler(this.RegiAlumno_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -467,5 +510,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox Residencias;
+        private System.Windows.Forms.ComboBox AsesoresInternos;
+        private System.Windows.Forms.TextBox cargoasesor;
+        private System.Windows.Forms.Label label1;
     }
 }

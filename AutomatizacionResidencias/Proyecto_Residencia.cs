@@ -17,8 +17,8 @@ namespace AutomatizacionResidencias
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Proyecto_Residencia()
         {
-            this.BitacoraTransacciones = new HashSet<BitacoraTransacciones>();
             this.Alumno = new HashSet<Alumno>();
+            this.BitacoraTransacciones = new HashSet<BitacoraTransacciones>();
             this.HorarioPresentacion = new HashSet<HorarioPresentacion>();
         }
     
@@ -34,13 +34,13 @@ namespace AutomatizacionResidencias
         public Nullable<int> IdStatus { get; set; }
         public string Periodo { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Alumno> Alumno { get; set; }
         public virtual Asesor_Interno Asesor_Interno { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BitacoraTransacciones> BitacoraTransacciones { get; set; }
-        public virtual Status Status { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Alumno> Alumno { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HorarioPresentacion> HorarioPresentacion { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

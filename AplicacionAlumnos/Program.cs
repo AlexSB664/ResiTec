@@ -16,7 +16,7 @@ namespace AplicacionAlumnos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegiAlumno());
+            Application.Run(new Eleccion());
         }
     }
 }

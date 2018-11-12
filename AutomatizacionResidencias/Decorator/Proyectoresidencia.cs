@@ -20,7 +20,7 @@ namespace AutomatizacionResidencias.Decorator
             var proyecto = JsonConvert.DeserializeObject<Proyecto_Residencia>(datos);
             alumno.Proyecto_Residencia = proyecto;
 
-            alumno.Proyecto_Residencia.RegisterObserver();
+            alumno.Proyecto_Residencia.RegisterObserver(out Errores);
         }
     }
 }

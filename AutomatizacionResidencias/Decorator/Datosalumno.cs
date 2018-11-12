@@ -23,15 +23,21 @@ namespace AutomatizacionResidencias.Decorator
                 alumno.Correo = al.Correo;
                 alumno.Apellido_Paterno = al.Apellido_Paterno;
                 alumno.Apellido_Materno = al.Apellido_Materno;
+                alumno.Usuario = al.Usuario;
+                alumno.Proyecto_Residencia = al.Proyecto_Residencia;
             }
             catch(Exception ex) {
                 Errores = ex.Message;
             }
             try
             {
-                alumno.RegisterObserver();
+                
+                    alumno.RegisterObserver(out Errores);
 
-            }catch(Exception ex)
+
+                
+            }
+            catch(Exception ex)
                 {
                 Errores = ex.Message;
 

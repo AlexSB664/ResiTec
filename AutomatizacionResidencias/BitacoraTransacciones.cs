@@ -26,10 +26,5 @@ namespace AutomatizacionResidencias
     
         public virtual Proyecto_Residencia Proyecto_Residencia { get; set; }
         public virtual Usuario Usuario1 { get; set; }
-
-        public static implicit operator BitacoraTransacciones(Proyecto_Residencia v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

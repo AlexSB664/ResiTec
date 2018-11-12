@@ -25,8 +25,13 @@ namespace Administrador
             Autentificacion auten = new Autentificacion();
            login= (auten.autentificar(textBox1.Text, textBox2.Text, out Errores));
 
-            if (login == true) {
-
+            if (login == true)
+            {
+                Administradorprincipal a = new Administradorprincipal();
+                a.Show();
+            }
+            else {
+                MessageBox.Show("Credenciales incorrectas");
             }
 
         }

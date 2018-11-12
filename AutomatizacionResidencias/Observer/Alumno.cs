@@ -12,27 +12,48 @@ namespace AutomatizacionResidencias
 
     public partial class Alumno : Subject
     {
-        public void NotifyObserver()
+        public void NotifyObserver(out string Errores)
         {
+            Errores = "";
+            
             Enviarcorreo e = new Enviarcorreo();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString)) {
+                e.password = context.Usuario.FirstOrDefault(x=>x.Usuario1==this.Correo).Password;
+            }
+                e.correo = this.Correo;
             e.enviar();
              
         }
 
-        public void RegisterObserver()
+        public void RegisterObserver(out string Errores)
         {
-           
-            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString)) {
+            Errores = "";
 
-                context.Alumno.Add(this);
-                context.SaveChanges();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString)) {
+                if (context.Alumno.Any(x => x.NoControl == this.NoControl)) {
+                    Errores = "Ya existe un alumno con este numero de control";
+                } else {
+                    if (context.Usuario.Any(x => x.Usuario1 == this.Correo)) {
+                        Errores = "Ya existe un Alumno con este correo";
+                    }
+                    else {
+                        context.Usuario.Add(this.Usuario);
+
+
+                        context.Alumno.Add(this);
+                        context.SaveChanges();
+                        NotifyObserver(out Errores);
+
+                    }
+                }
+
             }
 
-            NotifyObserver();
         }
 
-        public void RemoveObserver()
+        public void RemoveObserver(out string Errores)
         {
+            Errores = "";
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
                 Alumno tem = context.Alumno.First(x => x.NoControl == this.NoControl);
@@ -41,10 +62,11 @@ namespace AutomatizacionResidencias
                 context.Alumno.Remove(tem);
                 context.SaveChanges();
             }
-            NotifyObserver();
+            NotifyObserver(out Errores);
         }
 
-        public void ActualizarDatosAlumno(string nuevosdatos) {
+        public void ActualizarDatosAlumno(string nuevosdatos, out string Errores) {
+            Errores = "";
             Administrador a = new Administrador();
             var al = JsonConvert.DeserializeObject<Alumno>(nuevosdatos);
             a.Update();
@@ -53,7 +75,7 @@ namespace AutomatizacionResidencias
             ao.Correo = alumno.Correo;
             ao.Update();
 
-            NotifyObserver();
+            NotifyObserver(out Errores);
         }
 
    

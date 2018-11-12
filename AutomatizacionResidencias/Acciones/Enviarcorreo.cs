@@ -42,7 +42,7 @@ namespace AutomatizacionResidencias.Acciones
 
             string body = string.Empty;
 
-            using (StreamReader reader = new StreamReader("~/Templates/recovery.html"))
+            using (StreamReader reader = new StreamReader("Templates/recovery.html"))
 
             {
 

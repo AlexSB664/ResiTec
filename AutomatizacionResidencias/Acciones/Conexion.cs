@@ -12,8 +12,8 @@ namespace AutomatizacionResidencias.Acciones
    public  class Conexion
     {
         public static EntityConnectionStringBuilder csb = new EntityConnectionStringBuilder();
-       public string Metadata = "metadata=res://*/BDResidencias.csdl|res://*/BDResidencias.ssdl|res://*/BDResidencias.msl";
-      public string Provider = "System.Data.SqlClient";
+        public string Metadata = @"res://*/BDResidencias.csdl|res://*/BDResidencias.ssdl|res://*/BDResidencias.msl";
+      public string Provider = @"System.Data.SqlClient";
         public string connectionstring;
         private TimeSpan ciclo;
         private int millisecondsciclo;

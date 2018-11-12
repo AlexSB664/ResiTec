@@ -9,8 +9,8 @@ namespace AutomatizacionResidencias
     public interface Subject
     {
 
-        void RegisterObserver();
-        void RemoveObserver();
-        void NotifyObserver();
+        void RegisterObserver(out string Errores);
+        void RemoveObserver(out string Errores);
+        void NotifyObserver(out string Errores);
     }
 }

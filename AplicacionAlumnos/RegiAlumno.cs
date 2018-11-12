@@ -24,8 +24,19 @@ namespace AplicacionAlumnos
         public static string telefono;
         public static string correo;
         public string Errores;
+        public Proyecto_Residencia proyectoresidencia= null;
+        public Asesor_Interno asesorinterno= null;
         public static Conexion con= new Conexion();
         public static Datosalumno regalumno=new Datosalumno();
+        public static Proyectoresidencia regresidencia = new Proyectoresidencia();
+        public static AsesorInterno regasesorinterno = new AsesorInterno();
+        public static BindingSource bindingsourceproyectos = new BindingSource();
+        public static BindingSource bindingsourceasesores = new BindingSource();
+        public List<Proyecto_Residencia> proyectos = new List<Proyecto_Residencia>();
+        public List<Asesor_Interno> asesores = new List<Asesor_Interno>();
+        public static Sugerencias sugerencia= new Sugerencias();
+        public static bool residenciaexistente = false;
+        public static bool asesorinternoexistente = false;
         public RegiAlumno()
         {
             InitializeComponent();
@@ -41,7 +52,9 @@ namespace AplicacionAlumnos
             RegiAlumno.telefono = numtelefonoalumno.Text;
             RegiAlumno.correo = correoelectronicoalumno.Text;
 
-            Alumno alumno = new Alumno() {
+
+            Alumno alumno = new Alumno()
+            {
                 NoControl = int.Parse(matricula),
                 Nombre = nombre,
                 Apellido_Paterno = apellidoPa,
@@ -49,12 +62,42 @@ namespace AplicacionAlumnos
                 Semestre = int.Parse(semestre),
                 Telefono = telefono,
                 Correo = correo,
-                NoProyecto = null,
-                Proyecto_Residencia = null,
-                Usuario = null
+                Usuario = new AutomatizacionResidencias.Usuario() { Usuario1 = correo, Rol = "alumno" }
             };
-           
-                regalumno.Registrardatos(JsonConvert.SerializeObject(alumno), out Errores);
+
+
+        
+
+            if (residenciaexistente == false)
+            {
+                proyectoresidencia.Nombre_Proyecto = Nombreproyecto.Text;
+                proyectoresidencia.Nombre_de_la_Empresa = Nombreempresa.Text;
+                proyectoresidencia.Nombre_Asesor_Externo = NombreAsesorexterno.Text;
+                proyectoresidencia.Cargo_Asesor_Externo = cargoasesor.Text;
+                proyectoresidencia.Telefono_Asesor_Externo = telefonoasesorext.Text;
+                proyectoresidencia.Correo_Asesor_Externo = correoasesorext.Text;
+                proyectoresidencia.Asesor_Interno = asesorinterno;
+                alumno.Proyecto_Residencia = proyectoresidencia;
+
+                if (asesorinternoexistente == false)
+                {
+                    asesorinterno.Nombre = NombreAsesorinterno.Text + " " + Apellidosasesorinterno.Text;
+                    asesorinterno.Telefono = Telefonoasesorinterno.Text;
+                    asesorinterno.Correo = Correoasesorinterno.Text;
+                    proyectoresidencia.Asesor_Interno = asesorinterno;
+
+                }
+            }
+            else {
+                alumno.NoProyecto = proyectoresidencia.No_Proyecto;
+
+            }
+
+
+
+
+
+            regalumno.Registrardatos(JsonConvert.SerializeObject(alumno), out Errores);
             
             if (Errores != null) {
                 MessageBox.Show(Errores);
@@ -63,6 +106,50 @@ namespace AplicacionAlumnos
 
         }
 
-        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var proyecto = proyectos.FirstOrDefault(x => x.No_Proyecto == int.Parse(Residencias.SelectedValue.ToString()));
+                var asesor = asesores.FirstOrDefault(x=>x.IdAsesor==proyecto.IdAsesorInterno);
+                Nombreproyecto.Text = proyecto.Nombre_Proyecto;
+                Nombreempresa.Text = proyecto.Nombre_de_la_Empresa;
+                NombreAsesorexterno.Text = proyecto.Nombre_Asesor_Externo;
+                cargoasesor.Text = proyecto.Cargo_Asesor_Externo;
+                correoasesorext.Text = proyecto.Correo_Asesor_Externo;
+                telefonoasesorext.Text = proyecto.Telefono_Asesor_Externo;
+                NombreAsesorinterno.Text = asesor.Nombre;
+                proyectoresidencia = proyecto;
+                residenciaexistente = true;
+                asesorinternoexistente = true;
+            }
+            catch
+            {
+
+            }
+
+       }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegiAlumno_Load(object sender, EventArgs e)
+        {
+            proyectos = sugerencia.proyectosregistrados();
+            bindingsourceproyectos.DataSource = proyectos;
+            Residencias.DataSource = bindingsourceproyectos.DataSource;
+            Residencias.DisplayMember = "Nombre_Proyecto";
+            Residencias.ValueMember = "No_Proyecto";
+
+            asesores = sugerencia.Asesoresinternos();
+            bindingsourceasesores.DataSource = asesores;
+            AsesoresInternos.DataSource = bindingsourceasesores.DataSource;
+            AsesoresInternos.DisplayMember = "Nombre";
+            AsesoresInternos.ValueMember = "IdAsesor";
+            Residencias.SelectedItem = null;
+            AsesoresInternos.SelectedItem = null;
+        }
     }
 }
