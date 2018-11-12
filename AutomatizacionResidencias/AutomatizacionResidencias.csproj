@@ -59,9 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acciones\Autentificacion.cs" />
+    <Compile Include="Acciones\Busquedaentablas.cs" />
     <Compile Include="Acciones\Conexion.cs" />
     <Compile Include="Acciones\Enviarcorreo.cs" />
     <Compile Include="Acciones\Sugerencias.cs" />
+    <Compile Include="Acciones\Tablas.cs" />
     <Compile Include="Alumno.cs">
       <DependentUpon>BDResidencias.tt</DependentUpon>
     </Compile>

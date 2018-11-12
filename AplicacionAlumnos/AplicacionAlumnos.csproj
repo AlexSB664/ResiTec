@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Editardatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editardatos.Designer.cs">
+      <DependentUpon>Editardatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Eleccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="RegiAlumno.Designer.cs">
       <DependentUpon>RegiAlumno.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Editardatos.resx">
+      <DependentUpon>Editardatos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Eleccion.resx">
       <DependentUpon>Eleccion.cs</DependentUpon>
     </EmbeddedResource>
