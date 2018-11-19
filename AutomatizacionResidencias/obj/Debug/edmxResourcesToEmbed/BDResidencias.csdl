@@ -141,6 +141,7 @@
     <NavigationProperty Name="BitacoraTransacciones" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="BitacoraTransacciones" />
     <NavigationProperty Name="HorarioPresentacion" Relationship="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="HorarioPresentacion" />
     <NavigationProperty Name="Status" Relationship="ResidenciasModel.FK_Proyecto_Residencia_Status" FromRole="Proyecto_Residencia" ToRole="Status" />
+    <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Status">
     <Key>
@@ -150,6 +151,7 @@
     <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_Proyecto_Residencia_Status" FromRole="Status" ToRole="Proyecto_Residencia" />
+    <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

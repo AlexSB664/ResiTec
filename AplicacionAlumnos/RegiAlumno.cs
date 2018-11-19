@@ -72,6 +72,7 @@ namespace AplicacionAlumnos
 
             if (residenciaexistente == false)
             {
+                proyectoresidencia = new Proyecto_Residencia();
                 proyectoresidencia.Nombre_Proyecto = Nombreproyecto.Text;
                 proyectoresidencia.Nombre_de_la_Empresa = Nombreempresa.Text;
                 proyectoresidencia.Nombre_Asesor_Externo = NombreAsesorexterno.Text;
@@ -85,12 +86,17 @@ namespace AplicacionAlumnos
 
                 if (asesorinternoexistente == false)
                 {
-                    asesorinterno.Nombre = NombreAsesorinterno.Text + " " + Apellidosasesorinterno.Text;
+                    asesorinterno = new Asesor_Interno();
+                    asesorinterno.Nombre = NombreAsesorinterno.Text ;
                     asesorinterno.Telefono = Telefonoasesorinterno.Text;
                     asesorinterno.Correo = Correoasesorinterno.Text;
                     proyectoresidencia.Asesor_Interno = asesorinterno;
                     regalumno.Registrardatos(JsonConvert.SerializeObject(alumno), out Errores);
 
+
+                }
+                else {
+                    alumno.Proyecto_Residencia.IdAsesorInterno=asesorinterno.IdAsesor;
 
                 }
             }
@@ -162,7 +168,17 @@ namespace AplicacionAlumnos
 
         private void AsesoresInternos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                var asesor = asesores.FirstOrDefault(x => x.IdAsesor == AsesoresInternos.SelectedIndex);
 
+                NombreAsesorinterno.Text = asesor.Nombre;
+                Telefonoasesorinterno.Text = asesor.Telefono;
+                Correoasesorinterno.Text = asesor.Correo;
+                residenciaexistente = true;
+                asesorinternoexistente = true;
+            }
+            catch { }
         }
     }
 }

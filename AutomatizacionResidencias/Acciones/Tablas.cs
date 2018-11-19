@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutomatizacionResidencias
 {
@@ -30,5 +31,12 @@ namespace AutomatizacionResidencias
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public Nullable<int> NoProyecto { get; set; }
+    }
+
+    public class statusdeproyecto {
+        public int IdStatus { get; set; }
+        public string nombre { get; set; }
+        public string Descripcion { get; set; }
+        public string Color { get; set; }
     }
 }

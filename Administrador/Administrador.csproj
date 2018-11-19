@@ -75,6 +75,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectosdeResidencia.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Status.Designer.cs">
+      <DependentUpon>Status.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administradorprincipal.resx">
       <DependentUpon>Administradorprincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +96,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Status.resx">
+      <DependentUpon>Status.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="bin\Debug\Administrador.exe.config" />
     <None Include="bin\Debug\AutomatizacionResidencias.exe.config" />
     <None Include="packages.config" />

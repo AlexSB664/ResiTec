@@ -27,7 +27,9 @@ namespace AutomatizacionResidencias.Acciones
             Errores = "";
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
-                if (context.Usuario.Any(x => x.Usuario1 == usuario && x.Password == password && x.Rol == "alumno"))
+                int user= int.Parse(usuario);
+                var alum = context.Alumno.FirstOrDefault(x=>x.NoControl==user);
+                if (context.Usuario.Any(x => x.Usuario1 == alum.Correo && x.Password == password && x.Rol == "alumno"))
                 {
                     return true;
                 }

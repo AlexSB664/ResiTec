@@ -79,6 +79,7 @@
     <EntitySetMapping Name="Proyecto_Residencia">
       <EntityTypeMapping TypeName="ResidenciasModel.Proyecto_Residencia">
         <MappingFragment StoreEntitySet="Proyecto Residencia">
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima modificacion" />
           <ScalarProperty Name="Periodo" ColumnName="Periodo" />
           <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
           <ScalarProperty Name="IdAsesorInterno" ColumnName="IdAsesorInterno" />
@@ -96,6 +97,7 @@
     <EntitySetMapping Name="Status">
       <EntityTypeMapping TypeName="ResidenciasModel.Status">
         <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Color" ColumnName="Color" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />

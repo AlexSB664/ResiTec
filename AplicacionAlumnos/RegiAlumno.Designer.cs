@@ -63,10 +63,8 @@
             this.Correoasesorinterno = new System.Windows.Forms.TextBox();
             this.Telefonoasesorinterno = new System.Windows.Forms.TextBox();
             this.NombreAsesorinterno = new System.Windows.Forms.TextBox();
-            this.Apellidosasesorinterno = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -368,10 +366,8 @@
             this.panel3.Controls.Add(this.Correoasesorinterno);
             this.panel3.Controls.Add(this.Telefonoasesorinterno);
             this.panel3.Controls.Add(this.NombreAsesorinterno);
-            this.panel3.Controls.Add(this.Apellidosasesorinterno);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label17);
             this.panel3.Location = new System.Drawing.Point(12, 358);
             this.panel3.Name = "panel3";
@@ -396,7 +392,7 @@
             // 
             // Telefonoasesorinterno
             // 
-            this.Telefonoasesorinterno.Location = new System.Drawing.Point(483, 35);
+            this.Telefonoasesorinterno.Location = new System.Drawing.Point(451, 35);
             this.Telefonoasesorinterno.Name = "Telefonoasesorinterno";
             this.Telefonoasesorinterno.Size = new System.Drawing.Size(100, 20);
             this.Telefonoasesorinterno.TabIndex = 24;
@@ -407,13 +403,6 @@
             this.NombreAsesorinterno.Name = "NombreAsesorinterno";
             this.NombreAsesorinterno.Size = new System.Drawing.Size(100, 20);
             this.NombreAsesorinterno.TabIndex = 23;
-            // 
-            // Apellidosasesorinterno
-            // 
-            this.Apellidosasesorinterno.Location = new System.Drawing.Point(288, 32);
-            this.Apellidosasesorinterno.Name = "Apellidosasesorinterno";
-            this.Apellidosasesorinterno.Size = new System.Drawing.Size(100, 20);
-            this.Apellidosasesorinterno.TabIndex = 22;
             // 
             // label2
             // 
@@ -427,20 +416,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(394, 35);
+            this.label15.Location = new System.Drawing.Point(306, 42);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(83, 13);
             this.label15.TabIndex = 17;
             this.label15.Text = "Telefono asesor";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(234, 35);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(49, 13);
-            this.label16.TabIndex = 16;
-            this.label16.Text = "Apellidos";
             // 
             // label17
             // 
@@ -506,10 +486,8 @@
         private System.Windows.Forms.TextBox Correoasesorinterno;
         private System.Windows.Forms.TextBox Telefonoasesorinterno;
         private System.Windows.Forms.TextBox NombreAsesorinterno;
-        private System.Windows.Forms.TextBox Apellidosasesorinterno;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox Residencias;
         private System.Windows.Forms.ComboBox AsesoresInternos;

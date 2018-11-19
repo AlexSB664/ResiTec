@@ -83,6 +83,7 @@
     <Property Name="IdAsesorInterno" Type="int" />
     <Property Name="IdStatus" Type="int" />
     <Property Name="Periodo" Type="varchar" MaxLength="50" />
+    <Property Name="Ultima modificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Status">
     <Key>
@@ -91,6 +92,7 @@
     <Property Name="IdStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Color" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

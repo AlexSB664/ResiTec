@@ -92,8 +92,10 @@
     <Compile Include="Decorator\AsesorInterno.cs" />
     <Compile Include="Decorator\Datosalumno.cs" />
     <Compile Include="Decorator\EdicionDatosalumno.cs" />
+    <Compile Include="Decorator\Ediciondatosresidecnia.cs" />
     <Compile Include="Decorator\Proyectoresidencia.cs" />
     <Compile Include="Decorator\registro.cs" />
+    <Compile Include="Decorator\Status.cs" />
     <Compile Include="Decorator\Usuario.cs" />
     <Compile Include="Grupos.cs">
       <DependentUpon>BDResidencias.tt</DependentUpon>

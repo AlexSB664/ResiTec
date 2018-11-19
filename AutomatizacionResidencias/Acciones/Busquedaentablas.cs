@@ -19,6 +19,17 @@ namespace AutomatizacionResidencias.Acciones
 
         }
 
+        public List<statusdeproyecto> statusdeproyectos()
+        {
+            List<statusdeproyecto> residecias = new List<statusdeproyecto>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                residecias = (from r in context.Status select new statusdeproyecto {IdStatus = r.IdStatus,nombre=r.Nombre,Descripcion=r.Descripcion,Color=r.Color}).ToList();
+            }
+            return residecias;
+
+        }
+
         public List<Asesor_Interno> Asesoresinternos()
         {
             List<Asesor_Interno> asesores = new List<Asesor_Interno>();

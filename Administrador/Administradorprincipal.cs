@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,12 +45,33 @@ namespace Administrador
 
         public void proyecto(){
             proyectos = sug.proyectosregistrados();
-
+            var status = sug.statusdeproyectos();
             var bindingList = new BindingList<Tablaproyecto>(proyectos);
+
+            var bindingSourceMonth = new BindingList<statusdeproyecto>(status);
+
             var source = new BindingSource(bindingList, null);
             dataGridView1.DataSource = source;
 
+
+            DataGridViewComboBoxColumn ColumnMonth = new DataGridViewComboBoxColumn();
+            ColumnMonth.DataPropertyName = "status";
+            ColumnMonth.HeaderText = "status";
+            ColumnMonth.Width = 120;
+            ColumnMonth.DataSource = bindingSourceMonth;
+            ColumnMonth.ValueMember = "IdStatus";
+            ColumnMonth.DisplayMember = "nombre";
+            dataGridView1.Columns["Status"].Visible=false;
+            dataGridView1.Columns.Add(ColumnMonth);
+
         }
+
+
+        private void OnGridDefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+        }
+
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Selecciontabla.SelectedItem.ToString() == "Proyectos") {
@@ -60,6 +82,28 @@ namespace Administrador
                 alumno();
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Status status = new Status();
+            status.Show();
+
+        }
+
+
+        private void cmbboxClr_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Rectangle rect = e.Bounds;
+            if (e.Index >= 0)
+            {
+                string n = ((ComboBox)sender).Items[e.Index].ToString();
+                Font f = new Font("Arial", 9, FontStyle.Regular);
+                Color c = Color.FromName(n);
+                Brush b = new SolidBrush(c);
+                g.FillRectangle(b, rect.X, rect.Y, rect.Width, rect.Height);
+            }
         }
     }
 }
