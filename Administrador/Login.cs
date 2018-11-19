@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutomatizacionResidencias.Acciones;
+
 namespace Administrador
 {
     public partial class Login : Form
@@ -34,6 +35,11 @@ namespace Administrador
                 MessageBox.Show("Credenciales incorrectas");
             }
 
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

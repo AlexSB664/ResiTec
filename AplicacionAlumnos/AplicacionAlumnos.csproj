@@ -76,6 +76,18 @@
     <Compile Include="RegiAlumno.Designer.cs">
       <DependentUpon>RegiAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Template\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template\verStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template\verStatus.Designer.cs">
+      <DependentUpon>verStatus.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Editardatos.resx">
       <DependentUpon>Editardatos.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,9 +102,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegiAlumno.resx">
       <DependentUpon>RegiAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template\verStatus.resx">
+      <DependentUpon>verStatus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\AplicacionAlumnos.exe.config" />
     <None Include="bin\Debug\AutomatizacionResidencias.exe.config" />
@@ -129,6 +148,10 @@
     <Content Include="bin\Debug\Newtonsoft.Json.dll" />
     <Content Include="bin\Debug\Newtonsoft.Json.xml" />
     <Content Include="bin\Debug\Templates\recovery.html" />
+    <None Include="Resources\LogoTecNM_Horizontal %281%29.png" />
+    <None Include="Resources\logo_ITT1.png" />
+    <None Include="Resources\Heading-Industrial.png" />
+    <None Include="Resources\logo_ITT1.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
