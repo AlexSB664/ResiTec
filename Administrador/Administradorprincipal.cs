@@ -18,7 +18,8 @@ namespace Administrador
         public static Busquedaentablas sug = new Busquedaentablas();
         public static List<Tablaproyecto> proyectos = new List<Tablaproyecto>();
         public static List<TablaAlumno> alumnos = new List<TablaAlumno>();
-
+        public static bool mostrandoalumno=false;
+        public static bool mostrandopryectos=false;
         public Administradorprincipal()
         {
             InitializeComponent();
@@ -110,11 +111,15 @@ namespace Administrador
         private void proyectosresidencia_Click(object sender, EventArgs e)
         {
             proyecto();
+            mostrandopryectos = true;
+            mostrandoalumno = false;
         }
 
         private void datosdealumno_Click(object sender, EventArgs e)
         {
             alumno();
+            mostrandopryectos = false;
+            mostrandoalumno = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -130,14 +135,19 @@ namespace Administrador
 
         private void button2_Click(object sender, EventArgs e)
         {
-    
-           Editardatos detallesalumno = new Editardatos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            detallesalumno.Show();
+
+          
+                if (mostrandoalumno==true) {
+                    Editardatos detallesalumno = new Editardatos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    detallesalumno.Show();
+                }
+           
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             Reenviarnip re = new Reenviarnip();
+            re.Show();
         }
     }
 }
