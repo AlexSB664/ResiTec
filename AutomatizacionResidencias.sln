@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacionAlumnos", "Aplica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administrador", "Administrador\Administrador.csproj", "{B757A513-E2F1-44C7-9449-24E2B537D45D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "basededatos", "basededatos", "{E261EBDE-E5DA-4F99-8479-D9B9112F630A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\imaagen\resi.bak = ..\..\..\..\..\imaagen\resi.bak
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
