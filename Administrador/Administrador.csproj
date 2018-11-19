@@ -75,6 +75,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectosdeResidencia.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarStatus.Designer.cs">
+      <DependentUpon>RegistrarStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Status.Designer.cs">
+      <DependentUpon>Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administradorprincipal.resx">
       <DependentUpon>Administradorprincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +109,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Status.resx">
+      <DependentUpon>Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="bin\Debug\Administrador.exe.config" />
     <None Include="bin\Debug\AutomatizacionResidencias.exe.config" />
     <None Include="packages.config" />
