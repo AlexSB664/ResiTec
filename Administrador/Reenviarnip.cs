@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AplicacionAlumnos.Template
+namespace Administrador
 {
-    public partial class Inicio : Form
+    public partial class Reenviarnip : Form
     {
-        public Inicio()
+        public Reenviarnip()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

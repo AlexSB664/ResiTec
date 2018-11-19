@@ -193,6 +193,7 @@
             this.Residencias.Name = "Residencias";
             this.Residencias.Size = new System.Drawing.Size(121, 21);
             this.Residencias.TabIndex = 27;
+            this.Residencias.SelectedIndexChanged += new System.EventHandler(this.Residencias_SelectedIndexChanged);
             // 
             // correoasesorext
             // 

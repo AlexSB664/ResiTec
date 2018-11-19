@@ -74,13 +74,7 @@ namespace Administrador
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Selecciontabla.SelectedItem.ToString() == "Proyectos") {
-                proyecto();
-            }
-            if (Selecciontabla.SelectedItem.ToString() == "Alumnos")
-            {
-                alumno();
-            }
+          
 
         }
 
@@ -104,6 +98,27 @@ namespace Administrador
                 Brush b = new SolidBrush(c);
                 g.FillRectangle(b, rect.X, rect.Y, rect.Width, rect.Height);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void proyectosresidencia_Click(object sender, EventArgs e)
+        {
+            proyecto();
+        }
+
+        private void datosdealumno_Click(object sender, EventArgs e)
+        {
+            alumno();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Formatos formatos = new Formatos();
+            formatos.Show();
         }
     }
 }

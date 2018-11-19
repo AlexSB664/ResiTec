@@ -68,3 +68,7 @@ C:\Users\Alex\Desktop\dasni\AutomatizacionResidencias\AutomatizacionResidencias\
 C:\Users\Alex\Desktop\dasni\AutomatizacionResidencias\AutomatizacionResidencias\ResiTec\AutomatizacionResidencias\obj\Debug\AutomatizacionResidencias.csproj.CopyComplete
 C:\Users\Alex\Desktop\dasni\AutomatizacionResidencias\AutomatizacionResidencias\ResiTec\AutomatizacionResidencias\obj\Debug\AutomatizacionResidencias.exe
 C:\Users\Alex\Desktop\dasni\AutomatizacionResidencias\AutomatizacionResidencias\ResiTec\AutomatizacionResidencias\obj\Debug\AutomatizacionResidencias.pdb
+C:\Users\migue\Source\Repos\ResiTec\AutomatizacionResidencias\bin\Debug\Conexion.txt
+C:\Users\migue\Source\Repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.dll
+C:\Users\migue\Source\Repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\migue\Source\Repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.xml

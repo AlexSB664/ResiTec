@@ -76,16 +76,10 @@
     <Compile Include="RegiAlumno.Designer.cs">
       <DependentUpon>RegiAlumno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Template\Inicio.cs">
+    <Compile Include="verStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Template\Inicio.Designer.cs">
-      <DependentUpon>Inicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Template\verStatus.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Template\verStatus.Designer.cs">
+    <Compile Include="verStatus.Designer.cs">
       <DependentUpon>verStatus.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Editardatos.resx">
@@ -107,10 +101,7 @@
     <EmbeddedResource Include="RegiAlumno.resx">
       <DependentUpon>RegiAlumno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Template\Inicio.resx">
-      <DependentUpon>Inicio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Template\verStatus.resx">
+    <EmbeddedResource Include="verStatus.resx">
       <DependentUpon>verStatus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\AplicacionAlumnos.exe.config" />
@@ -148,6 +139,9 @@
     <Content Include="bin\Debug\Newtonsoft.Json.dll" />
     <Content Include="bin\Debug\Newtonsoft.Json.xml" />
     <Content Include="bin\Debug\Templates\recovery.html" />
+    <Content Include="Conexion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\LogoTecNM_Horizontal %281%29.png" />
     <None Include="Resources\logo_ITT1.png" />
     <None Include="Resources\Heading-Industrial.png" />

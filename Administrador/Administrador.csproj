@@ -62,6 +62,12 @@
     <Compile Include="Administradorprincipal.Designer.cs">
       <DependentUpon>Administradorprincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formatos.Designer.cs">
+      <DependentUpon>Formatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProyectosdeResidencia.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reenviarnip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reenviarnip.Designer.cs">
+      <DependentUpon>Reenviarnip.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,14 +99,11 @@
     <Compile Include="Status.Designer.cs">
       <DependentUpon>Status.cs</DependentUpon>
     </Compile>
-    <Compile Include="Template\Dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Template\Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Administradorprincipal.resx">
       <DependentUpon>Administradorprincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formatos.resx">
+      <DependentUpon>Formatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -109,11 +118,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reenviarnip.resx">
+      <DependentUpon>Reenviarnip.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Status.resx">
       <DependentUpon>Status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Template\Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\Administrador.exe.config" />
     <None Include="bin\Debug\AutomatizacionResidencias.exe.config" />
@@ -160,9 +169,15 @@
     <Content Include="bin\Debug\EntityFramework.xml" />
     <Content Include="bin\Debug\Newtonsoft.Json.dll" />
     <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="Conexion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\LogoTecNM_Horizontal %281%29.png" />
     <Content Include="Resources\logo_ITT1.ico" />
     <Content Include="Resources\logo_ITT1.png" />
+    <Content Include="Templatesformatos\formato1.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\Heading-Industrial.png" />
   </ItemGroup>
   <ItemGroup>

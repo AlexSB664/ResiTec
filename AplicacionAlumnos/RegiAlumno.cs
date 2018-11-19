@@ -12,6 +12,7 @@ using AutomatizacionResidencias.Decorator;
 using AutomatizacionResidencias.Modelos;
 using Newtonsoft.Json;
 using AutomatizacionResidencias;
+using AutomatizacionResidencias.Acciones;
 namespace AplicacionAlumnos
 {
     public partial class RegiAlumno : Form

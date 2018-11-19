@@ -25,20 +25,14 @@ namespace AplicacionAlumnos
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string Errores = null;
-            bool alumno=false;
-            string alumnocorreo=Correoalumno.Text;
-            string password=Pinalumno.Text;
-            Autentificacion a = new Autentificacion();
-            alumno=a.autentificaralumno(alumnocorreo, password, out Errores);
-            if (alumno==true) {
-                Editardatos ed = new Editardatos(alumnocorreo);
-                ed.Show();
-            }
-            else {
-                MessageBox.Show("Credenciales incorrectas");
-            }
+           
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            AplicacionAlumnos.Template.verStatus v = new Template.verStatus();
+            v.Show();
         }
     }
 }

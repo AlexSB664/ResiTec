@@ -9,13 +9,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutomatizacionResidencias;
 using AutomatizacionResidencias.Decorator;
+using AutomatizacionResidencias.Acciones;
 namespace AplicacionAlumnos
 {
     public partial class Editardatos : Form
     {
-        
-        public static EdicionDatosalumno edicion = new EdicionDatosalumno();
+        public static Proyectoresidencia regresidencia = new Proyectoresidencia();
+        public static AsesorInterno regasesorinterno = new AsesorInterno();
+        public Proyecto_Residencia proyectoresidencia = null;
 
+        public static BindingSource bindingsourceproyectos = new BindingSource();
+        public static BindingSource bindingsourceasesores = new BindingSource();
+        public List<Proyecto_Residencia> proyectos = new List<Proyecto_Residencia>();
+        public List<Asesor_Interno> asesores = new List<Asesor_Interno>();
+        public static Sugerencias sugerencia = new Sugerencias();
+        public static bool residenciaexistente = false;
+        public static bool asesorinternoexistente = false;
+        public static EdicionDatosalumno edicion = new EdicionDatosalumno();
+        public static int Nopro;
         public static string Correo = null;
         public Editardatos(string correo)
         {
@@ -51,7 +62,21 @@ namespace AplicacionAlumnos
             NombreAsesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre;
             Telefonoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono;
             Correoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo;
-            
+
+            proyectos = sugerencia.proyectosregistrados();
+            bindingsourceproyectos.DataSource = proyectos;
+            Residencias.DataSource = bindingsourceproyectos.DataSource;
+            Residencias.DisplayMember = "Nombre_Proyecto";
+            Residencias.ValueMember = "No_Proyecto";
+
+            asesores = sugerencia.Asesoresinternos();
+            bindingsourceasesores.DataSource = asesores;
+            AsesoresInternos.DataSource = bindingsourceasesores.DataSource;
+            AsesoresInternos.DisplayMember = "Nombre";
+            AsesoresInternos.ValueMember = "IdAsesor";
+            Residencias.SelectedItem = null;
+            AsesoresInternos.SelectedItem = null;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -89,11 +114,45 @@ namespace AplicacionAlumnos
 
         private void AsesoresInternos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(AsesoresInternos.SelectedIndex.ToString());
+            try
+            {
+                var asesor = asesores.FirstOrDefault(x => x.IdAsesor == AsesoresInternos.SelectedIndex);
+
+                NombreAsesorinterno.Text = asesor.Nombre;
+                Telefonoasesorinterno.Text = asesor.Telefono;
+                Correoasesorinterno.Text = asesor.Correo;
+                residenciaexistente = true;
+                asesorinternoexistente = true;
+            }
+            catch { }
             /*
             edicion.alumno.Proyecto_Residencia.IdAsesorInterno = AsesoresInternos.SelectedIndex;
             edicion.Guardarcambios();
-    */    
-    }
+    */
+        }
+
+        private void Residencias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var proyecto = proyectos.FirstOrDefault(x => x.No_Proyecto == int.Parse(Residencias.SelectedValue.ToString()));
+                var asesor = asesores.FirstOrDefault(x => x.IdAsesor == proyecto.IdAsesorInterno);
+                Nombreproyecto.Text = proyecto.Nombre_Proyecto;
+                Nombreempresa.Text = proyecto.Nombre_de_la_Empresa;
+                NombreAsesorexterno.Text = proyecto.Nombre_Asesor_Externo;
+                cargoasesor.Text = proyecto.Cargo_Asesor_Externo;
+                correoasesorext.Text = proyecto.Correo_Asesor_Externo;
+                telefonoasesorext.Text = proyecto.Telefono_Asesor_Externo;
+                NombreAsesorinterno.Text = asesor.Nombre;
+                proyectoresidencia = proyecto;
+                Nopro = proyecto.No_Proyecto;
+                residenciaexistente = true;
+                asesorinternoexistente = true;
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

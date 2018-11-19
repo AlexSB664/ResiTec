@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administradorprincipal));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Selecciontabla = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.proyectosresidencia = new System.Windows.Forms.Button();
+            this.datosdealumno = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,43 +47,139 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 84);
+            this.dataGridView1.Location = new System.Drawing.Point(152, 63);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1139, 278);
+            this.dataGridView1.Size = new System.Drawing.Size(1153, 344);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Selecciontabla
-            // 
-            this.Selecciontabla.FormattingEnabled = true;
-            this.Selecciontabla.Items.AddRange(new object[] {
-            "Proyectos",
-            "Alumnos"});
-            this.Selecciontabla.Location = new System.Drawing.Point(12, 36);
-            this.Selecciontabla.Name = "Selecciontabla";
-            this.Selecciontabla.Size = new System.Drawing.Size(121, 21);
-            this.Selecciontabla.TabIndex = 1;
-            this.Selecciontabla.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(950, 12);
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(1157, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 45);
             this.button1.TabIndex = 2;
             this.button1.Text = "Status";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(12, 59);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Detalles";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(12, 97);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 36);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Agendar Expo";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(12, 150);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Asesores";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(12, 197);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Reportes";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(12, 243);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 43);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "HIstorial de cambios";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(12, 312);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 43);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "Reenviar nip";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // proyectosresidencia
+            // 
+            this.proyectosresidencia.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.proyectosresidencia.Location = new System.Drawing.Point(152, 413);
+            this.proyectosresidencia.Name = "proyectosresidencia";
+            this.proyectosresidencia.Size = new System.Drawing.Size(129, 45);
+            this.proyectosresidencia.TabIndex = 9;
+            this.proyectosresidencia.Text = "Proyectos";
+            this.proyectosresidencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.proyectosresidencia.UseVisualStyleBackColor = false;
+            this.proyectosresidencia.Click += new System.EventHandler(this.proyectosresidencia_Click);
+            // 
+            // datosdealumno
+            // 
+            this.datosdealumno.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.datosdealumno.Location = new System.Drawing.Point(287, 413);
+            this.datosdealumno.Name = "datosdealumno";
+            this.datosdealumno.Size = new System.Drawing.Size(129, 45);
+            this.datosdealumno.TabIndex = 10;
+            this.datosdealumno.Text = "Alumnos";
+            this.datosdealumno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.datosdealumno.UseVisualStyleBackColor = false;
+            this.datosdealumno.Click += new System.EventHandler(this.datosdealumno_Click);
             // 
             // Administradorprincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1174, 499);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(1317, 499);
+            this.Controls.Add(this.datosdealumno);
+            this.Controls.Add(this.proyectosresidencia);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.Selecciontabla);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Administradorprincipal";
-            this.Text = "Administradorprincipal";
+            this.Text = "Panel de control";
             this.Load += new System.EventHandler(this.Administradorprincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -85,7 +189,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox Selecciontabla;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button proyectosresidencia;
+        private System.Windows.Forms.Button datosdealumno;
     }
 }
