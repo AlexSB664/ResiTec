@@ -39,6 +39,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.proyectosresidencia = new System.Windows.Forms.Button();
             this.datosdealumno = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Detalles";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -136,6 +138,7 @@
             this.button7.TabIndex = 8;
             this.button7.Text = "Reenviar nip";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // proyectosresidencia
             // 
@@ -161,12 +164,24 @@
             this.datosdealumno.UseVisualStyleBackColor = false;
             this.datosdealumno.Click += new System.EventHandler(this.datosdealumno_Click);
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button8.Location = new System.Drawing.Point(422, 413);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(129, 45);
+            this.button8.TabIndex = 11;
+            this.button8.Text = "Status";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
             // Administradorprincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1317, 499);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.datosdealumno);
             this.Controls.Add(this.proyectosresidencia);
             this.Controls.Add(this.button7);
@@ -198,5 +213,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button proyectosresidencia;
         private System.Windows.Forms.Button datosdealumno;
+        private System.Windows.Forms.Button button8;
     }
 }

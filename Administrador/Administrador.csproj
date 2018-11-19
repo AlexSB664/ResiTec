@@ -62,6 +62,18 @@
     <Compile Include="Administradorprincipal.Designer.cs">
       <DependentUpon>Administradorprincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Busuqeda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Busuqeda.Designer.cs">
+      <DependentUpon>Busuqeda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detallesalumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detallesalumno.Designer.cs">
+      <DependentUpon>Detallesalumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +113,12 @@
     </Compile>
     <EmbeddedResource Include="Administradorprincipal.resx">
       <DependentUpon>Administradorprincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Busuqeda.resx">
+      <DependentUpon>Busuqeda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detallesalumno.resx">
+      <DependentUpon>Detallesalumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formatos.resx">
       <DependentUpon>Formatos.cs</DependentUpon>

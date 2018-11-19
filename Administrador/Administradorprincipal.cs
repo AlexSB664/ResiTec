@@ -28,11 +28,13 @@ namespace Administrador
         {
 
 
-          
+
             // TODO: esta línea de código carga datos en la tabla 'proyectosdeResidencia.Proyecto_Residencia' Puede moverla o quitarla según sea necesario.
             /*
             this.proyecto_ResidenciaTableAdapter.Fill(this.proyectosdeResidencia.Proyecto_Residencia);
             */
+            dataGridView1.MultiSelect = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         public void alumno() {
@@ -119,6 +121,23 @@ namespace Administrador
         {
             Formatos formatos = new Formatos();
             formatos.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+    
+           Editardatos detallesalumno = new Editardatos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            detallesalumno.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Reenviarnip re = new Reenviarnip();
         }
     }
 }

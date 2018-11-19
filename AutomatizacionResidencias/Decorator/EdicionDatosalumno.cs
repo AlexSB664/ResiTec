@@ -22,10 +22,25 @@ namespace AutomatizacionResidencias.Decorator
         public void buscaralumno(string correo){
             int user = int.Parse(correo);
             using (var context = new ResidenciasEntities(new AutomatizacionResidencias.Acciones.Conexion().returnconexion().ConnectionString )) {
-                this.alumno = context.Alumno.FirstOrDefault(x=>x.NoControl==user);
-                this.alumno.Proyecto_Residencia = context.Proyecto_Residencia.FirstOrDefault(x => x.No_Proyecto == alumno.NoProyecto);
-                this.alumno.Proyecto_Residencia.Asesor_Interno = context.Asesor_Interno.FirstOrDefault(x=>x.IdAsesor==alumno.Proyecto_Residencia.IdAsesorInterno);
-            }
+                try
+                {
+                    this.alumno = context.Alumno.FirstOrDefault(x => x.NoControl == user);
+                }catch{
+                }
+
+                try
+                {
+                    this.alumno.Proyecto_Residencia = context.Proyecto_Residencia.FirstOrDefault(x => x.No_Proyecto == alumno.NoProyecto);
+                }
+                catch { }
+                try
+                {
+                    this.alumno.Proyecto_Residencia.Asesor_Interno = context.Asesor_Interno.FirstOrDefault(x => x.IdAsesor == alumno.Proyecto_Residencia.IdAsesorInterno);
+                }
+                catch {
+
+                }
+                }
         }
 
         public void Guardarcambios()
