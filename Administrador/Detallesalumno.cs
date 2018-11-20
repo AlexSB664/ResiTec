@@ -97,7 +97,6 @@ namespace Administrador
 
 
             //se guardan los cambios a la bd
-            edicion.Guardarcambios();
             MessageBox.Show("Se han guardado los cambios");
         }
 

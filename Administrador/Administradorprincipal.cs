@@ -18,8 +18,12 @@ namespace Administrador
         public static Busquedaentablas sug = new Busquedaentablas();
         public static List<Tablaproyecto> proyectos = new List<Tablaproyecto>();
         public static List<TablaAlumno> alumnos = new List<TablaAlumno>();
+        public static List<TablaAsesor> asesores = new List<TablaAsesor>();
+
         public static bool mostrandoalumno=false;
         public static bool mostrandopryectos=false;
+        public static bool mostrandoasesores = false;
+
         public Administradorprincipal()
         {
             InitializeComponent();
@@ -46,12 +50,22 @@ namespace Administrador
             dataGridView1.DataSource = source;
         }
 
+
+        public void asesor()
+        {
+            asesores = sug.Asesores();
+
+            var bindingList = new BindingList<TablaAsesor>(asesores);
+            var source = new BindingSource(bindingList, null);
+            dataGridView1.DataSource = source;
+        }
+
         public void proyecto(){
             proyectos = sug.proyectosregistrados();
-            var status = sug.statusdeproyectos();
+           // var status = sug.statusdeproyectos();
             var bindingList = new BindingList<Tablaproyecto>(proyectos);
 
-            var bindingSourceMonth = new BindingList<statusdeproyecto>(status);
+            //var bindingSourceMonth = new BindingList<statusdeproyecto>(status);
 
             var source = new BindingSource(bindingList, null);
             dataGridView1.DataSource = source;
@@ -61,11 +75,11 @@ namespace Administrador
             ColumnMonth.DataPropertyName = "status";
             ColumnMonth.HeaderText = "status";
             ColumnMonth.Width = 120;
-            ColumnMonth.DataSource = bindingSourceMonth;
+            //ColumnMonth.DataSource = bindingSourceMonth;
             ColumnMonth.ValueMember = "IdStatus";
             ColumnMonth.DisplayMember = "nombre";
             dataGridView1.Columns["Status"].Visible=false;
-            dataGridView1.Columns.Add(ColumnMonth);
+           // dataGridView1.Columns.Add(ColumnMonth);
 
         }
 
@@ -113,6 +127,7 @@ namespace Administrador
             proyecto();
             mostrandopryectos = true;
             mostrandoalumno = false;
+            mostrandoasesores = false;
         }
 
         private void datosdealumno_Click(object sender, EventArgs e)
@@ -120,6 +135,8 @@ namespace Administrador
             alumno();
             mostrandopryectos = false;
             mostrandoalumno = true;
+            mostrandoasesores = false;
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -141,6 +158,10 @@ namespace Administrador
                     Editardatos detallesalumno = new Editardatos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                     detallesalumno.Show();
                 }
+            if (mostrandopryectos==true) {
+                Detallesproyecto de = new Detallesproyecto(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                de.Show();
+            }
            
         }
 
@@ -148,6 +169,14 @@ namespace Administrador
         {
             Reenviarnip re = new Reenviarnip();
             re.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            asesor();
+            mostrandopryectos = false;
+            mostrandoalumno = true;
+            mostrandoasesores = false;
         }
     }
 }

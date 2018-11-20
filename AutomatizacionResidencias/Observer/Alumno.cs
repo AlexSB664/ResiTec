@@ -37,9 +37,12 @@ namespace AutomatizacionResidencias
                         Errores = "Ya existe un Alumno con este correo";
                     }
                     else {
+
+                        Random r = new Random();
+                        this.Usuario.Password =(r.Next(10000,99999).ToString());
                         context.Usuario.Add(this.Usuario);
 
-
+                        
                         context.Alumno.Add(this);
                         context.SaveChanges();
                         NotifyObserver(out Errores);

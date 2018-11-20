@@ -17,7 +17,7 @@ namespace AplicacionAlumnos
         public static Proyectoresidencia regresidencia = new Proyectoresidencia();
         public static AsesorInterno regasesorinterno = new AsesorInterno();
         public Proyecto_Residencia proyectoresidencia = null;
-
+        public string oldNocontrol;
         public static BindingSource bindingsourceproyectos = new BindingSource();
         public static BindingSource bindingsourceasesores = new BindingSource();
         public List<Proyecto_Residencia> proyectos = new List<Proyecto_Residencia>();
@@ -27,11 +27,12 @@ namespace AplicacionAlumnos
         public static bool asesorinternoexistente = false;
         public static EdicionDatosalumno edicion = new EdicionDatosalumno();
         public static int Nopro;
-        public static string Correo = null;
+        public  string Correo = null;
         public Editardatos(string correo)
         {
             InitializeComponent();
-            Correo = correo;
+            this.Correo = correo;
+
         }
 
         private void Editardatos_Load(object sender, EventArgs e)
@@ -49,34 +50,43 @@ namespace AplicacionAlumnos
             correoelectronicoalumno.Text = edicion.alumno.Correo;
 
             //establece datos del proyecto en los campos
-            Nombreproyecto.Text = edicion.alumno.Proyecto_Residencia.Nombre_Proyecto;
-            Nombreempresa.Text = edicion.alumno.Proyecto_Residencia.Nombre_de_la_Empresa;
-            NombreAsesorexterno.Text = edicion.alumno.Proyecto_Residencia.Nombre_Asesor_Externo;
-            cargoasesor.Text = edicion.alumno.Proyecto_Residencia.Cargo_Asesor_Externo;
-            correoasesorext.Text = edicion.alumno.Proyecto_Residencia.Correo_Asesor_Externo;
-            telefonoasesorext.Text = edicion.alumno.Proyecto_Residencia.Telefono_Asesor_Externo;
+            try
+            {
+                Nombreproyecto.Text = edicion.alumno.Proyecto_Residencia.Nombre_Proyecto;
+                Nombreempresa.Text = edicion.alumno.Proyecto_Residencia.Nombre_de_la_Empresa;
+                NombreAsesorexterno.Text = edicion.alumno.Proyecto_Residencia.Nombre_Asesor_Externo;
+                cargoasesor.Text = edicion.alumno.Proyecto_Residencia.Cargo_Asesor_Externo;
+                correoasesorext.Text = edicion.alumno.Proyecto_Residencia.Correo_Asesor_Externo;
+                telefonoasesorext.Text = edicion.alumno.Proyecto_Residencia.Telefono_Asesor_Externo;
 
-
+            }
+            catch { }
 
             //Establece datos del asesor en los campos
-            NombreAsesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre;
-            Telefonoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono;
-            Correoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo;
+            try
+            {
+                NombreAsesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre;
+                Telefonoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono;
+                Correoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo;
+            }
+            catch { }
+            try
+            {
+                proyectos = sugerencia.proyectosregistrados();
+                bindingsourceproyectos.DataSource = proyectos;
+                Residencias.DataSource = bindingsourceproyectos.DataSource;
+                Residencias.DisplayMember = "Nombre_Proyecto";
+                Residencias.ValueMember = "No_Proyecto";
 
-            proyectos = sugerencia.proyectosregistrados();
-            bindingsourceproyectos.DataSource = proyectos;
-            Residencias.DataSource = bindingsourceproyectos.DataSource;
-            Residencias.DisplayMember = "Nombre_Proyecto";
-            Residencias.ValueMember = "No_Proyecto";
-
-            asesores = sugerencia.Asesoresinternos();
-            bindingsourceasesores.DataSource = asesores;
-            AsesoresInternos.DataSource = bindingsourceasesores.DataSource;
-            AsesoresInternos.DisplayMember = "Nombre";
-            AsesoresInternos.ValueMember = "IdAsesor";
-            Residencias.SelectedItem = null;
-            AsesoresInternos.SelectedItem = null;
-
+                asesores = sugerencia.Asesoresinternos();
+                bindingsourceasesores.DataSource = asesores;
+                AsesoresInternos.DataSource = bindingsourceasesores.DataSource;
+                AsesoresInternos.DisplayMember = "Nombre";
+                AsesoresInternos.ValueMember = "IdAsesor";
+                Residencias.SelectedItem = null;
+                AsesoresInternos.SelectedItem = null;
+            }
+            catch { }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -86,29 +96,36 @@ namespace AplicacionAlumnos
 
             edicion.alumno.Nombre = nombrealumno.Text;
             edicion.alumno.Apellido_Paterno = Apellidopalumno.Text;
+            edicion.alumno.Apellido_Materno = Apellidomalumno.Text;
             edicion.alumno.Correo = correoelectronicoalumno.Text;
             edicion.alumno.Semestre =int.Parse( numsemestre.Text);
             edicion.alumno.Telefono = numtelefonoalumno.Text;
 
+            try
+            {
+                edicion.alumno.Proyecto_Residencia.Nombre_Proyecto = Nombreproyecto.Text;
+                edicion.alumno.Proyecto_Residencia.Nombre_de_la_Empresa = Nombreempresa.Text;
+                edicion.alumno.Proyecto_Residencia.Nombre_Asesor_Externo = NombreAsesorexterno.Text;
+                edicion.alumno.Proyecto_Residencia.Cargo_Asesor_Externo = cargoasesor.Text;
+                edicion.alumno.Proyecto_Residencia.Correo_Asesor_Externo = correoasesorext.Text;
+                edicion.alumno.Proyecto_Residencia.Telefono_Asesor_Externo = telefonoasesorext.Text;
 
-            edicion.alumno.Proyecto_Residencia.Nombre_Proyecto = Nombreproyecto.Text;
-           edicion.alumno.Proyecto_Residencia.Nombre_de_la_Empresa = Nombreempresa.Text;
-            edicion.alumno.Proyecto_Residencia.Nombre_Asesor_Externo = NombreAsesorexterno.Text ;
-            edicion.alumno.Proyecto_Residencia.Cargo_Asesor_Externo = cargoasesor.Text;
-             edicion.alumno.Proyecto_Residencia.Correo_Asesor_Externo= correoasesorext.Text ;
-          edicion.alumno.Proyecto_Residencia.Telefono_Asesor_Externo = telefonoasesorext.Text ;
 
-
-
-          edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre = NombreAsesorinterno.Text ;
-           edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono =Telefonoasesorinterno.Text ;
-         edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo = Correoasesorinterno.Text;
-
+            }
+            catch { }
+            try
+            {
+                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre = NombreAsesorinterno.Text;
+                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono = Telefonoasesorinterno.Text;
+                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo = Correoasesorinterno.Text;
+            }
+            catch {
+            }
 
 
 
             //se guardan los cambios a la bd
-            edicion.Guardarcambios();
+            edicion.Guardarcambios(int.Parse(Correo));
             MessageBox.Show("Se han guardado los cambios");
         }
 

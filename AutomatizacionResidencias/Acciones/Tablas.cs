@@ -20,6 +20,8 @@ namespace AutomatizacionResidencias
         public Nullable<int> Asesorinterno { get; set; }
         public Nullable<int> Status { get; set; }
         public string Periodo { get; set; }
+        public string color { get; set; }
+        public string status { get; set; }
     }
 
     public class TablaAlumno {
@@ -32,6 +34,20 @@ namespace AutomatizacionResidencias
         public string Correo { get; set; }
         public Nullable<int> NoProyecto { get; set; }
     }
+
+
+    public class TablaAsesor
+    {
+
+        public int IdAsesor { get; set; }
+        public string Nombre { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
+        public string Turno { get; set; }
+
+    }
+
+
 
     public class statusdeproyecto {
         public int IdStatus { get; set; }

@@ -74,6 +74,12 @@
     <Compile Include="Detallesalumno.Designer.cs">
       <DependentUpon>Detallesalumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Detallesproyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detallesproyecto.Designer.cs">
+      <DependentUpon>Detallesproyecto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Detallesalumno.resx">
       <DependentUpon>Detallesalumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detallesproyecto.resx">
+      <DependentUpon>Detallesproyecto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formatos.resx">
       <DependentUpon>Formatos.cs</DependentUpon>
@@ -194,6 +203,9 @@
     <Content Include="Resources\logo_ITT1.ico" />
     <Content Include="Resources\logo_ITT1.png" />
     <Content Include="Templatesformatos\formato1.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\recovery.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Heading-Industrial.png" />

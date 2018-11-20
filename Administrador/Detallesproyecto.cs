@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using AutomatizacionResidencias;
+namespace Administrador
+{
+    public partial class Detallesproyecto : Form
+    {
+        public int noproyecto;
+        public static Proyecto_Residencia ProyectoResidencia=new Proyecto_Residencia();
+        public AutomatizacionResidencias.Acciones.Busquedaentablas b= new AutomatizacionResidencias.Acciones.Busquedaentablas(); 
+        public Detallesproyecto(int no)
+        {
+            InitializeComponent();
+            noproyecto = no;
+        }
+
+        private void Detallesproyecto_Load(object sender, EventArgs e)
+        {
+            //Carga datos del alumno residencia
+          ProyectoResidencia=  b.proyectodetalles(noproyecto);
+
+
+
+            //establece datos del proyecto en los campos
+       
+                Nombreproyecto.Text = ProyectoResidencia.Nombre_Proyecto;
+                Nombreempresa.Text =ProyectoResidencia.Nombre_de_la_Empresa;
+                NombreAsesorexterno.Text = ProyectoResidencia.Nombre_Asesor_Externo;
+                cargoasesor.Text = ProyectoResidencia.Cargo_Asesor_Externo;
+                correoasesorext.Text = ProyectoResidencia.Correo_Asesor_Externo;
+                telefonoasesorext.Text = ProyectoResidencia.Telefono_Asesor_Externo;
+
+            /*
+                if (edicion.alumno.Proyecto_Residencia.Asesor_Interno != null)
+                {
+                    //Establece datos del asesor en los campos
+                    NombreAsesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre;
+                    Telefonoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono;
+                    Correoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo;
+                }
+            */
+        }
+    }
+}
