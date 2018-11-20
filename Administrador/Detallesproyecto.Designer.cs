@@ -41,11 +41,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.Status = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.Status);
             this.panel2.Controls.Add(this.cargoasesor);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.correoasesorext);
@@ -169,6 +171,15 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Nombre de Proyecto";
             // 
+            // Status
+            // 
+            this.Status.FormattingEnabled = true;
+            this.Status.Location = new System.Drawing.Point(541, 91);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(121, 21);
+            this.Status.TabIndex = 30;
+            this.Status.SelectedIndexChanged += new System.EventHandler(this.Status_SelectedIndexChanged);
+            // 
             // Detallesproyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,5 +210,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox Status;
     }
 }

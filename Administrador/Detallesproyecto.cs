@@ -14,6 +14,8 @@ namespace Administrador
     {
         public int noproyecto;
         public static Proyecto_Residencia ProyectoResidencia=new Proyecto_Residencia();
+        public static List<statusdeproyecto> statusdeproye = new List<statusdeproyecto>();
+        public BindingSource bindingsourcestatus = new BindingSource();
         public AutomatizacionResidencias.Acciones.Busquedaentablas b= new AutomatizacionResidencias.Acciones.Busquedaentablas(); 
         public Detallesproyecto(int no)
         {
@@ -46,6 +48,19 @@ namespace Administrador
                     Correoasesorinterno.Text = edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo;
                 }
             */
+
+
+            statusdeproye = b.statusdeproyectos();
+            bindingsourcestatus.DataSource = statusdeproye;
+            Status.DataSource = bindingsourcestatus.DataSource;
+            Status.DisplayMember = "nombre";
+            Status.ValueMember = "IdStatus";
+            Status.SelectedItem = null;
+        }
+
+        private void Status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
