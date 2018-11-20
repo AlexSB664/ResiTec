@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Acciones\Autentificacion.cs" />
     <Compile Include="Acciones\Busquedaentablas.cs" />
+    <Compile Include="Acciones\Cambiar status.cs" />
     <Compile Include="Acciones\Conexion.cs" />
     <Compile Include="Acciones\Crearformatos.cs" />
     <Compile Include="Acciones\Enviarcorreo.cs" />

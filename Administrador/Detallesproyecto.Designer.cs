@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Status = new System.Windows.Forms.ComboBox();
             this.cargoasesor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.correoasesorext = new System.Windows.Forms.TextBox();
@@ -41,7 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.Status = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +65,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(839, 157);
             this.panel2.TabIndex = 32;
+            // 
+            // Status
+            // 
+            this.Status.FormattingEnabled = true;
+            this.Status.Location = new System.Drawing.Point(541, 91);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(121, 21);
+            this.Status.TabIndex = 30;
+            this.Status.SelectedIndexChanged += new System.EventHandler(this.Status_SelectedIndexChanged);
             // 
             // cargoasesor
             // 
@@ -171,20 +181,22 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Nombre de Proyecto";
             // 
-            // Status
+            // button1
             // 
-            this.Status.FormattingEnabled = true;
-            this.Status.Location = new System.Drawing.Point(541, 91);
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(121, 21);
-            this.Status.TabIndex = 30;
-            this.Status.SelectedIndexChanged += new System.EventHandler(this.Status_SelectedIndexChanged);
+            this.button1.Location = new System.Drawing.Point(385, 333);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 45);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Detallesproyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Name = "Detallesproyecto";
             this.Text = "Detallesproyecto";
@@ -211,5 +223,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox Status;
+        private System.Windows.Forms.Button button1;
     }
 }

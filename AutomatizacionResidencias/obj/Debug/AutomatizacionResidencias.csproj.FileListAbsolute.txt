@@ -72,3 +72,7 @@ C:\Users\migue\Source\Repos\ResiTec\AutomatizacionResidencias\bin\Debug\Conexion
 C:\Users\migue\Source\Repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.dll
 C:\Users\migue\Source\Repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.xmlworker.dll
 C:\Users\migue\Source\Repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.xml
+C:\Users\mig\source\repos\ResiTec\AutomatizacionResidencias\bin\Debug\Conexion.txt
+C:\Users\mig\source\repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.dll
+C:\Users\mig\source\repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\mig\source\repos\ResiTec\AutomatizacionResidencias\bin\Debug\itextsharp.xml

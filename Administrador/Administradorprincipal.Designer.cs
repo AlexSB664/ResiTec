@@ -39,6 +39,13 @@
             this.proyectosresidencia = new System.Windows.Forms.Button();
             this.datosdealumno = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.Noproyectob = new System.Windows.Forms.TextBox();
+            this.Buscar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Nocontrolb = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,12 +170,80 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // Noproyectob
+            // 
+            this.Noproyectob.Location = new System.Drawing.Point(164, 25);
+            this.Noproyectob.Name = "Noproyectob";
+            this.Noproyectob.Size = new System.Drawing.Size(147, 20);
+            this.Noproyectob.TabIndex = 12;
+            // 
+            // Buscar
+            // 
+            this.Buscar.BackColor = System.Drawing.Color.DarkGreen;
+            this.Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Buscar.ForeColor = System.Drawing.Color.White;
+            this.Buscar.Location = new System.Drawing.Point(12, 10);
+            this.Buscar.Name = "Buscar";
+            this.Buscar.Size = new System.Drawing.Size(75, 43);
+            this.Buscar.TabIndex = 13;
+            this.Buscar.Text = "Buscar";
+            this.Buscar.UseVisualStyleBackColor = false;
+            this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(209, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "No proyecto";
+            // 
+            // Nocontrolb
+            // 
+            this.Nocontrolb.Location = new System.Drawing.Point(335, 25);
+            this.Nocontrolb.Name = "Nocontrolb";
+            this.Nocontrolb.Size = new System.Drawing.Size(147, 20);
+            this.Nocontrolb.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(373, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "No control";
+            // 
+            // Nombre
+            // 
+            this.Nombre.Location = new System.Drawing.Point(519, 25);
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Size = new System.Drawing.Size(147, 20);
+            this.Nombre.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(559, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Nombre";
+            // 
             // Administradorprincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1317, 499);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Nombre);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Nocontrolb);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Buscar);
+            this.Controls.Add(this.Noproyectob);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.datosdealumno);
             this.Controls.Add(this.proyectosresidencia);
@@ -185,6 +260,7 @@
             this.Load += new System.EventHandler(this.Administradorprincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -200,5 +276,12 @@
         private System.Windows.Forms.Button proyectosresidencia;
         private System.Windows.Forms.Button datosdealumno;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox Noproyectob;
+        private System.Windows.Forms.Button Buscar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox Nocontrolb;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Nombre;
+        private System.Windows.Forms.Label label3;
     }
 }

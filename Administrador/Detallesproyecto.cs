@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutomatizacionResidencias;
+using AutomatizacionResidencias.Acciones;
 namespace Administrador
 {
     public partial class Detallesproyecto : Form
@@ -16,6 +17,7 @@ namespace Administrador
         public static Proyecto_Residencia ProyectoResidencia=new Proyecto_Residencia();
         public static List<statusdeproyecto> statusdeproye = new List<statusdeproyecto>();
         public BindingSource bindingsourcestatus = new BindingSource();
+        public static int idstatus;
         public AutomatizacionResidencias.Acciones.Busquedaentablas b= new AutomatizacionResidencias.Acciones.Busquedaentablas(); 
         public Detallesproyecto(int no)
         {
@@ -60,7 +62,17 @@ namespace Administrador
 
         private void Status_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                idstatus = int.Parse(Status.SelectedValue.ToString());
+            }
+            catch { }
+            }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Cambiar_status ca = new Cambiar_status();
+            ca.actualizarstatus(idstatus,noproyecto);
         }
     }
 }

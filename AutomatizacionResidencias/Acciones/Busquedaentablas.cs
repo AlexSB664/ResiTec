@@ -82,5 +82,48 @@ namespace AutomatizacionResidencias.Acciones
             return alumnos;
         }
 
+        public List<Tablaproyecto> Busquedadeproyectos(int Noproyecto)
+        {
+            List<Tablaproyecto> residecias = new List<Tablaproyecto>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                residecias = (from r in context.Proyecto_Residencia where r.No_Proyecto==Noproyecto select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList();
+
+                foreach (var r in residecias)
+                {
+                    var status = context.Status.FirstOrDefault(x => x.IdStatus == r.Status);
+                    if (status != null)
+                    {
+                        r.color = status.Color;
+                        r.status = status.Descripcion;
+                    }
+                }
+
+            }
+            return residecias;
+
+        }
+
+        public List<TablaAlumno> Busquedaalumno(int? Nocontrol,string Nombre)
+        {
+            List<TablaAlumno> alumnos = new List<TablaAlumno>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                if (Nocontrol!=null && Nombre==null) {
+                    alumnos = (from r in context.Alumno where r.NoControl == Nocontrol select new TablaAlumno { NoControl = r.NoControl, Apellido_Materno = r.Apellido_Materno, Apellido_Paterno = r.Apellido_Paterno, Correo = r.Correo, Nombre = r.Nombre, NoProyecto = r.NoProyecto, Semestre = r.Semestre, Telefono = r.Telefono }).ToList();
+                }
+
+                if (Nocontrol == null && Nombre != null)
+                {
+                    alumnos = (from r in context.Alumno where r.Nombre == Nombre select new TablaAlumno { NoControl = r.NoControl, Apellido_Materno = r.Apellido_Materno, Apellido_Paterno = r.Apellido_Paterno, Correo = r.Correo, Nombre = r.Nombre, NoProyecto = r.NoProyecto, Semestre = r.Semestre, Telefono = r.Telefono }).ToList();
+                }
+
+
+            }
+            return alumnos;
+        }
+
+     
+
     }
 }

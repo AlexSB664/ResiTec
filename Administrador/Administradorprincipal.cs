@@ -43,7 +43,6 @@ namespace Administrador
         }
 
         public void alumno() {
-            alumnos = sug.Alumnos();
 
             var bindingList = new BindingList<TablaAlumno>(alumnos);
             var source = new BindingSource(bindingList, null);
@@ -52,16 +51,13 @@ namespace Administrador
 
 
         public void asesor()
-        {
-            asesores = sug.Asesores();
-
+        { 
             var bindingList = new BindingList<TablaAsesor>(asesores);
             var source = new BindingSource(bindingList, null);
             dataGridView1.DataSource = source;
         }
 
         public void proyecto(){
-            proyectos = sug.proyectosregistrados();
            // var status = sug.statusdeproyectos();
             var bindingList = new BindingList<Tablaproyecto>(proyectos);
 
@@ -79,7 +75,15 @@ namespace Administrador
             ColumnMonth.ValueMember = "IdStatus";
             ColumnMonth.DisplayMember = "nombre";
             dataGridView1.Columns["Status"].Visible=false;
-           // dataGridView1.Columns.Add(ColumnMonth);
+            // dataGridView1.Columns.Add(ColumnMonth);
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+                if (row.Cells[11].Value!=null)
+                {
+                row.DefaultCellStyle.BackColor = Color.FromName(row.Cells[11].Value.ToString()); ;
+                    foreach (DataGridViewCell cell in row.Cells) {
+                        dataGridView1.Rows[row.Index].Cells[cell.ColumnIndex].Style.ForeColor = Color.White ;
+                    }
+                }
 
         }
 
@@ -124,6 +128,8 @@ namespace Administrador
 
         private void proyectosresidencia_Click(object sender, EventArgs e)
         {
+            proyectos = sug.proyectosregistrados();
+
             proyecto();
             mostrandopryectos = true;
             mostrandoalumno = false;
@@ -132,6 +138,8 @@ namespace Administrador
 
         private void datosdealumno_Click(object sender, EventArgs e)
         {
+            alumnos = sug.Alumnos();
+
             alumno();
             mostrandopryectos = false;
             mostrandoalumno = true;
@@ -173,10 +181,52 @@ namespace Administrador
 
         private void button8_Click(object sender, EventArgs e)
         {
+            asesores = sug.Asesores();
+
             asesor();
             mostrandopryectos = false;
             mostrandoalumno = true;
             mostrandoasesores = false;
+        }
+
+        private void Buscar_Click(object sender, EventArgs e)
+        {
+            int noproy;
+            if (int.TryParse(Noproyectob.Text, out noproy))
+            {
+               proyectos= sug.Busquedadeproyectos(noproy);
+                proyecto();
+            }
+            else {
+                int nocontrol;
+                if (int.TryParse(Nocontrolb.Text, out nocontrol))
+                {
+
+                    if (Nombre.Text != null)
+                    {
+                        alumnos = sug.Busquedaalumno(null, Nombre.Text);
+                    }
+                    else
+                    {
+                        alumnos = sug.Busquedaalumno(nocontrol, null);
+                    }
+                    alumno();
+                }
+                else
+                {
+                    if (Nombre.Text != null)
+                    {
+                        alumnos = sug.Busquedaalumno(null, Nombre.Text);
+                    }
+                    else
+                    {
+                        alumnos = sug.Busquedaalumno(nocontrol, null);
+                    }
+                    alumno();
+                }
+            }
+
+           
         }
     }
 }

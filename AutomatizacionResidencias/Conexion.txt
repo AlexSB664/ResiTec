@@ -1,4 +1,4 @@
 ﻿{
-"connectionstring":"Data Source=DESKTOP-H4QT2MT\\SQLEXPRESS;Initial Catalog=Residencias;User ID=miguel;Password=1234",
+"connectionstring":"Data Source=MIG-PC\\SQLEXPRESS;Initial Catalog=Residencias;User ID=miguel;Password=0446642974342mig21",
 "tiempo":"02:00:00.00"
 }

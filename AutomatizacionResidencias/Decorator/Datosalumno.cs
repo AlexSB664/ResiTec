@@ -27,7 +27,7 @@ namespace AutomatizacionResidencias.Decorator
                 alumno.Proyecto_Residencia = al.Proyecto_Residencia;
             }
             catch(Exception ex) {
-                Errores = ex.Message;
+                Errores = ex.InnerException.Message;
             }
             try
             {
@@ -39,7 +39,7 @@ namespace AutomatizacionResidencias.Decorator
             }
             catch(Exception ex)
                 {
-                Errores = ex.Message;
+                Errores = ex.InnerException.Message;
 
             }
         }
