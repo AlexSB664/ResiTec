@@ -153,7 +153,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BDResidencias.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Basededatos\residencia.bak" />
+    <None Include="Basededatos\residencias3.bak" />
     <None Include="BDResidencias.edmx.diagram">
       <DependentUpon>BDResidencias.edmx</DependentUpon>
     </None>

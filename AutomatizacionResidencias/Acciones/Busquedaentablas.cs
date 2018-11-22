@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutomatizacionResidencias.Acciones
 {
@@ -106,10 +107,11 @@ namespace AutomatizacionResidencias.Acciones
 
         public List<TablaAlumno> Busquedaalumno(int? Nocontrol,string Nombre)
         {
+            MessageBox.Show(Nocontrol.ToString());
             List<TablaAlumno> alumnos = new List<TablaAlumno>();
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
-                if (Nocontrol!=null && Nombre==null) {
+                if (Nocontrol!=null) {
                     alumnos = (from r in context.Alumno where r.NoControl == Nocontrol select new TablaAlumno { NoControl = r.NoControl, Apellido_Materno = r.Apellido_Materno, Apellido_Paterno = r.Apellido_Paterno, Correo = r.Correo, Nombre = r.Nombre, NoProyecto = r.NoProyecto, Semestre = r.Semestre, Telefono = r.Telefono }).ToList();
                 }
 

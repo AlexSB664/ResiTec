@@ -202,15 +202,8 @@ namespace Administrador
                 if (int.TryParse(Nocontrolb.Text, out nocontrol))
                 {
 
-                    if (Nombre.Text != null)
-                    {
-                        alumnos = sug.Busquedaalumno(null, Nombre.Text);
-                    }
-                    else
-                    {
                         alumnos = sug.Busquedaalumno(nocontrol, null);
-                    }
-                    alumno();
+                
                 }
                 else
                 {
