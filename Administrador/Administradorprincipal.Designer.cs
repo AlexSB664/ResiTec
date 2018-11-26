@@ -43,12 +43,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Nombre = new System.Windows.Forms.TextBox();
-            this.Nocontrolb = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Noproyectob = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Nocontrolb = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -105,6 +105,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Agendar Expo";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button5
             // 
@@ -233,37 +234,12 @@
             this.panel3.Size = new System.Drawing.Size(1188, 64);
             this.panel3.TabIndex = 21;
             // 
-            // label3
+            // Noproyectob
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(429, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Nombre";
-            // 
-            // Nombre
-            // 
-            this.Nombre.Location = new System.Drawing.Point(375, 29);
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(147, 20);
-            this.Nombre.TabIndex = 17;
-            // 
-            // Nocontrolb
-            // 
-            this.Nocontrolb.Location = new System.Drawing.Point(189, 29);
-            this.Nocontrolb.Name = "Nocontrolb";
-            this.Nocontrolb.Size = new System.Drawing.Size(147, 20);
-            this.Nocontrolb.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(234, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "No control";
+            this.Noproyectob.Location = new System.Drawing.Point(15, 29);
+            this.Noproyectob.Name = "Noproyectob";
+            this.Noproyectob.Size = new System.Drawing.Size(147, 20);
+            this.Noproyectob.TabIndex = 12;
             // 
             // label1
             // 
@@ -274,12 +250,37 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "No proyecto";
             // 
-            // Noproyectob
+            // Nocontrolb
             // 
-            this.Noproyectob.Location = new System.Drawing.Point(15, 29);
-            this.Noproyectob.Name = "Noproyectob";
-            this.Noproyectob.Size = new System.Drawing.Size(147, 20);
-            this.Noproyectob.TabIndex = 12;
+            this.Nocontrolb.Location = new System.Drawing.Point(189, 29);
+            this.Nocontrolb.Name = "Nocontrolb";
+            this.Nocontrolb.Size = new System.Drawing.Size(147, 20);
+            this.Nocontrolb.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(429, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Nombre";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(234, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "No control";
+            // 
+            // Nombre
+            // 
+            this.Nombre.Location = new System.Drawing.Point(375, 29);
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Size = new System.Drawing.Size(147, 20);
+            this.Nombre.TabIndex = 17;
             // 
             // panel4
             // 

@@ -107,7 +107,6 @@ namespace AutomatizacionResidencias.Acciones
 
         public List<TablaAlumno> Busquedaalumno(int? Nocontrol,string Nombre)
         {
-            MessageBox.Show(Nocontrol.ToString());
             List<TablaAlumno> alumnos = new List<TablaAlumno>();
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
@@ -125,7 +124,22 @@ namespace AutomatizacionResidencias.Acciones
             return alumnos;
         }
 
-     
+
+        public List<ComboGrupo> todosgrupos()
+        {
+            List<ComboGrupo> alumnos = new List<ComboGrupo>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+               
+                    alumnos = (from r in context.Grupos select new ComboGrupo {IdGrupo=r.IdGrupo,Nombre=r.Nombre,Descripcion=r.Descripcion }).ToList();
+             
+
+
+            }
+            return alumnos;
+        }
+
+
 
     }
 }

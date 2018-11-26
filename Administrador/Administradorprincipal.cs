@@ -14,6 +14,10 @@ namespace Administrador
 {
     public partial class Administradorprincipal : Form
     {
+        AgendarExpo ag = new AgendarExpo();
+
+        Reenviarnip re = new Reenviarnip();
+        Formatos formatos = new Formatos();
 
         public static Busquedaentablas sug = new Busquedaentablas();
         public static List<Tablaproyecto> proyectos = new List<Tablaproyecto>();
@@ -149,7 +153,10 @@ namespace Administrador
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Formatos formatos = new Formatos();
+            if (formatos.IsDisposed)
+            {
+                formatos = new Formatos();
+            }
             formatos.Show();
         }
 
@@ -175,7 +182,10 @@ namespace Administrador
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Reenviarnip re = new Reenviarnip();
+            if (re.IsDisposed)
+            {
+                re = new Reenviarnip();
+            }
             re.Show();
         }
 
@@ -220,6 +230,14 @@ namespace Administrador
             }
 
            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ag.IsDisposed){
+                ag = new AgendarExpo();
+            }
+            ag.Show();
         }
     }
 }

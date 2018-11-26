@@ -55,4 +55,13 @@ namespace AutomatizacionResidencias
         public string Descripcion { get; set; }
         public string Color { get; set; }
     }
+
+    public class ComboGrupo {
+        public int IdGrupo { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+    }
+    public class TablaHorario {
+
+    }
 }
