@@ -5,7 +5,6 @@
     <EntitySet Name="Alumno" EntityType="ResidenciasModel.Alumno" />
     <EntitySet Name="Asesor_Interno" EntityType="ResidenciasModel.Asesor_Interno" />
     <EntitySet Name="BitacoraTransacciones" EntityType="ResidenciasModel.BitacoraTransacciones" />
-    <EntitySet Name="Grupos" EntityType="ResidenciasModel.Grupos" />
     <EntitySet Name="HorarioPresentacion" EntityType="ResidenciasModel.HorarioPresentacion" />
     <EntitySet Name="Params" EntityType="ResidenciasModel.Params" />
     <EntitySet Name="Proyecto_Residencia" EntityType="ResidenciasModel.Proyecto_Residencia" />
@@ -32,10 +31,6 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="BitacoraTransacciones" EntitySet="BitacoraTransacciones" />
     </AssociationSet>
-    <AssociationSet Name="FK_HorarioPresentacion_Grupos" Association="ResidenciasModel.FK_HorarioPresentacion_Grupos">
-      <End Role="Grupos" EntitySet="Grupos" />
-      <End Role="HorarioPresentacion" EntitySet="HorarioPresentacion" />
-    </AssociationSet>
     <AssociationSet Name="FK_HorarioPresentacion_Proyecto_Residencia" Association="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia">
       <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
       <End Role="HorarioPresentacion" EntitySet="HorarioPresentacion" />
@@ -43,6 +38,11 @@
     <AssociationSet Name="FK_Proyecto_Residencia_Status" Association="ResidenciasModel.FK_Proyecto_Residencia_Status">
       <End Role="Status" EntitySet="Status" />
       <End Role="Proyecto_Residencia" EntitySet="Proyecto_Residencia" />
+    </AssociationSet>
+    <EntitySet Name="Grupos" EntityType="ResidenciasModel.Grupos" />
+    <AssociationSet Name="FK_HorarioPresentacion_Grupos" Association="ResidenciasModel.FK_HorarioPresentacion_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="HorarioPresentacion" EntitySet="HorarioPresentacion" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Alumno">
@@ -87,17 +87,6 @@
     <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" FromRole="BitacoraTransacciones" ToRole="Proyecto_Residencia" />
     <NavigationProperty Name="Usuario1" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Usuario" FromRole="BitacoraTransacciones" ToRole="Usuario" />
   </EntityType>
-  <EntityType Name="Grupos">
-    <Key>
-      <PropertyRef Name="IdGrupo" />
-    </Key>
-    <Property Name="IdGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Fechainicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Fechafin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="HorarioPresentacion" Relationship="ResidenciasModel.FK_HorarioPresentacion_Grupos" FromRole="Grupos" ToRole="HorarioPresentacion" />
-  </EntityType>
   <EntityType Name="HorarioPresentacion">
     <Key>
       <PropertyRef Name="IdPresentacion" />
@@ -110,8 +99,8 @@
     <Property Name="HoraFin" Type="Time" Precision="7" />
     <Property Name="Activo" Type="Boolean" />
     <Property Name="Estado" Type="Boolean" />
-    <NavigationProperty Name="Grupos" Relationship="ResidenciasModel.FK_HorarioPresentacion_Grupos" FromRole="HorarioPresentacion" ToRole="Grupos" />
     <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" FromRole="HorarioPresentacion" ToRole="Proyecto_Residencia" />
+    <NavigationProperty Name="Grupos" Relationship="ResidenciasModel.FK_HorarioPresentacion_Grupos" FromRole="HorarioPresentacion" ToRole="Grupos" />
   </EntityType>
   <EntityType Name="Params">
     <Key>
@@ -168,7 +157,7 @@
       <PropertyRef Name="Usuario1" />
     </Key>
     <Property Name="Usuario1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
     <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Alumno" Relationship="ResidenciasModel.FK_Alumno_Usuario" FromRole="Usuario" ToRole="Alumno" />
     <NavigationProperty Name="BitacoraTransacciones" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Usuario" FromRole="Usuario" ToRole="BitacoraTransacciones" />
@@ -233,18 +222,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_HorarioPresentacion_Grupos">
-    <End Type="ResidenciasModel.Grupos" Role="Grupos" Multiplicity="0..1" />
-    <End Type="ResidenciasModel.HorarioPresentacion" Role="HorarioPresentacion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Grupos">
-        <PropertyRef Name="IdGrupo" />
-      </Principal>
-      <Dependent Role="HorarioPresentacion">
-        <PropertyRef Name="Id_Grupo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_HorarioPresentacion_Proyecto_Residencia">
     <End Type="ResidenciasModel.Proyecto_Residencia" Role="Proyecto_Residencia" Multiplicity="0..1" />
     <End Type="ResidenciasModel.HorarioPresentacion" Role="HorarioPresentacion" Multiplicity="*" />
@@ -266,6 +243,29 @@
       </Principal>
       <Dependent Role="Proyecto_Residencia">
         <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+    </Key>
+    <Property Name="IdGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fechainicio" Type="DateTime" Precision="0" />
+    <Property Name="Fechafin" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="HorarioPresentacion" Relationship="ResidenciasModel.FK_HorarioPresentacion_Grupos" FromRole="Grupos" ToRole="HorarioPresentacion" />
+  </EntityType>
+  <Association Name="FK_HorarioPresentacion_Grupos">
+    <End Type="ResidenciasModel.Grupos" Role="Grupos" Multiplicity="0..1" />
+    <End Type="ResidenciasModel.HorarioPresentacion" Role="HorarioPresentacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="IdGrupo" />
+      </Principal>
+      <Dependent Role="HorarioPresentacion">
+        <PropertyRef Name="Id_Grupo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

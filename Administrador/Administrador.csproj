@@ -217,6 +217,7 @@
     <Content Include="Conexion.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\1__3ihG_PMKFRk_TGX6x8rOw.png" />
     <Content Include="Resources\LogoTecNM_Horizontal %281%29.png" />
     <Content Include="Resources\logo_ITT1.ico" />
     <Content Include="Resources\logo_ITT1.png" />

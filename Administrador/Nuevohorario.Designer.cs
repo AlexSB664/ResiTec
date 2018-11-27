@@ -31,12 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevohorario));
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.Horainicio = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.minutoinicio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.Minutofin = new System.Windows.Forms.ComboBox();
+            this.Horafin = new System.Windows.Forms.ComboBox();
             this.Noproyecto = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -47,6 +50,7 @@
             // 
             // Horainicio
             // 
+            this.Horainicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Horainicio.FormattingEnabled = true;
             this.Horainicio.Items.AddRange(new object[] {
             "00",
@@ -78,10 +82,11 @@
             this.Horainicio.Size = new System.Drawing.Size(63, 21);
             this.Horainicio.TabIndex = 1;
             // 
-            // comboBox1
+            // minutoinicio
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.minutoinicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.minutoinicio.FormattingEnabled = true;
+            this.minutoinicio.Items.AddRange(new object[] {
             "00",
             "01",
             "02",
@@ -142,10 +147,10 @@
             "57",
             "58",
             "59"});
-            this.comboBox1.Location = new System.Drawing.Point(91, 224);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(63, 21);
-            this.comboBox1.TabIndex = 2;
+            this.minutoinicio.Location = new System.Drawing.Point(97, 224);
+            this.minutoinicio.Name = "minutoinicio";
+            this.minutoinicio.Size = new System.Drawing.Size(63, 21);
+            this.minutoinicio.TabIndex = 2;
             // 
             // label1
             // 
@@ -165,10 +170,11 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Hasta";
             // 
-            // comboBox2
+            // Minutofin
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.Minutofin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Minutofin.FormattingEnabled = true;
+            this.Minutofin.Items.AddRange(new object[] {
             "00",
             "01",
             "02",
@@ -229,15 +235,16 @@
             "57",
             "58",
             "59"});
-            this.comboBox2.Location = new System.Drawing.Point(272, 224);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(63, 21);
-            this.comboBox2.TabIndex = 5;
+            this.Minutofin.Location = new System.Drawing.Point(278, 224);
+            this.Minutofin.Name = "Minutofin";
+            this.Minutofin.Size = new System.Drawing.Size(63, 21);
+            this.Minutofin.TabIndex = 5;
             // 
-            // comboBox3
+            // Horafin
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.Horafin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Horafin.FormattingEnabled = true;
+            this.Horafin.Items.AddRange(new object[] {
             "00",
             "01",
             "02",
@@ -262,10 +269,10 @@
             "21",
             "22",
             "23"});
-            this.comboBox3.Location = new System.Drawing.Point(193, 224);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(63, 21);
-            this.comboBox3.TabIndex = 4;
+            this.Horafin.Location = new System.Drawing.Point(193, 224);
+            this.Horafin.Name = "Horafin";
+            this.Horafin.Size = new System.Drawing.Size(63, 21);
+            this.Horafin.TabIndex = 4;
             // 
             // Noproyecto
             // 
@@ -276,23 +283,57 @@
             this.Noproyecto.TabIndex = 7;
             this.Noproyecto.Text = "Noproyecto";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(129, 274);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 33);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(81, 227);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(10, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = ":";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(262, 227);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(10, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = ":";
+            // 
             // Nuevohorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(379, 328);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Noproyecto);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.Minutofin);
+            this.Controls.Add(this.Horafin);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.minutoinicio);
             this.Controls.Add(this.Horainicio);
             this.Controls.Add(this.monthCalendar1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Nuevohorario";
             this.Text = "Nuevohorario";
+            this.Load += new System.EventHandler(this.Nuevohorario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,11 +343,14 @@
 
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.ComboBox Horainicio;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox minutoinicio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox Minutofin;
+        private System.Windows.Forms.ComboBox Horafin;
         private System.Windows.Forms.Label Noproyecto;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

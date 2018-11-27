@@ -14,15 +14,18 @@ namespace Administrador
     public partial class AgendarExpo : Form
     {
         public static Busquedaentablas sug = new Busquedaentablas();
+        public static Sugerencias sugerencias = new Sugerencias();
+        public static List<HorarioPresentacion> horariossave = new List<HorarioPresentacion>();
         public static List<Tablaproyecto> proyectos = new List<Tablaproyecto>();
-        public static List<Tablaproyecto> proyectosasignados = new List<Tablaproyecto>();
+        public static List<TablaHorario> proyectosasignados = new List<TablaHorario>();
         public static Nuevogrupo gruposn = new Nuevogrupo(); 
         public static List<TablaAlumno> alumnos = new List<TablaAlumno>();
         public static List<TablaAsesor> asesores = new List<TablaAsesor>();
         public static List<ComboGrupo> gruposs = new List<ComboGrupo>();
         public BindingSource bindgrupos = new BindingSource();
         public static BindingList<ComboGrupo> bindinglistcombo = new BindingList<ComboGrupo>();
-
+        public int currentproyecto;
+        public static Nuevohorario nu = null;
         public ComboGrupo currentgroup = new ComboGrupo();
         public static string prueba;
         public AgendarExpo()
@@ -32,7 +35,7 @@ namespace Administrador
 
         private void AgendarExpo_Load(object sender, EventArgs e)
         {
-            proyectos = sug.proyectosregistrados();
+            proyectos = sug.proyectosregistradossinasignar();
             gruposs = sug.todosgrupos();
             proyecto();
             grupos();
@@ -75,32 +78,18 @@ namespace Administrador
         public void proyectoasignados()
         {
             // var status = sug.statusdeproyectos();
-            var bindingList = new BindingList<Tablaproyecto>(proyectosasignados);
+            var bindingList = new BindingList<TablaHorario>(proyectosasignados);
 
             //var bindingSourceMonth = new BindingList<statusdeproyecto>(status);
 
             var source = new BindingSource(bindingList, null);
             Residenciasasignadas.DataSource = source;
 
+            Residenciasasignadas.Columns["IdPresentacion"].Visible = false;
 
-            DataGridViewComboBoxColumn ColumnMonth = new DataGridViewComboBoxColumn();
-            ColumnMonth.DataPropertyName = "status";
-            ColumnMonth.HeaderText = "status";
-            ColumnMonth.Width = 120;
-            //ColumnMonth.DataSource = bindingSourceMonth;
-            ColumnMonth.ValueMember = "IdStatus";
-            ColumnMonth.DisplayMember = "nombre";
-            Residenciasasignadas.Columns["Status"].Visible = false;
+
             // dataGridView1.Columns.Add(ColumnMonth);
-            foreach (DataGridViewRow row in Residenciasasignadas.Rows)
-                if (row.Cells[11].Value != null)
-                {
-                    row.DefaultCellStyle.BackColor = Color.FromName(row.Cells[11].Value.ToString()); ;
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        Residenciasasignadas.Rows[row.Index].Cells[cell.ColumnIndex].Style.ForeColor = Color.White;
-                    }
-                }
+
 
         }
 
@@ -127,9 +116,18 @@ namespace Administrador
 
         private void Asignar_Click(object sender, EventArgs e)
         {
-            proyectosasignados.Add(proyectos.FirstOrDefault(x=>x.No_Proyecto== int.Parse( Residenciasparaasignar.SelectedRows[0].Cells[0].Value.ToString())));
+            if (nu==null) {
+                nu = new Nuevohorario(currentproyecto, currentgroup.IdGrupo);
 
-            proyectoasignados();
+            }
+
+            if (nu.IsDisposed)
+                {
+                    nu = new Nuevohorario(currentproyecto, currentgroup.IdGrupo);
+                }
+                nu.addhorario = new addhorario(this.agregaragrupo);
+                nu.Show();
+           
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -176,6 +174,13 @@ namespace Administrador
                 var id = int.Parse(comboBox1.SelectedValue.ToString());
                 currentgroup = gruposs.FirstOrDefault(x=>x.IdGrupo== id);
                 grupo.Text = currentgroup.Nombre;
+
+                proyectosasignados = sug.horariosengrupos(currentgroup.IdGrupo);
+                proyectos = sug.proyectosregistradossinasignar();
+
+                proyectoasignados();
+                proyecto();
+
             } catch { }
         }
 
@@ -186,15 +191,64 @@ namespace Administrador
 
         private void Residenciasasignadas_DoubleClick(object sender, EventArgs e)
         {
-            
-            proyectosasignados.Remove(proyectos.FirstOrDefault(x => x.No_Proyecto == int.Parse(Residenciasparaasignar.SelectedRows[0].Cells[0].Value.ToString())));
+            var pa = proyectosasignados.FirstOrDefault(x => x.No_proyecto == int.Parse(Residenciasasignadas.SelectedRows[0].Cells[0].Value.ToString()));
+            proyectosasignados.Remove(pa);
 
+            proyectos.Add(sug.Proyectoespecifico(pa.No_proyecto));
             proyectoasignados();
+            proyecto();
+
+        }
+
+
+        public void agregaragrupo(TablaHorario item) {
+            proyectosasignados.Add(item);
+
+           var p= proyectos.FirstOrDefault(x=>x.No_Proyecto==item.No_proyecto);
+            proyectos.Remove(p);
+            proyectoasignados();
+            proyecto();
+        }
+
+        private void Residenciasparaasignar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            currentproyecto = int.Parse(Residenciasparaasignar.SelectedRows[0].Cells[0].Value.ToString());
+        }
+
+        private void Residenciasparaasignar_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            currentproyecto = int.Parse(Residenciasparaasignar.SelectedRows[0].Cells[0].Value.ToString());
+
+        }
+
+        private void Residenciasparaasignar_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Residenciasparaasignar.ClearSelection();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            horariossave = new List<HorarioPresentacion>();
+
+            foreach (var hor in proyectosasignados) {
+                horariossave.Add(new HorarioPresentacion {No_Proyecto=hor.No_proyecto,Fecha=hor.Fecha,Id_Grupo=hor.IdGrupo,HoraFin=hor.HoraFin,Horainicio=hor.Horainicio});
+            }
+
+            if (sugerencias.salvarhorario(horariossave))
+            {
+                MessageBox.Show("Horarios guardados");
+            }
+            else {
+                MessageBox.Show("No se pudieron  guardar los cambios");
+
+            }
 
         }
     }
     public delegate void AddItemDelegate(ComboGrupo item);
-    public delegate void addhorario(HorarioPresentacion item);
+    public delegate void addhorario(TablaHorario item);
+
 
 
 }

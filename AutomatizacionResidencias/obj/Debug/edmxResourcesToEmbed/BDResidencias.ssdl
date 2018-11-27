@@ -44,14 +44,14 @@
     <Property Name="IdGrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" />
-    <Property Name="Fechainicio" Type="varchar" MaxLength="50" />
-    <Property Name="Fechafin" Type="varchar" MaxLength="50" />
+    <Property Name="Fechainicio" Type="date" />
+    <Property Name="Fechafin" Type="date" />
   </EntityType>
   <EntityType Name="HorarioPresentacion">
     <Key>
       <PropertyRef Name="IdPresentacion" />
     </Key>
-    <Property Name="IdPresentacion" Type="int" Nullable="false" />
+    <Property Name="IdPresentacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="No Proyecto" Type="int" />
     <Property Name="Id Grupo" Type="int" />
     <Property Name="Fecha" Type="date" />
@@ -109,7 +109,7 @@
       <PropertyRef Name="Usuario" />
     </Key>
     <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nchar" MaxLength="10" />
+    <Property Name="Password" Type="nchar" MaxLength="5" />
     <Property Name="Rol" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Alumno_Proyecto Residencia">

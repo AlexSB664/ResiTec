@@ -29,6 +29,56 @@ namespace AutomatizacionResidencias.Acciones
 
         }
 
+        public List<Tablaproyecto> proyectosregistradossinasignar()
+        {
+            List<Tablaproyecto> residecias = new List<Tablaproyecto>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                residecias = (from r in context.Proyecto_Residencia where !context.HorarioPresentacion.Any(x=>x.No_Proyecto==r.No_Proyecto) select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList();
+
+               
+
+
+                foreach (var r in residecias)
+                {
+                    var status = context.Status.FirstOrDefault(x => x.IdStatus == r.Status);
+                    if (status != null)
+                    {
+                        r.color = status.Color;
+                        r.status = status.Descripcion;
+                    }
+                }
+
+            }
+            return residecias;
+
+        }
+
+        public Tablaproyecto Proyectoespecifico(int? Noproyecto)
+        {
+            Tablaproyecto residecias = new Tablaproyecto();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                residecias = (from r in context.Proyecto_Residencia where Noproyecto==r.No_Proyecto select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList()[0];
+
+
+
+
+                
+                    var status = context.Status.FirstOrDefault(x => x.IdStatus == residecias.Status);
+                    if (status != null)
+                    {
+                    residecias.color = status.Color;
+                    residecias.status = status.Descripcion;
+                    }
+                
+
+            }
+            return residecias;
+
+        }
+
+
         public List<statusdeproyecto> statusdeproyectos()
         {
             List<statusdeproyecto> residecias = new List<statusdeproyecto>();
@@ -138,6 +188,22 @@ namespace AutomatizacionResidencias.Acciones
             }
             return alumnos;
         }
+
+
+        public List<TablaHorario> horariosengrupos(int idgrupo)
+        {
+            List<TablaHorario> alumnos = new List<TablaHorario>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+
+                alumnos = (from r in context.HorarioPresentacion select new TablaHorario {No_proyecto=r.No_Proyecto,Fecha=r.Fecha,HoraFin=r.HoraFin,Horainicio=r.Horainicio,IdGrupo=r.Id_Grupo,IdPresentacion=r.IdPresentacion }).ToList();
+
+
+
+            }
+            return alumnos;
+        }
+
 
 
 

@@ -62,6 +62,12 @@ namespace AutomatizacionResidencias
         public string Descripcion { get; set; }
     }
     public class TablaHorario {
+        public int? No_proyecto { get; set; }
 
+        public int? IdPresentacion { get; set; }
+        public int? IdGrupo { get; set; }
+        public DateTime? Fecha { get; set; }
+        public TimeSpan? Horainicio { get; set; }
+        public TimeSpan? HoraFin { get; set; }
     }
 }

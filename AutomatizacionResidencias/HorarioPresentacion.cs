@@ -23,7 +23,7 @@ namespace AutomatizacionResidencias
         public Nullable<bool> Activo { get; set; }
         public Nullable<bool> Estado { get; set; }
     
-        public virtual Grupos Grupos { get; set; }
         public virtual Proyecto_Residencia Proyecto_Residencia { get; set; }
+        public virtual Grupos Grupos { get; set; }
     }
 }

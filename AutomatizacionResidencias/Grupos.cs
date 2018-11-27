@@ -23,8 +23,8 @@ namespace AutomatizacionResidencias
         public int IdGrupo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public string Fechainicio { get; set; }
-        public string Fechafin { get; set; }
+        public Nullable<System.DateTime> Fechainicio { get; set; }
+        public Nullable<System.DateTime> Fechafin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HorarioPresentacion> HorarioPresentacion { get; set; }

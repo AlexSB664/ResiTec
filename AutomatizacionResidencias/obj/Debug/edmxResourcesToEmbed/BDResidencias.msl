@@ -42,17 +42,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Grupos">
-      <EntityTypeMapping TypeName="ResidenciasModel.Grupos">
-        <MappingFragment StoreEntitySet="Grupos">
-          <ScalarProperty Name="Fechafin" ColumnName="Fechafin" />
-          <ScalarProperty Name="Fechainicio" ColumnName="Fechainicio" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="HorarioPresentacion">
       <EntityTypeMapping TypeName="ResidenciasModel.HorarioPresentacion">
         <MappingFragment StoreEntitySet="HorarioPresentacion">
@@ -121,6 +110,17 @@
           <ScalarProperty Name="Rol" ColumnName="Rol" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="ResidenciasModel.Grupos">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="Fechafin" ColumnName="Fechafin" />
+          <ScalarProperty Name="Fechainicio" ColumnName="Fechainicio" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
