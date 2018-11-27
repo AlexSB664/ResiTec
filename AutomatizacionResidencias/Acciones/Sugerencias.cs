@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Newtonsoft.Json;
 namespace AutomatizacionResidencias.Acciones
 {
     
@@ -41,12 +41,12 @@ namespace AutomatizacionResidencias.Acciones
         }
 
 
-        public bool salvarhorario(List<HorarioPresentacion> item) {
+        public bool salvarhorario(List<HorarioPresentacion> item,int grupoid) {
             try
             {
                 using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
                 {
-                    var yaexistentes = context.HorarioPresentacion;
+                    var yaexistentes = context.HorarioPresentacion.Where(x=>x.Id_Grupo==grupoid);
                     context.HorarioPresentacion.RemoveRange(yaexistentes);
                     context.SaveChanges();
 
@@ -55,6 +55,8 @@ namespace AutomatizacionResidencias.Acciones
 
                     try {
                         var grupo = context.Grupos.FirstOrDefault(x=>x.IdGrupo==item[0].Id_Grupo);
+
+                        MessageBox.Show(JsonConvert.SerializeObject(grupo));
                         grupo.Fechainicio = item.OrderBy(x=>x.Fecha).ToList()[0].Fecha;
                         grupo.Fechafin = item.OrderByDescending(x=>x.Fecha).ToList()[0].Fecha;
                         context.SaveChanges();
@@ -62,7 +64,7 @@ namespace AutomatizacionResidencias.Acciones
 
                     }
                     catch(Exception ex) {
-                        MessageBox.Show(ex.Message);
+                       // MessageBox.Show(ex.Message);
                     }
                     return true;
                 }
@@ -74,5 +76,10 @@ namespace AutomatizacionResidencias.Acciones
                 return false;
             }
         }
+
+
+
+        
+
     }
 }

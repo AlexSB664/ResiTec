@@ -138,6 +138,13 @@ namespace Administrador
             mostrandopryectos = true;
             mostrandoalumno = false;
             mostrandoasesores = false;
+            panelproyecto.Visible = true;
+            panelasesorinterno.Visible = false;
+            Pannelalumno.Visible = false;
+            panelproyecto.BringToFront();
+            panelasesorinterno.Dock = DockStyle.None;
+            Pannelalumno.Dock = DockStyle.None;
+            panelproyecto.Dock=DockStyle.Fill;
         }
 
         private void datosdealumno_Click(object sender, EventArgs e)
@@ -146,9 +153,16 @@ namespace Administrador
 
             alumno();
             mostrandopryectos = false;
-            mostrandoalumno = true;
             mostrandoasesores = false;
+            mostrandoalumno = true;
+            panelproyecto.Visible = false;
+            panelasesorinterno.Visible = false;
+            Pannelalumno.Visible = true;
 
+            Pannelalumno.BringToFront();
+            panelasesorinterno.Dock = DockStyle.None;
+            panelproyecto.Dock = DockStyle.None;
+            Pannelalumno.Dock = DockStyle.Fill;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -177,6 +191,10 @@ namespace Administrador
                 Detallesproyecto de = new Detallesproyecto(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
                 de.Show();
             }
+            if (mostrandoasesores) {
+                DetallesAsesorinterno dea = new DetallesAsesorinterno((int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())));
+                dea.Show();
+            }
            
         }
 
@@ -195,41 +213,52 @@ namespace Administrador
 
             asesor();
             mostrandopryectos = false;
-            mostrandoalumno = true;
-            mostrandoasesores = false;
+            mostrandoalumno = false;
+            mostrandoasesores = true;
+            panelproyecto.Visible = false;
+            panelasesorinterno.Visible = true;
+            Pannelalumno.Visible = false;
+            panelasesorinterno.BringToFront();
+            panelproyecto.Dock = DockStyle.None;
+            Pannelalumno.Dock = DockStyle.None;
+            panelasesorinterno.Dock = DockStyle.Fill;
+
+
+
+
+
+
         }
 
         private void Buscar_Click(object sender, EventArgs e)
         {
-            int noproy;
-            if (int.TryParse(Noproyectob.Text, out noproy))
-            {
-               proyectos= sug.Busquedadeproyectos(noproy);
-                proyecto();
-            }
-            else {
-                int nocontrol;
-                if (int.TryParse(Nocontrolb.Text, out nocontrol))
-                {
-
-                        alumnos = sug.Busquedaalumno(nocontrol, null);
-                
-                }
-                else
-                {
-                    if (Nombre.Text != null)
-                    {
-                        alumnos = sug.Busquedaalumno(null, Nombre.Text);
-                    }
-                    else
-                    {
-                        alumnos = sug.Busquedaalumno(nocontrol, null);
-                    }
-                    alumno();
-                }
+            if (mostrandoalumno) {
+                buscarproyecto();
             }
 
            
+        }
+
+
+
+        public void buscarproyecto() {
+            int noproy;
+            if (int.TryParse(Noproyectob.Text, out noproy))
+            {
+                proyectos = sug.Busquedadeproyectos(noproy);
+                proyecto();
+            }
+            else
+            {
+                int nocontrol;
+                if (int.TryParse(Nombreproyecto.Text, out nocontrol))
+                {
+
+                    alumnos = sug.Busquedaalumno(nocontrol, null);
+
+                }
+              
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -100,7 +100,18 @@ namespace Administrador
             MessageBox.Show("Se han guardado los cambios");
         }
 
-       
-
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Seguro que desea eliminar", "Confirme borrado",
+                                    MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                MessageBox.Show("Se elimino");
+            }
+            else
+            {
+                // If 'No', do something here.
+            }
+        }
     }
 }

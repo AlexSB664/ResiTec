@@ -50,6 +50,8 @@ namespace Administrador
             //var bindingSourceMonth = new BindingList<statusdeproyecto>(status);
 
             var source = new BindingSource(bindingList, null);
+            Residenciasparaasignar.DataSource = null;
+            Residenciasparaasignar.Rows.Clear();
             Residenciasparaasignar.DataSource = source;
 
 
@@ -83,6 +85,9 @@ namespace Administrador
             //var bindingSourceMonth = new BindingList<statusdeproyecto>(status);
 
             var source = new BindingSource(bindingList, null);
+            Residenciasasignadas.DataSource = null;
+            Residenciasasignadas.Rows.Clear();
+
             Residenciasasignadas.DataSource = source;
 
             Residenciasasignadas.Columns["IdPresentacion"].Visible = false;
@@ -174,14 +179,14 @@ namespace Administrador
                 var id = int.Parse(comboBox1.SelectedValue.ToString());
                 currentgroup = gruposs.FirstOrDefault(x=>x.IdGrupo== id);
                 grupo.Text = currentgroup.Nombre;
-
                 proyectosasignados = sug.horariosengrupos(currentgroup.IdGrupo);
                 proyectos = sug.proyectosregistradossinasignar();
 
                 proyectoasignados();
                 proyecto();
 
-            } catch { }
+            } catch(Exception ex) {
+            }
         }
 
         private void panel6_DoubleClick(object sender, EventArgs e)
@@ -230,12 +235,13 @@ namespace Administrador
         private void button2_Click(object sender, EventArgs e)
         {
             horariossave = new List<HorarioPresentacion>();
-
             foreach (var hor in proyectosasignados) {
+
                 horariossave.Add(new HorarioPresentacion {No_Proyecto=hor.No_proyecto,Fecha=hor.Fecha,Id_Grupo=hor.IdGrupo,HoraFin=hor.HoraFin,Horainicio=hor.Horainicio});
             }
 
-            if (sugerencias.salvarhorario(horariossave))
+
+            if (sugerencias.salvarhorario(horariossave,currentgroup.IdGrupo))
             {
                 MessageBox.Show("Horarios guardados");
             }

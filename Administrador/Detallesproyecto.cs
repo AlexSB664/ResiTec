@@ -14,6 +14,9 @@ namespace Administrador
     public partial class Detallesproyecto : Form
     {
         public int noproyecto;
+        public static List<TablaAlumno> alumnos = new List<TablaAlumno>();
+        public static Busquedaentablas sug = new Busquedaentablas();
+
         public static Proyecto_Residencia ProyectoResidencia=new Proyecto_Residencia();
         public static List<statusdeproyecto> statusdeproye = new List<statusdeproyecto>();
         public BindingSource bindingsourcestatus = new BindingSource();
@@ -58,6 +61,18 @@ namespace Administrador
             Status.DisplayMember = "nombre";
             Status.ValueMember = "IdStatus";
             Status.SelectedItem = null;
+
+            alumnos = sug.alumnosporproyecto(ProyectoResidencia.No_Proyecto);
+
+            alumno();
+        }
+
+        public void alumno()
+        {
+
+            var bindingList = new BindingList<TablaAlumno>(alumnos);
+            var source = new BindingSource(bindingList, null);
+            dataGridView1.DataSource = source;
         }
 
         private void Status_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,6 +88,25 @@ namespace Administrador
         {
             Cambiar_status ca = new Cambiar_status();
             ca.actualizarstatus(idstatus,noproyecto);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Seguro que desea eliminar","Confirme borrado",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                MessageBox.Show("Se elimino");
+            }
+            else
+            {
+                // If 'No', do something here.
+            }
         }
     }
 }

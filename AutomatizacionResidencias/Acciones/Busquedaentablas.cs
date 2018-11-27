@@ -138,6 +138,8 @@ namespace AutomatizacionResidencias.Acciones
             List<Tablaproyecto> residecias = new List<Tablaproyecto>();
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
+
+               // residecias = context.Proyecto_Residencia.Contains()
                 residecias = (from r in context.Proyecto_Residencia where r.No_Proyecto==Noproyecto select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList();
 
                 foreach (var r in residecias)
@@ -196,7 +198,7 @@ namespace AutomatizacionResidencias.Acciones
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
 
-                alumnos = (from r in context.HorarioPresentacion select new TablaHorario {No_proyecto=r.No_Proyecto,Fecha=r.Fecha,HoraFin=r.HoraFin,Horainicio=r.Horainicio,IdGrupo=r.Id_Grupo,IdPresentacion=r.IdPresentacion }).ToList();
+                alumnos = (from r in context.HorarioPresentacion where r.Id_Grupo==idgrupo select new TablaHorario {No_proyecto=r.No_Proyecto,Fecha=r.Fecha,HoraFin=r.HoraFin,Horainicio=r.Horainicio,IdGrupo=r.Id_Grupo,IdPresentacion=r.IdPresentacion }).ToList();
 
 
 
@@ -205,7 +207,58 @@ namespace AutomatizacionResidencias.Acciones
         }
 
 
+        public List<TablaAlumno> alumnosporproyecto(int? Noproyecto)
+        {
+            List<TablaAlumno> alumnos = new List<TablaAlumno>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                if (Noproyecto != null)
+                {
+                    alumnos = (from r in context.Alumno where r.NoProyecto == Noproyecto select new TablaAlumno { NoControl = r.NoControl, Apellido_Materno = r.Apellido_Materno, Apellido_Paterno = r.Apellido_Paterno, Correo = r.Correo, Nombre = r.Nombre, NoProyecto = r.NoProyecto, Semestre = r.Semestre, Telefono = r.Telefono }).ToList();
+                }
 
+               
+
+
+            }
+            return alumnos;
+        }
+
+
+        public Asesor_Interno Buscarasesorinternoespecifico(int asesoriid)
+        {
+            Asesor_Interno asesores = new Asesor_Interno();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                asesores = context.Asesor_Interno.FirstOrDefault(x=>x.IdAsesor==asesoriid);
+            }
+            return asesores;
+        }
+
+
+        public List<Tablaproyecto> Proyectosporasesor(int Idasesor)
+        {
+            List<Tablaproyecto> residecias = new List<Tablaproyecto>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+
+                // residecias = context.Proyecto_Residencia.Contains()
+                residecias = (from r in context.Proyecto_Residencia where r.IdAsesorInterno == Idasesor select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList();
+
+                foreach (var r in residecias)
+                {
+                    var status = context.Status.FirstOrDefault(x => x.IdStatus == r.Status);
+                    if (status != null)
+                    {
+                        r.color = status.Color;
+                        r.status = status.Descripcion;
+                    }
+                }
+
+            }
+            return residecias;
+
+        }
 
     }
 }

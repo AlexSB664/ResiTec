@@ -84,6 +84,12 @@
     <Compile Include="Detallesalumno.Designer.cs">
       <DependentUpon>Detallesalumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetallesAsesorinterno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetallesAsesorinterno.Designer.cs">
+      <DependentUpon>DetallesAsesorinterno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Detallesproyecto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Detallesalumno.resx">
       <DependentUpon>Detallesalumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetallesAsesorinterno.resx">
+      <DependentUpon>DetallesAsesorinterno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Detallesproyecto.resx">
       <DependentUpon>Detallesproyecto.cs</DependentUpon>
@@ -218,6 +227,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\1__3ihG_PMKFRk_TGX6x8rOw.png" />
+    <Content Include="Resources\delete.png" />
     <Content Include="Resources\LogoTecNM_Horizontal %281%29.png" />
     <Content Include="Resources\logo_ITT1.ico" />
     <Content Include="Resources\logo_ITT1.png" />

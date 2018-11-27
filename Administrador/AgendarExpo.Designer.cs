@@ -41,9 +41,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Residenciasparaasignar = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.grupo = new System.Windows.Forms.Label();
             this.Asignar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -60,7 +60,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1423, 101);
+            this.panel2.Size = new System.Drawing.Size(1370, 101);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -83,7 +83,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 54);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1423, 47);
+            this.panel5.Size = new System.Drawing.Size(1370, 47);
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -91,7 +91,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(1301, 0);
+            this.label2.Location = new System.Drawing.Point(1248, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 13);
             this.label2.TabIndex = 2;
@@ -120,7 +120,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 675);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1423, 38);
+            this.panel3.Size = new System.Drawing.Size(1370, 38);
             this.panel3.TabIndex = 3;
             // 
             // panel4
@@ -152,7 +152,7 @@
             // 
             this.panel1.Controls.Add(this.Residenciasparaasignar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(869, 101);
+            this.panel1.Location = new System.Drawing.Point(816, 101);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(554, 574);
             this.panel1.TabIndex = 5;
@@ -182,15 +182,26 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(635, 101);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(234, 574);
+            this.panel6.Size = new System.Drawing.Size(181, 574);
             this.panel6.TabIndex = 6;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             this.panel6.DoubleClick += new System.EventHandler(this.panel6_DoubleClick);
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::Administrador.Properties.Resources._1__3ihG_PMKFRk_TGX6x8rOw;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Location = new System.Drawing.Point(55, 396);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(96, 86);
+            this.button2.TabIndex = 2;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // grupo
             // 
             this.grupo.AutoSize = true;
-            this.grupo.Location = new System.Drawing.Point(106, 121);
+            this.grupo.Location = new System.Drawing.Point(87, 125);
             this.grupo.Name = "grupo";
             this.grupo.Size = new System.Drawing.Size(34, 13);
             this.grupo.TabIndex = 1;
@@ -199,7 +210,7 @@
             // 
             // Asignar
             // 
-            this.Asignar.Location = new System.Drawing.Point(71, 219);
+            this.Asignar.Location = new System.Drawing.Point(50, 220);
             this.Asignar.Name = "Asignar";
             this.Asignar.Size = new System.Drawing.Size(101, 28);
             this.Asignar.TabIndex = 0;
@@ -207,23 +218,12 @@
             this.Asignar.UseVisualStyleBackColor = true;
             this.Asignar.Click += new System.EventHandler(this.Asignar_Click);
             // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::Administrador.Properties.Resources._1__3ihG_PMKFRk_TGX6x8rOw;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(76, 398);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 86);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // AgendarExpo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1423, 713);
+            this.ClientSize = new System.Drawing.Size(1370, 713);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);

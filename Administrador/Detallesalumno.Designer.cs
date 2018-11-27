@@ -50,6 +50,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.correoelectronicoalumno = new System.Windows.Forms.TextBox();
             this.numtelefonoalumno = new System.Windows.Forms.TextBox();
             this.numsemestre = new System.Windows.Forms.TextBox();
@@ -62,6 +64,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.Eliminar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,22 +78,25 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label17);
-            this.panel3.Location = new System.Drawing.Point(12, 336);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 314);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(839, 95);
+            this.panel3.Size = new System.Drawing.Size(972, 95);
             this.panel3.TabIndex = 32;
             // 
             // Correoasesorinterno
             // 
-            this.Correoasesorinterno.Location = new System.Drawing.Point(583, 36);
+            this.Correoasesorinterno.Location = new System.Drawing.Point(567, 33);
             this.Correoasesorinterno.Name = "Correoasesorinterno";
+            this.Correoasesorinterno.ReadOnly = true;
             this.Correoasesorinterno.Size = new System.Drawing.Size(100, 20);
             this.Correoasesorinterno.TabIndex = 25;
             // 
             // Telefonoasesorinterno
             // 
-            this.Telefonoasesorinterno.Location = new System.Drawing.Point(378, 36);
+            this.Telefonoasesorinterno.Location = new System.Drawing.Point(357, 36);
             this.Telefonoasesorinterno.Name = "Telefonoasesorinterno";
+            this.Telefonoasesorinterno.ReadOnly = true;
             this.Telefonoasesorinterno.Size = new System.Drawing.Size(100, 20);
             this.Telefonoasesorinterno.TabIndex = 24;
             // 
@@ -98,13 +104,14 @@
             // 
             this.NombreAsesorinterno.Location = new System.Drawing.Point(123, 32);
             this.NombreAsesorinterno.Name = "NombreAsesorinterno";
+            this.NombreAsesorinterno.ReadOnly = true;
             this.NombreAsesorinterno.Size = new System.Drawing.Size(100, 20);
             this.NombreAsesorinterno.TabIndex = 23;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(510, 38);
+            this.label2.Location = new System.Drawing.Point(492, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 18;
@@ -113,7 +120,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(269, 38);
+            this.label15.Location = new System.Drawing.Point(248, 38);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(83, 13);
             this.label15.TabIndex = 17;
@@ -142,22 +149,24 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(12, 173);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 157);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 157);
+            this.panel2.Size = new System.Drawing.Size(972, 157);
             this.panel2.TabIndex = 31;
             // 
             // cargoasesor
             // 
-            this.cargoasesor.Location = new System.Drawing.Point(723, 43);
+            this.cargoasesor.Location = new System.Drawing.Point(829, 105);
             this.cargoasesor.Name = "cargoasesor";
+            this.cargoasesor.ReadOnly = true;
             this.cargoasesor.Size = new System.Drawing.Size(100, 20);
             this.cargoasesor.TabIndex = 29;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(614, 46);
+            this.label1.Location = new System.Drawing.Point(754, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 28;
@@ -177,6 +186,7 @@
             "9"});
             this.correoasesorext.Location = new System.Drawing.Point(107, 97);
             this.correoasesorext.Name = "correoasesorext";
+            this.correoasesorext.ReadOnly = true;
             this.correoasesorext.Size = new System.Drawing.Size(100, 20);
             this.correoasesorext.TabIndex = 26;
             // 
@@ -184,13 +194,15 @@
             // 
             this.telefonoasesorext.Location = new System.Drawing.Point(357, 101);
             this.telefonoasesorext.Name = "telefonoasesorext";
+            this.telefonoasesorext.ReadOnly = true;
             this.telefonoasesorext.Size = new System.Drawing.Size(100, 20);
             this.telefonoasesorext.TabIndex = 25;
             // 
             // NombreAsesorexterno
             // 
-            this.NombreAsesorexterno.Location = new System.Drawing.Point(495, 43);
+            this.NombreAsesorexterno.Location = new System.Drawing.Point(583, 104);
             this.NombreAsesorexterno.Name = "NombreAsesorexterno";
+            this.NombreAsesorexterno.ReadOnly = true;
             this.NombreAsesorexterno.Size = new System.Drawing.Size(100, 20);
             this.NombreAsesorexterno.TabIndex = 24;
             // 
@@ -198,14 +210,16 @@
             // 
             this.Nombreproyecto.Location = new System.Drawing.Point(107, 46);
             this.Nombreproyecto.Name = "Nombreproyecto";
-            this.Nombreproyecto.Size = new System.Drawing.Size(100, 20);
+            this.Nombreproyecto.ReadOnly = true;
+            this.Nombreproyecto.Size = new System.Drawing.Size(371, 20);
             this.Nombreproyecto.TabIndex = 23;
             // 
             // Nombreempresa
             // 
-            this.Nombreempresa.Location = new System.Drawing.Point(272, 43);
+            this.Nombreempresa.Location = new System.Drawing.Point(599, 49);
             this.Nombreempresa.Name = "Nombreempresa";
-            this.Nombreempresa.Size = new System.Drawing.Size(100, 20);
+            this.Nombreempresa.ReadOnly = true;
+            this.Nombreempresa.Size = new System.Drawing.Size(311, 20);
             this.Nombreempresa.TabIndex = 22;
             // 
             // label3
@@ -229,7 +243,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(394, 46);
+            this.label5.Location = new System.Drawing.Point(492, 108);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 13);
             this.label5.TabIndex = 17;
@@ -238,7 +252,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(222, 46);
+            this.label6.Location = new System.Drawing.Point(535, 52);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 16;
@@ -255,6 +269,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Eliminar);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.correoelectronicoalumno);
             this.panel1.Controls.Add(this.numtelefonoalumno);
             this.panel1.Controls.Add(this.numsemestre);
@@ -267,15 +284,34 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Location = new System.Drawing.Point(12, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(839, 157);
+            this.panel1.Size = new System.Drawing.Size(972, 157);
             this.panel1.TabIndex = 30;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(96, 39);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 30;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(35, 42);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 13);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "No control";
             // 
             // correoelectronicoalumno
             // 
-            this.correoelectronicoalumno.Location = new System.Drawing.Point(451, 97);
+            this.correoelectronicoalumno.Location = new System.Drawing.Point(495, 93);
             this.correoelectronicoalumno.Name = "correoelectronicoalumno";
+            this.correoelectronicoalumno.ReadOnly = true;
             this.correoelectronicoalumno.Size = new System.Drawing.Size(118, 20);
             this.correoelectronicoalumno.TabIndex = 28;
             // 
@@ -283,6 +319,7 @@
             // 
             this.numtelefonoalumno.Location = new System.Drawing.Point(272, 97);
             this.numtelefonoalumno.Name = "numtelefonoalumno";
+            this.numtelefonoalumno.ReadOnly = true;
             this.numtelefonoalumno.Size = new System.Drawing.Size(100, 20);
             this.numtelefonoalumno.TabIndex = 27;
             // 
@@ -300,6 +337,7 @@
             "9"});
             this.numsemestre.Location = new System.Drawing.Point(107, 97);
             this.numsemestre.Name = "numsemestre";
+            this.numsemestre.ReadOnly = true;
             this.numsemestre.Size = new System.Drawing.Size(100, 20);
             this.numsemestre.TabIndex = 26;
             // 
@@ -307,6 +345,7 @@
             // 
             this.Apellidomalumno.Location = new System.Drawing.Point(705, 39);
             this.Apellidomalumno.Name = "Apellidomalumno";
+            this.Apellidomalumno.ReadOnly = true;
             this.Apellidomalumno.Size = new System.Drawing.Size(100, 20);
             this.Apellidomalumno.TabIndex = 25;
             // 
@@ -314,6 +353,7 @@
             // 
             this.Apellidopalumno.Location = new System.Drawing.Point(495, 43);
             this.Apellidopalumno.Name = "Apellidopalumno";
+            this.Apellidopalumno.ReadOnly = true;
             this.Apellidopalumno.Size = new System.Drawing.Size(100, 20);
             this.Apellidopalumno.TabIndex = 24;
             // 
@@ -321,13 +361,14 @@
             // 
             this.nombrealumno.Location = new System.Drawing.Point(272, 43);
             this.nombrealumno.Name = "nombrealumno";
+            this.nombrealumno.ReadOnly = true;
             this.nombrealumno.Size = new System.Drawing.Size(100, 20);
             this.nombrealumno.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(394, 100);
+            this.label8.Location = new System.Drawing.Point(419, 96);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 21;
@@ -378,12 +419,24 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "Nombre";
             // 
+            // Eliminar
+            // 
+            this.Eliminar.BackColor = System.Drawing.Color.White;
+            this.Eliminar.BackgroundImage = global::Administrador.Properties.Resources.delete;
+            this.Eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Eliminar.Location = new System.Drawing.Point(868, 30);
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Size = new System.Drawing.Size(82, 67);
+            this.Eliminar.TabIndex = 31;
+            this.Eliminar.UseVisualStyleBackColor = false;
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+            // 
             // Editardatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(972, 491);
+            this.ClientSize = new System.Drawing.Size(972, 411);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -435,5 +488,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button Eliminar;
     }
 }
