@@ -39,7 +39,7 @@ namespace AutomatizacionResidencias.Decorator
             }
             catch(Exception ex)
                 {
-                Errores = ex.InnerException.Message;
+                Errores = ex.Message;
 
             }
         }

@@ -120,6 +120,12 @@
     <Compile Include="Nuevohorario.Designer.cs">
       <DependentUpon>Nuevohorario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Periodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Periodos.Designer.cs">
+      <DependentUpon>Periodos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProyectosdeResidencia.Designer.cs">
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nuevohorario.resx">
       <DependentUpon>Nuevohorario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Periodos.resx">
+      <DependentUpon>Periodos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

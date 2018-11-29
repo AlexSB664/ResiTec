@@ -10,19 +10,21 @@
         <EntityTypeShape EntityType="ResidenciasModel.BitacoraTransacciones" Width="1.5" PointX="8.25" PointY="5" />
         <EntityTypeShape EntityType="ResidenciasModel.HorarioPresentacion" Width="1.5" PointX="5.25" PointY="1.125" />
         <EntityTypeShape EntityType="ResidenciasModel.Params" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ResidenciasModel.Proyecto_Residencia" Width="1.5" PointX="3" PointY="4.5" />
         <EntityTypeShape EntityType="ResidenciasModel.Status" Width="1.5" PointX="0.75" PointY="2.75" />
         <EntityTypeShape EntityType="ResidenciasModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" />
         <EntityTypeShape EntityType="ResidenciasModel.Usuario" Width="1.5" PointX="3" PointY="9.625" />
-        <AssociationConnector Association="ResidenciasModel.FK_Alumno_Proyecto_Residencia" />
         <AssociationConnector Association="ResidenciasModel.FK_Alumno_Usuario" />
-        <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno" />
-        <AssociationConnector Association="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" />
         <AssociationConnector Association="ResidenciasModel.FK_BitacoraTransacciones_Usuario" />
-        <AssociationConnector Association="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" />
-        <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Status" />
         <EntityTypeShape EntityType="ResidenciasModel.Grupos" Width="1.5" PointX="5.375" PointY="9.875" />
         <AssociationConnector Association="ResidenciasModel.FK_HorarioPresentacion_Grupos" />
+        <EntityTypeShape EntityType="ResidenciasModel.Periodos" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ResidenciasModel.Proyecto_Residencia" Width="1.5" PointX="3" PointY="3.375" />
+        <AssociationConnector Association="ResidenciasModel.FK_Alumno_Proyecto_Residencia" />
+        <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno" />
+        <AssociationConnector Association="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" />
+        <AssociationConnector Association="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" />
+        <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Periodos" />
+        <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Status" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

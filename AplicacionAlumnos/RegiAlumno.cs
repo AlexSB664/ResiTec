@@ -132,11 +132,25 @@ namespace AplicacionAlumnos
                 cargoasesor.Text = proyecto.Cargo_Asesor_Externo;
                 correoasesorext.Text = proyecto.Correo_Asesor_Externo;
                 telefonoasesorext.Text = proyecto.Telefono_Asesor_Externo;
-                NombreAsesorinterno.Text = asesor.Nombre;
-                proyectoresidencia = proyecto;
-                Nopro = proyecto.No_Proyecto;
                 residenciaexistente = true;
-                asesorinternoexistente = true;
+                proyectoresidencia = proyecto;
+                if (proyecto.IdAsesorInterno != null)
+                {
+                    try
+                    {
+                        AsesoresInternos.SelectedValue = proyecto.IdAsesorInterno;
+                       // Cambiarasesor.Visible = true;
+                        AsesoresInternos.Enabled = false;
+                    }
+                    catch { }
+                }
+                else {
+
+                    asesorinternoexistente = false;
+
+                }
+
+
             }
             catch
             {
@@ -180,6 +194,72 @@ namespace AplicacionAlumnos
                 asesorinternoexistente = true;
             }
             catch { }
+        }
+
+        private void Nombreproyecto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Residencias.Enabled)
+            {
+                Residencias.Enabled = false;
+                Nombreproyecto.ReadOnly = false;
+                Nombreempresa.ReadOnly = false;
+                NombreAsesorexterno.ReadOnly = false;
+                cargoasesor.ReadOnly = false;
+                correoasesorext.ReadOnly = false; ;
+                telefonoasesorext.ReadOnly = false;
+                nuevoproyectobutton.BackColor = Color.Navy;
+                nuevoproyectobutton.Text = "Asignar Proyecto de residencia existente";
+                AsesoresInternos.Enabled = true;
+            }
+            else {
+                Residencias.Enabled = true;
+                Nombreproyecto.ReadOnly = true;
+                Nombreempresa.ReadOnly = true;
+                NombreAsesorexterno.ReadOnly = true;
+                cargoasesor.ReadOnly = true;
+                correoasesorext.ReadOnly = true; ;
+                telefonoasesorext.ReadOnly = true;
+                nuevoproyectobutton.BackColor = Color.RoyalBlue;
+                nuevoproyectobutton.Text = "Registrar nuevo proyecto de residencia";
+                AsesoresInternos.Enabled = false;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (AsesoresInternos.Enabled) {
+                AsesoresInternos.Enabled = false;
+                asesorinternoexistente = false;
+                //Cambiarasesor.Visible = true;
+                NombreAsesorinterno.ReadOnly = false;
+                Correoasesorinterno.ReadOnly = false;
+                Telefonoasesorinterno.ReadOnly = false;
+                button3.BackColor = Color.Navy;
+                button3.Text = "Asignar Asesor interno existente";
+
+            }
+            else
+            {
+                AsesoresInternos.Enabled = true;
+                asesorinternoexistente = true;
+                //Cambiarasesor.Visible = true;
+                NombreAsesorinterno.ReadOnly = true;
+                Correoasesorinterno.ReadOnly = true;
+                Telefonoasesorinterno.ReadOnly = true;
+                button3.BackColor = Color.RoyalBlue;
+                button3.Text = "Registrar un nuevo Asesor interno";
+            }
+            
+        }
+
+        private void Cambiarasesor_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

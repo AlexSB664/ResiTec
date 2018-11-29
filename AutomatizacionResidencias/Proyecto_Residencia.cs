@@ -32,7 +32,7 @@ namespace AutomatizacionResidencias
         public Nullable<System.DateTime> Fecha_Registro { get; set; }
         public Nullable<int> IdAsesorInterno { get; set; }
         public Nullable<int> IdStatus { get; set; }
-        public string Periodo { get; set; }
+        public Nullable<int> Periodo { get; set; }
         public Nullable<System.DateTime> Ultima_modificacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -42,6 +42,7 @@ namespace AutomatizacionResidencias
         public virtual ICollection<BitacoraTransacciones> BitacoraTransacciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HorarioPresentacion> HorarioPresentacion { get; set; }
+        public virtual Periodos Periodos { get; set; }
         public virtual Status Status { get; set; }
     }
 }

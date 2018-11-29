@@ -68,6 +68,14 @@
     <Property Name="Valor" Type="varchar" MaxLength="50" />
     <Property Name="Idparam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
+  <EntityType Name="Periodos">
+    <Key>
+      <PropertyRef Name="Idperiodo" />
+    </Key>
+    <Property Name="Idperiodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="año" Type="int" />
+    <Property Name="periodo" Type="bit" />
+  </EntityType>
   <EntityType Name="Proyecto Residencia">
     <Key>
       <PropertyRef Name="No Proyecto" />
@@ -82,7 +90,7 @@
     <Property Name="Fecha Registro" Type="datetime" />
     <Property Name="IdAsesorInterno" Type="int" />
     <Property Name="IdStatus" Type="int" />
-    <Property Name="Periodo" Type="varchar" MaxLength="50" />
+    <Property Name="Periodo" Type="int" />
     <Property Name="Ultima modificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Status">
@@ -196,6 +204,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Proyecto Residencia_Periodos">
+    <End Role="Periodos" Type="Self.Periodos" Multiplicity="0..1" />
+    <End Role="Proyecto Residencia" Type="Self.Proyecto Residencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodos">
+        <PropertyRef Name="Idperiodo" />
+      </Principal>
+      <Dependent Role="Proyecto Residencia">
+        <PropertyRef Name="Periodo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Proyecto Residencia_Status">
     <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
     <End Role="Proyecto Residencia" Type="Self.Proyecto Residencia" Multiplicity="*" />
@@ -216,6 +236,7 @@
     <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HorarioPresentacion" EntityType="Self.HorarioPresentacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Params" EntityType="Self.Params" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Periodos" EntityType="Self.Periodos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Proyecto Residencia" EntityType="Self.Proyecto Residencia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -246,6 +267,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Proyecto Residencia_Asesor Interno" Association="Self.FK_Proyecto Residencia_Asesor Interno">
       <End Role="Asesor Interno" EntitySet="Asesor Interno" />
+      <End Role="Proyecto Residencia" EntitySet="Proyecto Residencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proyecto Residencia_Periodos" Association="Self.FK_Proyecto Residencia_Periodos">
+      <End Role="Periodos" EntitySet="Periodos" />
       <End Role="Proyecto Residencia" EntitySet="Proyecto Residencia" />
     </AssociationSet>
     <AssociationSet Name="FK_Proyecto Residencia_Status" Association="Self.FK_Proyecto Residencia_Status">

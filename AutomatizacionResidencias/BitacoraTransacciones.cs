@@ -24,7 +24,7 @@ namespace AutomatizacionResidencias
         public Nullable<int> No_Proyecto { get; set; }
         public string Usuario { get; set; }
     
-        public virtual Proyecto_Residencia Proyecto_Residencia { get; set; }
         public virtual Usuario Usuario1 { get; set; }
+        public virtual Proyecto_Residencia Proyecto_Residencia { get; set; }
     }
 }

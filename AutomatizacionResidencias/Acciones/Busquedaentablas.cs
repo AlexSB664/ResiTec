@@ -14,7 +14,7 @@ namespace AutomatizacionResidencias.Acciones
             List<Tablaproyecto> residecias = new List<Tablaproyecto>();
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
-                residecias = (from r in context.Proyecto_Residencia  select new Tablaproyecto { No_Proyecto = r.No_Proyecto,Asesorinterno=r.IdAsesorInterno,Cargo_Asesor_Externo=r.Cargo_Asesor_Externo,Correo_Asesor_Externo=r.Correo_Asesor_Externo,Nombre_Asesor_Externo=r.Nombre_Asesor_Externo,Telefono_Asesor_Externo=r.Telefono_Asesor_Externo,Fecha_Registro=r.Fecha_Registro,Nombre_de_la_Empresa=r.Nombre_de_la_Empresa,Nombre_Proyecto=r.Nombre_Proyecto,Periodo=r.Periodo,Status=r.IdStatus,color=null }).ToList();
+                residecias = (from r in context.Proyecto_Residencia  select new Tablaproyecto { No_Proyecto = r.No_Proyecto,Asesorinterno=r.IdAsesorInterno,Cargo_Asesor_Externo=r.Cargo_Asesor_Externo,Correo_Asesor_Externo=r.Correo_Asesor_Externo,Nombre_Asesor_Externo=r.Nombre_Asesor_Externo,Telefono_Asesor_Externo=r.Telefono_Asesor_Externo,Fecha_Registro=r.Fecha_Registro,Nombre_de_la_Empresa=r.Nombre_de_la_Empresa,Nombre_Proyecto=r.Nombre_Proyecto,Periodo=r.Periodo.ToString(),Status=r.IdStatus,color=null }).ToList();
 
                 foreach (var r in residecias) {
                     var status = context.Status.FirstOrDefault(x=>x.IdStatus==r.Status);
@@ -34,7 +34,7 @@ namespace AutomatizacionResidencias.Acciones
             List<Tablaproyecto> residecias = new List<Tablaproyecto>();
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
-                residecias = (from r in context.Proyecto_Residencia where !context.HorarioPresentacion.Any(x=>x.No_Proyecto==r.No_Proyecto) select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList();
+                residecias = (from r in context.Proyecto_Residencia where !context.HorarioPresentacion.Any(x=>x.No_Proyecto==r.No_Proyecto) select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo.ToString(), Status = r.IdStatus, color = null }).ToList();
 
                
 
@@ -59,7 +59,7 @@ namespace AutomatizacionResidencias.Acciones
             Tablaproyecto residecias = new Tablaproyecto();
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
-                residecias = (from r in context.Proyecto_Residencia where Noproyecto==r.No_Proyecto select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList()[0];
+                residecias = (from r in context.Proyecto_Residencia where Noproyecto==r.No_Proyecto select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo.ToString(), Status = r.IdStatus, color = null }).ToList()[0];
 
 
 
@@ -140,7 +140,7 @@ namespace AutomatizacionResidencias.Acciones
             {
 
                // residecias = context.Proyecto_Residencia.Contains()
-                residecias = (from r in context.Proyecto_Residencia where r.No_Proyecto==Noproyecto select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList();
+                residecias = (from r in context.Proyecto_Residencia where r.No_Proyecto==Noproyecto select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo.ToString(), Status = r.IdStatus, color = null }).ToList();
 
                 foreach (var r in residecias)
                 {
@@ -243,7 +243,7 @@ namespace AutomatizacionResidencias.Acciones
             {
 
                 // residecias = context.Proyecto_Residencia.Contains()
-                residecias = (from r in context.Proyecto_Residencia where r.IdAsesorInterno == Idasesor select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo, Status = r.IdStatus, color = null }).ToList();
+                residecias = (from r in context.Proyecto_Residencia where r.IdAsesorInterno == Idasesor select new Tablaproyecto { No_Proyecto = r.No_Proyecto, Asesorinterno = r.IdAsesorInterno, Cargo_Asesor_Externo = r.Cargo_Asesor_Externo, Correo_Asesor_Externo = r.Correo_Asesor_Externo, Nombre_Asesor_Externo = r.Nombre_Asesor_Externo, Telefono_Asesor_Externo = r.Telefono_Asesor_Externo, Fecha_Registro = r.Fecha_Registro, Nombre_de_la_Empresa = r.Nombre_de_la_Empresa, Nombre_Proyecto = r.Nombre_Proyecto, Periodo = r.Periodo.ToString(), Status = r.IdStatus, color = null }).ToList();
 
                 foreach (var r in residecias)
                 {

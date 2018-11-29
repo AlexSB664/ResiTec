@@ -32,11 +32,12 @@ namespace AutomatizacionResidencias
         public virtual DbSet<BitacoraTransacciones> BitacoraTransacciones { get; set; }
         public virtual DbSet<HorarioPresentacion> HorarioPresentacion { get; set; }
         public virtual DbSet<Params> Params { get; set; }
-        public virtual DbSet<Proyecto_Residencia> Proyecto_Residencia { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Grupos> Grupos { get; set; }
+        public virtual DbSet<Periodos> Periodos { get; set; }
+        public virtual DbSet<Proyecto_Residencia> Proyecto_Residencia { get; set; }
     
         public virtual int generarnip()
         {

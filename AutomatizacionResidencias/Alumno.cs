@@ -23,7 +23,7 @@ namespace AutomatizacionResidencias
         public string Correo { get; set; }
         public Nullable<int> NoProyecto { get; set; }
     
-        public virtual Proyecto_Residencia Proyecto_Residencia { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public virtual Proyecto_Residencia Proyecto_Residencia { get; set; }
     }
 }

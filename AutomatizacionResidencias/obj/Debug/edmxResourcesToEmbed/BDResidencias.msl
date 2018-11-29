@@ -65,24 +65,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Proyecto_Residencia">
-      <EntityTypeMapping TypeName="ResidenciasModel.Proyecto_Residencia">
-        <MappingFragment StoreEntitySet="Proyecto Residencia">
-          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima modificacion" />
-          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
-          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
-          <ScalarProperty Name="IdAsesorInterno" ColumnName="IdAsesorInterno" />
-          <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha Registro" />
-          <ScalarProperty Name="Correo_Asesor_Externo" ColumnName="Correo Asesor Externo" />
-          <ScalarProperty Name="Telefono_Asesor_Externo" ColumnName="Telefono Asesor Externo" />
-          <ScalarProperty Name="Cargo_Asesor_Externo" ColumnName="Cargo Asesor Externo" />
-          <ScalarProperty Name="Nombre_Asesor_Externo" ColumnName="Nombre Asesor Externo" />
-          <ScalarProperty Name="Nombre_de_la_Empresa" ColumnName="Nombre de la Empresa" />
-          <ScalarProperty Name="Nombre_Proyecto" ColumnName="Nombre Proyecto" />
-          <ScalarProperty Name="No_Proyecto" ColumnName="No Proyecto" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Status">
       <EntityTypeMapping TypeName="ResidenciasModel.Status">
         <MappingFragment StoreEntitySet="Status">
@@ -121,6 +103,33 @@
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodos">
+      <EntityTypeMapping TypeName="ResidenciasModel.Periodos">
+        <MappingFragment StoreEntitySet="Periodos">
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="Idperiodo" ColumnName="Idperiodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proyecto_Residencia">
+      <EntityTypeMapping TypeName="ResidenciasModel.Proyecto_Residencia">
+        <MappingFragment StoreEntitySet="Proyecto Residencia">
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima modificacion" />
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+          <ScalarProperty Name="IdAsesorInterno" ColumnName="IdAsesorInterno" />
+          <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha Registro" />
+          <ScalarProperty Name="Correo_Asesor_Externo" ColumnName="Correo Asesor Externo" />
+          <ScalarProperty Name="Telefono_Asesor_Externo" ColumnName="Telefono Asesor Externo" />
+          <ScalarProperty Name="Cargo_Asesor_Externo" ColumnName="Cargo Asesor Externo" />
+          <ScalarProperty Name="Nombre_Asesor_Externo" ColumnName="Nombre Asesor Externo" />
+          <ScalarProperty Name="Nombre_de_la_Empresa" ColumnName="Nombre de la Empresa" />
+          <ScalarProperty Name="Nombre_Proyecto" ColumnName="Nombre Proyecto" />
+          <ScalarProperty Name="No_Proyecto" ColumnName="No Proyecto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
