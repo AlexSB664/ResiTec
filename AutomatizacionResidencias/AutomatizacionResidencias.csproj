@@ -71,6 +71,7 @@
     <Compile Include="Acciones\Conexion.cs" />
     <Compile Include="Acciones\Crearformatos.cs" />
     <Compile Include="Acciones\Enviarcorreo.cs" />
+    <Compile Include="Acciones\Periodos.cs" />
     <Compile Include="Acciones\Sugerencias.cs" />
     <Compile Include="Acciones\Tablas.cs" />
     <Compile Include="Alumno.cs">

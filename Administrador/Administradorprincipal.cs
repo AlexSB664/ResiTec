@@ -18,7 +18,7 @@ namespace Administrador
 
         Reenviarnip re = new Reenviarnip();
         Formatos formatos = new Formatos();
-
+        Periodos perio = new Periodos();
         public static Busquedaentablas sug = new Busquedaentablas();
         public static List<Tablaproyecto> proyectos = new List<Tablaproyecto>();
         public static List<TablaAlumno> alumnos = new List<TablaAlumno>();
@@ -267,6 +267,14 @@ namespace Administrador
                 ag = new AgendarExpo();
             }
             ag.Show();
+        }
+
+        private void Periodo_Click(object sender, EventArgs e)
+        {
+            if (perio.IsDisposed) {
+                perio = new Periodos();
+            }
+            perio.Show();
         }
     }
 }

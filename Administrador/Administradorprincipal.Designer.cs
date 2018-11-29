@@ -40,8 +40,10 @@
             this.button8 = new System.Windows.Forms.Button();
             this.Buscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Periodo = new System.Windows.Forms.Button();
             this.Pannelalumno = new System.Windows.Forms.Panel();
             this.Nocontrolb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -68,8 +70,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -221,6 +221,18 @@
             this.panel1.Size = new System.Drawing.Size(129, 499);
             this.panel1.TabIndex = 19;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(12, 315);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 48);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Status";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.proyectosresidencia);
@@ -234,7 +246,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button4);
+            this.panel3.Controls.Add(this.Periodo);
             this.panel3.Controls.Add(this.Pannelalumno);
             this.panel3.Controls.Add(this.panelasesorinterno);
             this.panel3.Controls.Add(this.panelproyecto);
@@ -243,6 +255,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1188, 64);
             this.panel3.TabIndex = 21;
+            // 
+            // Periodo
+            // 
+            this.Periodo.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Periodo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Periodo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Periodo.Location = new System.Drawing.Point(1088, 0);
+            this.Periodo.Name = "Periodo";
+            this.Periodo.Size = new System.Drawing.Size(100, 64);
+            this.Periodo.TabIndex = 14;
+            this.Periodo.Text = "Periodo";
+            this.Periodo.UseVisualStyleBackColor = false;
+            this.Periodo.Click += new System.EventHandler(this.Periodo_Click);
             // 
             // Pannelalumno
             // 
@@ -474,30 +499,6 @@
             this.panel4.Size = new System.Drawing.Size(1188, 349);
             this.panel4.TabIndex = 22;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(12, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 48);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Status";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(1088, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 64);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Periodo";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // Administradorprincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,6 +571,6 @@
         private System.Windows.Forms.TextBox Nocontrolb;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Periodo;
     }
 }
