@@ -137,19 +137,20 @@
             this.button6.BackColor = System.Drawing.Color.RoyalBlue;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(12, 198);
+            this.button6.Location = new System.Drawing.Point(12, 301);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 43);
             this.button6.TabIndex = 7;
             this.button6.Text = "HIstorial de cambios";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Visible = false;
             // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.RoyalBlue;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(12, 257);
+            this.button7.Location = new System.Drawing.Point(12, 189);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 43);
             this.button7.TabIndex = 8;
@@ -225,7 +226,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.RoyalBlue;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(12, 315);
+            this.button1.Location = new System.Drawing.Point(12, 247);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 48);
             this.button1.TabIndex = 2;

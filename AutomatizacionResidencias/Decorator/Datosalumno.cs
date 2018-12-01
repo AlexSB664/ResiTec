@@ -63,6 +63,12 @@ namespace AutomatizacionResidencias.Decorator
                 alumno.Apellido_Materno = al.Apellido_Materno;
                 alumno.Usuario = al.Usuario;
                 alumno.NoProyecto = al.NoProyecto;
+                try
+                {
+                    alumno.Proyecto_Residencia = al.Proyecto_Residencia;
+                }
+                catch { }
+
             }
             catch (Exception ex)
             {

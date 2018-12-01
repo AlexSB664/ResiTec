@@ -14,6 +14,9 @@ namespace Administrador
         public static bool periodo = true;
         AutomatizacionResidencias.Acciones.Periodos op = new AutomatizacionResidencias.Acciones.Periodos();
         public List<AutomatizacionResidencias.Periodos> periodos = new List<AutomatizacionResidencias.Periodos>();
+
+       
+        public static string curper;
         public static BindingSource bin = new BindingSource();
         public Periodos()
         {
@@ -85,11 +88,13 @@ namespace Administrador
             string Errore = "";
             periodos = op.listaperiodos(out Errore);
             datagrid();
+
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            currentperiodo.Text = op.periodoactual().Idperiodo.ToString();
         }
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -100,6 +105,27 @@ namespace Administrador
                 
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string Errores = "";
+           curper=(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+
+
+
+
+            if (op.Establecerperiodo(curper, out Errores))
+            {
+                currentperiodo.Text = curper;
+
+            }
+            else {
+                MessageBox.Show(Errores);
+            }
+
+
+
         }
     }
 }

@@ -7,6 +7,8 @@ using Newtonsoft.Json;
 
 using AutomatizacionResidencias.Acciones;
 using AutomatizacionResidencias;
+using System.Windows.Forms;
+
 namespace AutomatizacionResidencias
 {
 
@@ -42,7 +44,7 @@ namespace AutomatizacionResidencias
                         this.Usuario.Password =(r.Next(10000,99999).ToString());
                         context.Usuario.Add(this.Usuario);
 
-                        
+                        MessageBox.Show(this.Proyecto_Residencia.Nombre_de_la_Empresa);
                         context.Alumno.Add(this);
                         context.SaveChanges();
                         NotifyObserver(out Errores);

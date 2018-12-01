@@ -37,8 +37,11 @@ namespace AplicacionAlumnos
         public List<Asesor_Interno> asesores = new List<Asesor_Interno>();
         public static Sugerencias sugerencia= new Sugerencias();
         public static bool residenciaexistente = false;
-        public static bool asesorinternoexistente = false;
+        public static bool asesorinternoexistente = true;
         public static int Nopro;
+        public static AutomatizacionResidencias.Acciones.Periodos opperiodos = new AutomatizacionResidencias.Acciones.Periodos();
+        
+        public AutomatizacionResidencias.Periodos periodocurrent = new AutomatizacionResidencias.Periodos();
         public RegiAlumno()
         {
             InitializeComponent();
@@ -46,6 +49,9 @@ namespace AplicacionAlumnos
 
         private void guardardatosalumno(object sender, EventArgs e)
         {
+
+
+
             RegiAlumno.matricula = NoControl.Text;
             RegiAlumno.nombre = nombrealumno.Text;
             RegiAlumno.apellidoPa = Apellidopalumno.Text;
@@ -82,7 +88,7 @@ namespace AplicacionAlumnos
                 proyectoresidencia.Correo_Asesor_Externo = correoasesorext.Text;
                 proyectoresidencia.Asesor_Interno = asesorinterno;
                 proyectoresidencia.Fecha_Registro = DateTime.Now;
-
+                proyectoresidencia.Periodo = periodocurrent.Idperiodo;
                 alumno.Proyecto_Residencia = proyectoresidencia;
 
                 if (asesorinternoexistente == false)
@@ -91,19 +97,25 @@ namespace AplicacionAlumnos
                     asesorinterno.Nombre = NombreAsesorinterno.Text ;
                     asesorinterno.Telefono = Telefonoasesorinterno.Text;
                     asesorinterno.Correo = Correoasesorinterno.Text;
-                    proyectoresidencia.Asesor_Interno = asesorinterno;
-                    regalumno.Registrardatos(JsonConvert.SerializeObject(alumno), out Errores);
+                   alumno.Proyecto_Residencia.Asesor_Interno = asesorinterno;
 
+                    regalumno.Registrardatosresidenciaelegida(JsonConvert.SerializeObject(alumno), out Errores);
 
                 }
                 else {
-                    alumno.Proyecto_Residencia.IdAsesorInterno=asesorinterno.IdAsesor;
+                   // alumno.Proyecto_Residencia.Asesor_Interno=asesorinterno;
+
+
+
 
                 }
             }
             else {
+
+
                 alumno.NoProyecto = proyectoresidencia.No_Proyecto;
-                regalumno.Registrardatosresidenciaelegida(JsonConvert.SerializeObject(alumno), out Errores);
+                alumno.Proyecto_Residencia = proyectoresidencia;
+                 regalumno.Registrardatosresidenciaelegida(JsonConvert.SerializeObject(alumno), out Errores);
 
 
             }
@@ -112,10 +124,10 @@ namespace AplicacionAlumnos
 
 
 
-
-            if (Errores != null) {
+            if (Errores != null && Errores!="" ) {
                 MessageBox.Show(Errores);
             }
+
             
 
         }
@@ -166,19 +178,25 @@ namespace AplicacionAlumnos
 
         private void RegiAlumno_Load(object sender, EventArgs e)
         {
+            
             proyectos = sugerencia.proyectosregistrados();
             bindingsourceproyectos.DataSource = proyectos;
             Residencias.DataSource = bindingsourceproyectos.DataSource;
             Residencias.DisplayMember = "Nombre_Proyecto";
             Residencias.ValueMember = "No_Proyecto";
-
+            
             asesores = sugerencia.Asesoresinternos();
             bindingsourceasesores.DataSource = asesores;
             AsesoresInternos.DataSource = bindingsourceasesores.DataSource;
             AsesoresInternos.DisplayMember = "Nombre";
             AsesoresInternos.ValueMember = "IdAsesor";
+
+
             Residencias.SelectedItem = null;
             AsesoresInternos.SelectedItem = null;
+            
+            periodocurrent = opperiodos.periodoactual();
+            
         }
 
         private void AsesoresInternos_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,11 +204,10 @@ namespace AplicacionAlumnos
             try
             {
                 var asesor = asesores.FirstOrDefault(x => x.IdAsesor == AsesoresInternos.SelectedIndex);
-
+                asesorinterno = asesor;
                 NombreAsesorinterno.Text = asesor.Nombre;
                 Telefonoasesorinterno.Text = asesor.Telefono;
                 Correoasesorinterno.Text = asesor.Correo;
-                residenciaexistente = true;
                 asesorinternoexistente = true;
             }
             catch { }
@@ -259,6 +276,11 @@ namespace AplicacionAlumnos
 
         private void Cambiarasesor_Click(object sender, EventArgs e)
         {
+
+        }
+
+        public void validar() {
+
 
         }
     }
