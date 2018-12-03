@@ -33,7 +33,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.proyectosresidencia = new System.Windows.Forms.Button();
             this.datosdealumno = new System.Windows.Forms.Button();
@@ -142,19 +141,6 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(12, 301);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 43);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "HIstorial de cambios";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Visible = false;
-            // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.RoyalBlue;
@@ -226,7 +212,6 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -621,7 +606,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button proyectosresidencia;
         private System.Windows.Forms.Button datosdealumno;
