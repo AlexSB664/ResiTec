@@ -50,6 +50,8 @@
             this.Nombreasesorinterno = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.Pannelalumno = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.genero = new System.Windows.Forms.TextBox();
             this.Nocontrolb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.apellidomalumno = new System.Windows.Forms.TextBox();
@@ -65,6 +67,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.Periodo = new System.Windows.Forms.Button();
             this.panelproyecto = new System.Windows.Forms.Panel();
+            this.Status = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.Area = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.Noproyectob = new System.Windows.Forms.TextBox();
@@ -74,10 +78,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Status = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.genero = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -340,6 +340,22 @@
             this.Pannelalumno.TabIndex = 2;
             this.Pannelalumno.Visible = false;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(749, 2);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "Genero";
+            // 
+            // genero
+            // 
+            this.genero.Location = new System.Drawing.Point(750, 28);
+            this.genero.Name = "genero";
+            this.genero.Size = new System.Drawing.Size(50, 20);
+            this.genero.TabIndex = 25;
+            // 
             // Nocontrolb
             // 
             this.Nocontrolb.Location = new System.Drawing.Point(12, 29);
@@ -477,6 +493,23 @@
             this.panelproyecto.Name = "panelproyecto";
             this.panelproyecto.Size = new System.Drawing.Size(291, 64);
             this.panelproyecto.TabIndex = 1;
+            this.panelproyecto.Visible = false;
+            // 
+            // Status
+            // 
+            this.Status.Location = new System.Drawing.Point(480, 29);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(87, 20);
+            this.Status.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(507, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Status";
             // 
             // Area
             // 
@@ -550,38 +583,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1184, 349);
             this.panel4.TabIndex = 22;
-            // 
-            // Status
-            // 
-            this.Status.Location = new System.Drawing.Point(480, 29);
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(87, 20);
-            this.Status.TabIndex = 21;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(507, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Status";
-            // 
-            // genero
-            // 
-            this.genero.Location = new System.Drawing.Point(750, 28);
-            this.genero.Name = "genero";
-            this.genero.Size = new System.Drawing.Size(50, 20);
-            this.genero.TabIndex = 25;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(749, 2);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 13);
-            this.label13.TabIndex = 26;
-            this.label13.Text = "Genero";
             // 
             // Administradorprincipal
             // 

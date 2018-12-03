@@ -61,7 +61,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1522, 129);
+            this.panel2.Size = new System.Drawing.Size(1370, 129);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -86,7 +86,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 44);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1522, 85);
+            this.panel5.Size = new System.Drawing.Size(1370, 85);
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -94,7 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(1400, 0);
+            this.label2.Location = new System.Drawing.Point(1248, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 13);
             this.label2.TabIndex = 2;
@@ -123,7 +123,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 675);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1522, 38);
+            this.panel3.Size = new System.Drawing.Size(1370, 38);
             this.panel3.TabIndex = 3;
             // 
             // panel4
@@ -132,7 +132,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 129);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(694, 546);
+            this.panel4.Size = new System.Drawing.Size(514, 546);
             this.panel4.TabIndex = 4;
             // 
             // Residenciasasignadas
@@ -146,7 +146,7 @@
             this.Residenciasasignadas.Name = "Residenciasasignadas";
             this.Residenciasasignadas.ReadOnly = true;
             this.Residenciasasignadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Residenciasasignadas.Size = new System.Drawing.Size(694, 546);
+            this.Residenciasasignadas.Size = new System.Drawing.Size(514, 546);
             this.Residenciasasignadas.TabIndex = 0;
             this.Residenciasasignadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Residenciasasignadas_CellContentClick);
             this.Residenciasasignadas.DoubleClick += new System.EventHandler(this.Residenciasasignadas_DoubleClick);
@@ -155,7 +155,7 @@
             // 
             this.panel1.Controls.Add(this.Residenciasparaasignar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(901, 129);
+            this.panel1.Location = new System.Drawing.Point(749, 129);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(621, 546);
             this.panel1.TabIndex = 5;
@@ -184,9 +184,9 @@
             this.panel6.Controls.Add(this.grupo);
             this.panel6.Controls.Add(this.Asignar);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(694, 129);
+            this.panel6.Location = new System.Drawing.Point(514, 129);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(207, 546);
+            this.panel6.Size = new System.Drawing.Size(235, 546);
             this.panel6.TabIndex = 6;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             this.panel6.DoubleClick += new System.EventHandler(this.panel6_DoubleClick);
@@ -196,7 +196,7 @@
             this.Eliminar.BackColor = System.Drawing.Color.Red;
             this.Eliminar.BackgroundImage = global::Administrador.Properties.Resources.delete;
             this.Eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Eliminar.Location = new System.Drawing.Point(62, 407);
+            this.Eliminar.Location = new System.Drawing.Point(63, 409);
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Size = new System.Drawing.Size(96, 78);
             this.Eliminar.TabIndex = 32;
@@ -207,7 +207,7 @@
             // 
             this.button2.BackgroundImage = global::Administrador.Properties.Resources._1__3ihG_PMKFRk_TGX6x8rOw;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(62, 296);
+            this.button2.Location = new System.Drawing.Point(63, 293);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 86);
             this.button2.TabIndex = 2;
@@ -217,7 +217,7 @@
             // grupo
             // 
             this.grupo.AutoSize = true;
-            this.grupo.Location = new System.Drawing.Point(89, 153);
+            this.grupo.Location = new System.Drawing.Point(89, 150);
             this.grupo.Name = "grupo";
             this.grupo.Size = new System.Drawing.Size(34, 13);
             this.grupo.TabIndex = 1;
@@ -226,7 +226,7 @@
             // 
             // Asignar
             // 
-            this.Asignar.Location = new System.Drawing.Point(57, 213);
+            this.Asignar.Location = new System.Drawing.Point(58, 214);
             this.Asignar.Name = "Asignar";
             this.Asignar.Size = new System.Drawing.Size(101, 28);
             this.Asignar.TabIndex = 0;
@@ -239,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1522, 713);
+            this.ClientSize = new System.Drawing.Size(1370, 713);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
@@ -248,6 +248,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgendarExpo";
             this.Text = "AgendarExpo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AgendarExpo_Load);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

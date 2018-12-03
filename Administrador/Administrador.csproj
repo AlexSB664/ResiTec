@@ -247,6 +247,14 @@
     <None Include="ProyectosdeResidencia.xss">
       <DependentUpon>ProyectosdeResidencia.xsd</DependentUpon>
     </None>
+    <None Include="Templatesformatos\Asignacionasesorinterno.docx" />
+    <None Include="Templatesformatos\asignarevisor.docx" />
+    <None Include="Templatesformatos\constanciarevisores.docx" />
+    <None Include="Templatesformatos\Dictamen.docx" />
+    <None Include="Templatesformatos\formatopruebita.doc" />
+    <None Include="Templatesformatos\Registrodeproyecto.docx" />
+    <None Include="Templatesformatos\solicitudresidencia.docx" />
+    <None Include="Templatesformatos\test2.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

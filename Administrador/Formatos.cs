@@ -29,8 +29,56 @@ namespace Administrador
             alumno.buscaralumno(textBox1.Text);
            cr.establecer(alumno.alumno);
 
-            cr.crearword();
+            cr.crearwordsolicitudresidencia();
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            alumno = new EdicionDatosalumno();
+            alumno.buscaralumno(textBox1.Text);
+            cr.establecer(alumno.alumno);
+
+            cr.crearwordasignarrevisor();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            alumno = new EdicionDatosalumno();
+            alumno.buscaralumno(textBox1.Text);
+            cr.establecer(alumno.alumno);
+
+            cr.abrir();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            alumno = new EdicionDatosalumno();
+            alumno.buscaralumno(textBox1.Text);
+            cr.establecer(alumno.alumno);
+
+            cr.crearwordasignacionasesorinterno();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            alumno = new EdicionDatosalumno();
+            alumno.buscaralumno(textBox1.Text);
+            cr.establecer(alumno.alumno);
+
+            cr.crearwordconstanciarevisores();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            alumno = new EdicionDatosalumno();
+            alumno.buscaralumno(textBox1.Text);
+            cr.establecer(alumno.alumno);
+
+            cr.crearwordRegistroproyecto();
+
+        }
+    
     }
 }

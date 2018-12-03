@@ -90,133 +90,186 @@ namespace AutomatizacionResidencias
         }
 
 
-        public void HTMLToPDF(string html)
-        {
+        
+
+
+        public void crearwordsolicitudresidencia(){
+
+
             string destinipath = "Formatos\\" + solicitante.NoControl;
             if (!Directory.Exists(destinipath))
             {
                 Directory.CreateDirectory(destinipath);
             }
-            /*
-            StringWriter sw = new StringWriter();
-            sw.WriteLine(createhtmlbody(html));
-            StringReader sr = new StringReader(sw.ToString());
-            Document pdfDoc = new Document();
-            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-            PdfWriter.GetInstance(pdfDoc, new FileStream(destinipath+"formato1.pdf", FileMode.Create));
-            pdfDoc.Open();
-            htmlparser.Parse(sr);
-            pdfDoc.Close();
-            */
 
-            ConverterProperties properties = new ConverterProperties();
-            properties.SetBaseUri(html);
-            var cssText = System.IO.File.ReadAllText(html + @"\main.css");
-            //var htmlText = System.IO.File.ReadAllText(html + @"\Formato de registro de proyecto para titulacion integral (anexo 1) ITT-AC-PO-008-01 (2).html");
-            // HtmlConverter.ConvertToPdf(htmlText, new FileStream(destinipath+"\\Formatoregistro.pdf",FileMode.Create));
-            var htmlText = createhtmlbody(html);
-            /*
-            using (var css = new MemoryStream()) {
-                using (var htmlStream = new StringReader((htmlText)))
-                {
-
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        using (var document = new Document())
-                        {
-                            PdfWriter writer = PdfWriter.GetInstance(
-                                document, memoryStream
-                            );
-                            document.Open();
-                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, document, htmlStream);
-                        }
-                        File.WriteAllBytes(destinipath + "\\Formatoregistro.pdf", memoryStream.ToArray());
-                    }
-
-                }
-            }
-            */
-
-
-
-
-        }
-
-        public void ConvertHtmlToPdf(string xHtml)
-        {
-            string destinipath = "Formatos\\" + solicitante.NoControl;
-            var htmlText = createhtmlbody(xHtml);
-
-            // var cssText = System.IO.File.ReadAllText(xHtml + @"\main.css");
-            var cssText = "";
-            using (var stream = new FileStream(destinipath + "\\Formatoregistro.pdf", FileMode.Create))
-            {
-                using (var document = new Document())
-                {
-                    var writer = PdfWriter.GetInstance(document, stream);
-                    document.Open();
-
-                    // instantiate custom tag processor and add to `HtmlPipelineContext`.
-                    var tagProcessorFactory = Tags.GetHtmlTagProcessorFactory();
-
-                    var htmlPipelineContext = new HtmlPipelineContext(null);
-                    htmlPipelineContext.SetTagFactory(tagProcessorFactory);
-
-                    var pdfWriterPipeline = new PdfWriterPipeline(document, writer);
-                    var htmlPipeline = new HtmlPipeline(htmlPipelineContext, pdfWriterPipeline);
-
-                    // get an ICssResolver and add the custom CSS
-                    var cssResolver = XMLWorkerHelper.GetInstance().GetDefaultCssResolver(true);
-                    cssResolver.AddCss(cssText, "utf-8", true);
-                    var cssResolverPipeline = new CssResolverPipeline(
-                        cssResolver, htmlPipeline
-                    );
-
-                    var worker = new XMLWorker(cssResolverPipeline, true);
-                    var parser = new XMLParser(worker);
-                    using (var stringReader = new StringReader(htmlText))
-                    {
-                        parser.Parse(stringReader);
-                    }
-                }
-            }
-        }
-
-        public void crearword(){
-            DocX testTemplate = DocX.Load(@"Templatesformatos\ITT-AC-PO-007-03 FORMATO PARA ASIGNACION DE ASESOR INTRNO DE RESIDENCIAS PROFESIONALES (2).doc");
+            DocX testTemplate = DocX.Load(@"Templatesformatos\solicitudresidencia.docx");
             //Paragraph p = testTemplate.InsertParagraph("Hello World.");
 
             DocX testDoc = testTemplate;
             //Paragraph pa = testDoc.InsertParagraph("Foo.");
 
-            testDoc.SaveAs(@"Templatesformatos\test2.docx");
+            testDoc.ReplaceText("{Fecha}",DateTime.Now.Date.ToString());
+            testDoc.ReplaceText("{Nombreproyecto}",solicitante.Proyecto_Residencia.Nombre_Proyecto);
+            testDoc.ReplaceText("{nombreempresa}",solicitante.Proyecto_Residencia.Nombre_de_la_Empresa);
+            testDoc.ReplaceText("{Asesorexterno}",solicitante.Proyecto_Residencia.Nombre_Asesor_Externo);
+            testDoc.ReplaceText("{cargoasesor}",solicitante.Proyecto_Residencia.Cargo_Asesor_Externo);
+            testDoc.ReplaceText("{asesorexterno}",solicitante.Proyecto_Residencia.Nombre_Asesor_Externo);
+            testDoc.ReplaceText("{cargoasesorexterno}", solicitante.Proyecto_Residencia.Cargo_Asesor_Externo);
+            testDoc.ReplaceText("{nombrealumno}",solicitante.Nombre + " " + solicitante.Apellido_Paterno + " " + solicitante.Apellido_Materno);
+            testDoc.ReplaceText("{Nocontrol}", solicitante.NoControl.ToString());
+            testDoc.ReplaceText("{Correoalumno}", solicitante.Correo);
+            testDoc.ReplaceText("{telefonoalumno}", solicitante.Telefono);
+         
+
+            testDoc.SaveAs(destinipath+@"\Solicitudresidencia" +solicitante.NoControl+".docx");
             testTemplate.Save();
 
         }
 
 
-        private string createhtmlbody(string htmltamplate)
 
+
+        public void crearwordasignarrevisor()
         {
 
-            string body = string.Empty;
 
-            using (StreamReader reader = new StreamReader(@"Templatesformatos\1-FormatoDeRegistro\Formato de registro de proyecto para titulacion integral (anexo 1) ITT-AC-PO-008-01 (2).html"))
-
+            string destinipath = "Formatos\\" + solicitante.NoControl;
+            if (!Directory.Exists(destinipath))
             {
-
-                body = reader.ReadToEnd();
-
+                Directory.CreateDirectory(destinipath);
             }
 
-            body = body.Replace("{nombre}", solicitante.Nombre);
-            body = body.Replace("{apellido paterno}", solicitante.Apellido_Paterno );
-            body = body.Replace("{apellido materno}", solicitante.Apellido_Materno);
+            DocX testTemplate = DocX.Load(@"Templatesformatos\asignarevisor.docx");
+            //Paragraph p = testTemplate.InsertParagraph("Hello World.");
+
+            DocX testDoc = testTemplate;
+            //Paragraph pa = testDoc.InsertParagraph("Foo.");
+
+            testDoc.ReplaceText("{nombreproyecto}", solicitante.Proyecto_Residencia.Nombre_Proyecto);
+
+            testDoc.ReplaceText("{Nombrealumno}", solicitante.Nombre + " " + solicitante.Apellido_Paterno + " " + solicitante.Apellido_Materno);
+          
 
 
-
-            return body;
+            testDoc.SaveAs(destinipath + @"\asignarevisor" + solicitante.NoControl + ".docx");
+            testTemplate.Save();
 
         }
+
+        
+        public void crearwordconstanciarevisores()
+        {
+
+
+            string destinipath = "Formatos\\" + solicitante.NoControl;
+            if (!Directory.Exists(destinipath))
+            {
+                Directory.CreateDirectory(destinipath);
+            }
+
+            DocX testTemplate = DocX.Load(@"Templatesformatos\constanciarevisores.docx");
+            //Paragraph p = testTemplate.InsertParagraph("Hello World.");
+
+            DocX testDoc = testTemplate;
+            //Paragraph pa = testDoc.InsertParagraph("Foo.");
+            try
+            {
+                testDoc.ReplaceText("{nombrealumno}", solicitante.Nombre + " " + solicitante.Apellido_Paterno + " " + solicitante.Apellido_Materno);
+                testDoc.ReplaceText("{nocontrol}", solicitante.NoControl.ToString());
+                testDoc.ReplaceText("{nombreproyecto}", solicitante.Proyecto_Residencia.Nombre_Proyecto);
+                testDoc.ReplaceText("{nombreempresa}", solicitante.Proyecto_Residencia.Nombre_de_la_Empresa);
+                testDoc.ReplaceText("{nombreasesorinterno}", solicitante.Proyecto_Residencia.Asesor_Interno.Nombre);
+                testDoc.ReplaceText("{nombreasesorexterno}", solicitante.Proyecto_Residencia.Nombre_Asesor_Externo);
+            }
+            catch { }
+
+
+
+            testDoc.SaveAs(destinipath + @"\constanciarevisores" + solicitante.NoControl + ".docx");
+            testTemplate.Save();
+
+        }
+
+        public void crearwordasignacionasesorinterno()
+        {
+
+
+            string destinipath = "Formatos\\" + solicitante.NoControl;
+            if (!Directory.Exists(destinipath))
+            {
+                Directory.CreateDirectory(destinipath);
+            }
+
+            DocX testTemplate = DocX.Load(@"Templatesformatos\Asignacionasesorinterno.docx");
+            //Paragraph p = testTemplate.InsertParagraph("Hello World.");
+
+            DocX testDoc = testTemplate;
+            //Paragraph pa = testDoc.InsertParagraph("Foo.");
+            try
+            {
+                testDoc.ReplaceText("{nombrealumno}", solicitante.Nombre + " " + solicitante.Apellido_Paterno + " " + solicitante.Apellido_Materno);
+                testDoc.ReplaceText("{correoalumno}", solicitante.Correo);
+                testDoc.ReplaceText("{telefonoalumno}", solicitante.Telefono);
+                testDoc.ReplaceText("{nombreproyecto}", solicitante.Proyecto_Residencia.Nombre_Proyecto);
+                testDoc.ReplaceText("{nombreempresa}", solicitante.Proyecto_Residencia.Nombre_de_la_Empresa);
+                testDoc.ReplaceText("{telefonoasesor}", solicitante.Proyecto_Residencia.Telefono_Asesor_Externo);
+                testDoc.ReplaceText("{nombreasesor}", solicitante.Proyecto_Residencia.Nombre_Asesor_Externo);
+                testDoc.ReplaceText("{cargoasesor}", solicitante.Proyecto_Residencia.Cargo_Asesor_Externo);
+            }
+            catch { }
+
+
+
+            testDoc.SaveAs(destinipath + @"\Asignacionasesorinterno" + solicitante.NoControl + ".docx");
+            testTemplate.Save();
+
+        }
+
+        public void crearwordRegistroproyecto()
+        {
+
+
+            string destinipath = "Formatos\\" + solicitante.NoControl;
+            if (!Directory.Exists(destinipath))
+            {
+                Directory.CreateDirectory(destinipath);
+            }
+
+            DocX testTemplate = DocX.Load(@"Templatesformatos\Registrodeproyecto.docx");
+            //Paragraph p = testTemplate.InsertParagraph("Hello World.");
+
+            DocX testDoc = testTemplate;
+            //Paragraph pa = testDoc.InsertParagraph("Foo.");
+            try
+            {
+                testDoc.ReplaceText("{fecha}", DateTime.Now.Date.ToString());
+                testDoc.ReplaceText("{correoelectronico}", solicitante.Correo);
+                testDoc.ReplaceText("{numtelefono}", solicitante.Telefono);
+                testDoc.ReplaceText("{nombreproyecto}", solicitante.Proyecto_Residencia.Nombre_Proyecto);
+                testDoc.ReplaceText("{nombreestudiante}", solicitante.Nombre +" "+solicitante.Apellido_Paterno+" "+solicitante.Apellido_Materno);
+                testDoc.ReplaceText("{numestudiantes}", "1");
+                testDoc.ReplaceText("{asesorinterno}", solicitante.Proyecto_Residencia.Asesor_Interno.Nombre);
+                testDoc.ReplaceText("{nombreempresa}", solicitante.Proyecto_Residencia.Nombre_de_la_Empresa);
+            }
+            catch { }
+
+
+
+            testDoc.SaveAs(destinipath + @"\Registrodeproyecto" + solicitante.NoControl + ".docx");
+            testTemplate.Save();
+
+        }
+
+
+
+        public void abrir() {
+            string destinipath = "Formatos\\" + solicitante.NoControl;
+            if (!Directory.Exists(destinipath))
+            {
+                Directory.CreateDirectory(destinipath);
+            }
+            System.Diagnostics.Process.Start(destinipath);
+        }
+
     }
 }
