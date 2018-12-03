@@ -250,6 +250,7 @@ namespace AutomatizacionResidencias
                 testDoc.ReplaceText("{numestudiantes}", "1");
                 testDoc.ReplaceText("{asesorinterno}", solicitante.Proyecto_Residencia.Asesor_Interno.Nombre);
                 testDoc.ReplaceText("{nombreempresa}", solicitante.Proyecto_Residencia.Nombre_de_la_Empresa);
+                testDoc.ReplaceText("{nocontrol}", solicitante.NoControl.ToString());
             }
             catch { }
 

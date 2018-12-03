@@ -47,6 +47,11 @@ namespace AutomatizacionResidencias.Decorator
 
                 }
                 }
+            if (this.alumno==null) {
+                MessageBox.Show("No existe alumno con este No de control");
+            }
+            else { }
+            
         }
 
         public void Guardarcambios(int oldNocontrol,int? noproyecto,int? asesorid)

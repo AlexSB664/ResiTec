@@ -24,61 +24,112 @@ namespace Administrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            alumno = new EdicionDatosalumno();
-            alumno.buscaralumno(textBox1.Text);
-           cr.establecer(alumno.alumno);
+            if (validar()) {
+                try
+                {
+                    alumno = new EdicionDatosalumno();
+                    alumno.buscaralumno(textBox1.Text);
+                    cr.establecer(alumno.alumno);
 
-            cr.crearwordsolicitudresidencia();
+                    cr.crearwordsolicitudresidencia();
+                }
+                catch { }
+            }
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            alumno = new EdicionDatosalumno();
-            alumno.buscaralumno(textBox1.Text);
-            cr.establecer(alumno.alumno);
+            if (validar())
+            {
+                try
+                {
+                    alumno = new EdicionDatosalumno();
+                    alumno.buscaralumno(textBox1.Text);
+                    cr.establecer(alumno.alumno);
 
-            cr.crearwordasignarrevisor();
-
+                    cr.crearwordasignarrevisor();
+                }
+                catch { }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            alumno = new EdicionDatosalumno();
-            alumno.buscaralumno(textBox1.Text);
-            cr.establecer(alumno.alumno);
+            if (validar())
+            {
+                try
+                {
+                    alumno = new EdicionDatosalumno();
+                    alumno.buscaralumno(textBox1.Text);
+                    cr.establecer(alumno.alumno);
 
-            cr.abrir();
+                    cr.abrir();
+                }
+                catch { }
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            alumno = new EdicionDatosalumno();
-            alumno.buscaralumno(textBox1.Text);
-            cr.establecer(alumno.alumno);
+            if (validar())
+            {
+                try
+                {
+                    alumno = new EdicionDatosalumno();
+                    alumno.buscaralumno(textBox1.Text);
+                    cr.establecer(alumno.alumno);
 
-            cr.crearwordasignacionasesorinterno();
+                    cr.crearwordasignacionasesorinterno();
+                }
+                catch { }
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            alumno = new EdicionDatosalumno();
-            alumno.buscaralumno(textBox1.Text);
-            cr.establecer(alumno.alumno);
+            if (validar())
+            {
+                try
+                {
+                    alumno = new EdicionDatosalumno();
+                    alumno.buscaralumno(textBox1.Text);
+                    cr.establecer(alumno.alumno);
 
-            cr.crearwordconstanciarevisores();
+                    cr.crearwordconstanciarevisores();
+                }
+                catch { }
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            alumno = new EdicionDatosalumno();
-            alumno.buscaralumno(textBox1.Text);
-            cr.establecer(alumno.alumno);
+            if (validar())
+            {
+                try
+                {
+                    alumno = new EdicionDatosalumno();
+                    alumno.buscaralumno(textBox1.Text);
+                    cr.establecer(alumno.alumno);
 
-            cr.crearwordRegistroproyecto();
+                    cr.crearwordRegistroproyecto();
+                }
+                catch { }
+            }
 
         }
-    
+
+
+        public bool validar() {
+            int t;
+            if (int.TryParse(textBox1.Text, out t))
+            {
+                return true;
+            }
+            else {
+                MessageBox.Show("No es un numero de control valido");
+                return false;
+            }
+        }
     }
 }
