@@ -34,6 +34,13 @@ namespace AutomatizacionResidencias
         public Nullable<int> IdStatus { get; set; }
         public Nullable<int> Periodo { get; set; }
         public Nullable<System.DateTime> Ultima_modificacion { get; set; }
+        public string Area_del_Proyecto { get; set; }
+        public bool Status_Anteproyecto { get; set; }
+        public string Comentario { get; set; }
+        public bool Primera_Evaluacion { get; set; }
+        public bool Segunda_Evaluacion { get; set; }
+        public bool Tercera_Evaluacion { get; set; }
+        public bool Dictamen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Alumno> Alumno { get; set; }

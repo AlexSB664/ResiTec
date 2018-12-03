@@ -46,9 +46,9 @@
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label1.Location = new System.Drawing.Point(65, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(696, 25);
+            this.label1.Size = new System.Drawing.Size(686, 25);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Favor de ingresar los siguientes datos para poder ver el estado de la residencia";
+            this.label1.Text = "Favor de ingresar los siguientes datos para poder editar datos de la residencia";
             // 
             // label2
             // 
@@ -125,7 +125,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "verStatus";
-            this.Text = "Estado de la Residencia";
+            this.Text = "Datos de la Residencia";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

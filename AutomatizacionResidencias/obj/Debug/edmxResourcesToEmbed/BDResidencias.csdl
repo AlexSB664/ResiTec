@@ -63,6 +63,8 @@
     <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NoProyecto" Type="Int32" />
     <NavigationProperty Name="Usuario" Relationship="ResidenciasModel.FK_Alumno_Usuario" FromRole="Alumno" ToRole="Usuario" />
+    <Property Name="Fecha_registro" Type="DateTime" Precision="0" />
+    <Property Name="Genero" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_Alumno_Proyecto_Residencia" FromRole="Alumno" ToRole="Proyecto_Residencia" />
   </EntityType>
   <EntityType Name="Asesor_Interno">
@@ -206,7 +208,7 @@
       <PropertyRef Name="No_Proyecto" />
     </Key>
     <Property Name="No_Proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre_Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Proyecto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Nombre_de_la_Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Nombre_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Cargo_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -217,6 +219,13 @@
     <Property Name="IdStatus" Type="Int32" />
     <Property Name="Periodo" Type="Int32" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
+    <Property Name="Area_del_Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status_Anteproyecto" Type="Boolean" Nullable="false" />
+    <Property Name="Comentario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Primera_Evaluacion" Type="Boolean" Nullable="false" />
+    <Property Name="Segunda_Evaluacion" Type="Boolean" Nullable="false" />
+    <Property Name="Tercera_Evaluacion" Type="Boolean" Nullable="false" />
+    <Property Name="Dictamen" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Alumno" Relationship="ResidenciasModel.FK_Alumno_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="Alumno" />
     <NavigationProperty Name="Asesor_Interno" Relationship="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno" FromRole="Proyecto_Residencia" ToRole="Asesor_Interno" />
     <NavigationProperty Name="BitacoraTransacciones" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="BitacoraTransacciones" />

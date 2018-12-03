@@ -9,7 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutomatizacionResidencias;
+using System.Linq.Dynamic;
 using AutomatizacionResidencias.Acciones;
+using System.Data.Entity.SqlServer;
+
 namespace Administrador
 {
     public partial class Administradorprincipal : Form
@@ -19,15 +22,17 @@ namespace Administrador
         Reenviarnip re = new Reenviarnip();
         Formatos formatos = new Formatos();
         Periodos perio = new Periodos();
+        
         public static Busquedaentablas sug = new Busquedaentablas();
         public static List<Tablaproyecto> proyectos = new List<Tablaproyecto>();
         public static List<TablaAlumno> alumnos = new List<TablaAlumno>();
         public static List<TablaAsesor> asesores = new List<TablaAsesor>();
-
-        public static bool mostrandoalumno=false;
-        public static bool mostrandopryectos=false;
+        public List<Tablaperiodo> periodos = new List<Tablaperiodo>();
+        private bool sortAscending = false;
+        public static bool mostrandoalumno = false;
+        public static bool mostrandopryectos = false;
         public static bool mostrandoasesores = false;
-
+        public AutomatizacionResidencias.Periodos currentperiodo = new AutomatizacionResidencias.Periodos();
         public Administradorprincipal()
         {
             InitializeComponent();
@@ -44,10 +49,12 @@ namespace Administrador
             */
             dataGridView1.MultiSelect = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            cargarperiodos();
         }
 
         public void alumno() {
-
+            
             var bindingList = new BindingList<TablaAlumno>(alumnos);
             var source = new BindingSource(bindingList, null);
             dataGridView1.DataSource = source;
@@ -55,14 +62,25 @@ namespace Administrador
 
 
         public void asesor()
-        { 
+        {
             var bindingList = new BindingList<TablaAsesor>(asesores);
             var source = new BindingSource(bindingList, null);
             dataGridView1.DataSource = source;
         }
 
-        public void proyecto(){
-           // var status = sug.statusdeproyectos();
+        public void proyecto() {
+            // var status = sug.statusdeproyectos();
+        
+            try
+            {
+                if (Periodos.Text != "")
+                {
+                    proyectos = proyectos.Where(x=>x.Periodo_año!=null).ToList();
+                    proyectos = proyectos.Where(x => x.Periodo_año.Contains(Periodos.Text)).ToList();
+                }
+            }
+            catch { }
+            
             var bindingList = new BindingList<Tablaproyecto>(proyectos);
 
             //var bindingSourceMonth = new BindingList<statusdeproyecto>(status);
@@ -71,15 +89,23 @@ namespace Administrador
             dataGridView1.DataSource = source;
 
 
-            DataGridViewComboBoxColumn ColumnMonth = new DataGridViewComboBoxColumn();
-            ColumnMonth.DataPropertyName = "status";
-            ColumnMonth.HeaderText = "status";
-            ColumnMonth.Width = 120;
+
             //ColumnMonth.DataSource = bindingSourceMonth;
-            ColumnMonth.ValueMember = "IdStatus";
-            ColumnMonth.DisplayMember = "nombre";
-            dataGridView1.Columns["Status"].Visible=false;
+            ;
+            //dataGridView1.Columns["Status"].Visible=false;
+            dataGridView1.Columns["color"].Visible = false;
+            dataGridView1.Columns["Asesorinterno"].Visible = false;
+
             // dataGridView1.Columns.Add(ColumnMonth);
+            for (int i = 0; i < bindingList.Count; i++) {
+                if (bindingList[i].color != null) {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromName(bindingList[i].color);
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+
+                }
+            }
+
+            /*
             foreach (DataGridViewRow row in dataGridView1.Rows)
                 if (row.Cells[11].Value!=null)
                 {
@@ -88,7 +114,7 @@ namespace Administrador
                         dataGridView1.Rows[row.Index].Cells[cell.ColumnIndex].Style.ForeColor = Color.White ;
                     }
                 }
-
+                */
         }
 
 
@@ -99,7 +125,7 @@ namespace Administrador
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -144,7 +170,7 @@ namespace Administrador
             panelproyecto.BringToFront();
             panelasesorinterno.Dock = DockStyle.None;
             Pannelalumno.Dock = DockStyle.None;
-            panelproyecto.Dock=DockStyle.Fill;
+            panelproyecto.Dock = DockStyle.Fill;
         }
 
         private void datosdealumno_Click(object sender, EventArgs e)
@@ -182,20 +208,24 @@ namespace Administrador
         private void button2_Click(object sender, EventArgs e)
         {
 
-          
-                if (mostrandoalumno==true) {
-                    Editardatos detallesalumno = new Editardatos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                    detallesalumno.Show();
-                }
-            if (mostrandopryectos==true) {
+
+            if (mostrandoalumno == true) {
+
+                Editardatos detallesalumno = new Editardatos(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                detallesalumno.AddItemCallback = new eliminardatoalumno(this.seeleiminoalumno);
+                detallesalumno.Show();
+            }
+            if (mostrandopryectos == true) {
                 Detallesproyecto de = new Detallesproyecto(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                de.AddItemCallback = new eliminardatoalumno(this.seeleiminoproyecto);
                 de.Show();
             }
             if (mostrandoasesores) {
                 DetallesAsesorinterno dea = new DetallesAsesorinterno((int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())));
+                dea.AddItemCallback = new eliminardatoalumno(this.seeliminoasesor);
                 dea.Show();
             }
-           
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -232,11 +262,20 @@ namespace Administrador
 
         private void Buscar_Click(object sender, EventArgs e)
         {
-            if (mostrandoalumno) {
+            
+            if (mostrandopryectos) {
+                proyectos = sug.proyectosregistrados();
+
+                proyecto();
                 buscarproyecto();
             }
+            if (mostrandoalumno) {
+                alumnos = sug.Alumnos();
+                alumno();
+                buscaralumno();
+            }
 
-           
+
         }
 
 
@@ -245,25 +284,107 @@ namespace Administrador
             int noproy;
             if (int.TryParse(Noproyectob.Text, out noproy))
             {
-                proyectos = sug.Busquedadeproyectos(noproy);
-                proyecto();
+                proyectos = proyectos.Where(x => x.No_Proyecto == noproy).ToList();
             }
             else
             {
-                int nocontrol;
-                if (int.TryParse(Nombreproyecto.Text, out nocontrol))
-                {
 
-                    alumnos = sug.Busquedaalumno(nocontrol, null);
+                if (Nombreproyecto.Text != "")
+                {
+                    proyectos = proyectos.Where(x => x.Nombre_Proyecto.Contains(Nombreproyecto.Text)).ToList();
+                }
+                if (Empresa.Text != "") {
+                    proyectos = proyectos.Where(x => x.Nombre_de_la_Empresa.Contains(Empresa.Text)).ToList();
 
                 }
-              
+                if (Area.Text != "")
+                {
+                    proyectos = proyectos.Where(x => x.Area.Contains(Area.Text)).ToList();
+
+                }
+                if (Status.Text!="") {
+
+
+                    proyectos = proyectos.Where(x=>(x.statusn ?? string.Empty).Contains(Status.Text)).ToList();
+
+                }
+
             }
+
+            proyecto();
+
+        }
+
+
+        public void buscaralumno()
+        {
+            int noproy;
+            int sem;
+            if (int.TryParse(Nocontrolb.Text, out noproy))
+            {
+                alumnos = alumnos.Where(x => x.NoControl == noproy).ToList();
+            }
+            else
+            {
+
+                if (nombrealumnob.Text != "")
+                {
+                    alumnos = alumnos.Where(x => (x.Nombre ?? string.Empty).Contains(nombrealumnob.Text)).ToList();
+                }
+                if (Apellidopalumnob.Text != "")
+                {
+                    alumnos = alumnos.Where(x => (x.Apellido_Paterno ?? string.Empty).Contains(Apellidopalumnob.Text)).ToList();
+
+                }
+                if (apellidomalumno.Text != "")
+                {
+                    alumnos = alumnos.Where(x => (x.Apellido_Materno ?? string.Empty).Contains(apellidomalumno.Text)).ToList();
+
+                }
+                if (int.TryParse(semestre.Text,out sem)) {
+                    alumnos = alumnos.Where(x=>x.Semestre==sem).ToList();
+                }
+
+                if (int.TryParse(Noproyectoalumno.Text, out noproy))
+                {
+                    alumnos = alumnos.Where(x => x.NoProyecto == noproy).ToList();
+                }
+
+                if (genero.Text!="")
+                {
+                    alumnos = alumnos.Where(x => (x.Genero ?? string.Empty).Contains(genero.Text)).ToList();
+                }
+
+            }
+
+            alumno();
+
+        }
+
+
+
+        public void seeleiminoalumno()
+        {
+            alumnos = sug.Alumnos();
+            alumno();
+        }
+
+
+        public void seeleiminoproyecto()
+        {
+            proyectos = sug.proyectosregistrados();
+            proyecto();
+        }
+
+        public void seeliminoasesor()
+        {
+            asesores = sug.Asesores();
+            asesor();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (ag.IsDisposed){
+            if (ag.IsDisposed) {
                 ag = new AgendarExpo();
             }
             ag.Show();
@@ -274,7 +395,125 @@ namespace Administrador
             if (perio.IsDisposed) {
                 perio = new Periodos();
             }
+            perio.addperiodo = new addperiodo(this.cargarperiodos);
             perio.Show();
         }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (mostrandopryectos) {
+                sortproyectos(sender, e);
+            }
+            if (mostrandoalumno) {
+                sortalumnos(sender, e);
+            }
+            if (mostrandoasesores) {
+                sortasesores(sender, e);
+            }
+            // dataGridView1.Columns.Add(ColumnMonth);
+
+
+
+        }
+
+
+
+
+        public void sortproyectos(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            List<Tablaproyecto> temp;
+            if (sortAscending)
+            {
+                //proyectos = proyectos.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).ToList();
+
+                temp = proyectos.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).ToList();
+                dataGridView1.DataSource = temp;
+                sortAscending = !sortAscending;
+
+            }
+            else
+            {
+                temp = proyectos.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).Reverse().ToList();
+                dataGridView1.DataSource = temp;
+                sortAscending = !sortAscending;
+            }
+
+            //dataGridView1.Columns["color"].Visible = false;
+            //dataGridView1.Columns["Asesorinterno"].Visible = false;
+
+            for (int i = 0; i < temp.Count; i++)
+            {
+
+                if (temp[i].color != null)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromName(temp[i].color);
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+
+                }
+            }
+        }
+
+
+        public void sortalumnos(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            List<TablaAlumno> temp;
+            if (sortAscending)
+            {
+                //proyectos = proyectos.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).ToList();
+
+                temp = alumnos.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).ToList();
+                dataGridView1.DataSource = temp;
+                sortAscending = !sortAscending;
+
+            }
+            else
+            {
+                temp = alumnos.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).Reverse().ToList();
+                dataGridView1.DataSource = temp;
+                sortAscending = !sortAscending;
+            }
+
+            //dataGridView1.Columns["color"].Visible = false;
+            //dataGridView1.Columns["Asesorinterno"].Visible = false;
+
+        }
+
+
+        public void sortasesores(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            List<TablaAsesor> temp;
+            if (sortAscending)
+            {
+                //proyectos = proyectos.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).ToList();
+
+                temp = asesores.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).ToList();
+                dataGridView1.DataSource = temp;
+                sortAscending = !sortAscending;
+
+            }
+            else
+            {
+                temp = asesores.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).Reverse().ToList();
+                dataGridView1.DataSource = temp;
+                sortAscending = !sortAscending;
+            }
+
+            //dataGridView1.Columns["color"].Visible = false;
+            //dataGridView1.Columns["Asesorinterno"].Visible = false;
+
+        }
+
+        public void cargarperiodos (){
+            currentperiodo = sug.periodoactual();
+            periodos = sug.periodos();
+            Periodos.DataSource = periodos;
+            Periodos.DisplayMember = "periodo";
+            Periodos.ValueMember = "idperiodo";
+            Periodos.SelectedValue = currentperiodo.Idperiodo;
+            
+            }
     }
+    public delegate void eliminardatoalumno();
+    public delegate void addperiodo();
 }

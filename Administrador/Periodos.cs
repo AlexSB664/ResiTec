@@ -7,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AutomatizacionResidencias;
+using AutomatizacionResidencias.Acciones;
 namespace Administrador
 {
     public partial class Periodos : Form
     {
-        public static bool periodo = true;
+        public static bool periodo = false;
         AutomatizacionResidencias.Acciones.Periodos op = new AutomatizacionResidencias.Acciones.Periodos();
         public List<AutomatizacionResidencias.Periodos> periodos = new List<AutomatizacionResidencias.Periodos>();
 
+        public static Eliminar eliminar = new Eliminar();
        
         public static string curper;
         public static BindingSource bin = new BindingSource();
+
+        public addperiodo addperiodo;
         public Periodos()
         {
             InitializeComponent();
@@ -49,7 +53,6 @@ namespace Administrador
 
 
 
-            this.Close();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -118,7 +121,7 @@ namespace Administrador
             if (op.Establecerperiodo(curper, out Errores))
             {
                 currentperiodo.Text = curper;
-
+                addperiodo();
             }
             else {
                 MessageBox.Show(Errores);
@@ -126,6 +129,38 @@ namespace Administrador
 
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string Errores = null;
+            var confirmResult = MessageBox.Show("Seguro que desea eliminar", "Confirme borrado",
+                                    MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                bool si = eliminar.Eliminarperiodos(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), out Errores);
+
+                if (si == true)
+                {
+
+                    MessageBox.Show("Se elimino");
+                    var per=periodos.FirstOrDefault(x=>x.Idperiodo== int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                    periodos.Remove(per);
+                    datagrid();
+                    addperiodo();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Errores: " + Errores);
+
+                }
+            }
+            else
+            {
+                // If 'No', do something here.
+            }
         }
     }
 }

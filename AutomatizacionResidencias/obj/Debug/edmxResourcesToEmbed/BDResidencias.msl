@@ -5,6 +5,8 @@
     <EntitySetMapping Name="Alumno">
       <EntityTypeMapping TypeName="ResidenciasModel.Alumno">
         <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Fecha_registro" ColumnName="Fecha registro" />
           <ScalarProperty Name="NoProyecto" ColumnName="NoProyecto" />
           <ScalarProperty Name="Correo" ColumnName="Correo" />
           <ScalarProperty Name="Telefono" ColumnName="Telefono" />
@@ -118,6 +120,13 @@
     <EntitySetMapping Name="Proyecto_Residencia">
       <EntityTypeMapping TypeName="ResidenciasModel.Proyecto_Residencia">
         <MappingFragment StoreEntitySet="Proyecto Residencia">
+          <ScalarProperty Name="Dictamen" ColumnName="Dictamen" />
+          <ScalarProperty Name="Tercera_Evaluacion" ColumnName="Tercera Evaluacion" />
+          <ScalarProperty Name="Segunda_Evaluacion" ColumnName="Segunda Evaluacion" />
+          <ScalarProperty Name="Primera_Evaluacion" ColumnName="Primera Evaluacion" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="Status_Anteproyecto" ColumnName="Status Anteproyecto" />
+          <ScalarProperty Name="Area_del_Proyecto" ColumnName="Area del Proyecto" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima modificacion" />
           <ScalarProperty Name="Periodo" ColumnName="Periodo" />
           <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />

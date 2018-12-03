@@ -36,13 +36,13 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.currentperiodo = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.currentperiodo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -128,6 +128,23 @@
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(62, 304);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Periodo actual";
+            // 
+            // currentperiodo
+            // 
+            this.currentperiodo.Location = new System.Drawing.Point(26, 338);
+            this.currentperiodo.Name = "currentperiodo";
+            this.currentperiodo.ReadOnly = true;
+            this.currentperiodo.Size = new System.Drawing.Size(155, 20);
+            this.currentperiodo.TabIndex = 4;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridView1);
@@ -188,23 +205,7 @@
             this.button2.Size = new System.Drawing.Size(94, 73);
             this.button2.TabIndex = 0;
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // currentperiodo
-            // 
-            this.currentperiodo.Location = new System.Drawing.Point(26, 338);
-            this.currentperiodo.Name = "currentperiodo";
-            this.currentperiodo.ReadOnly = true;
-            this.currentperiodo.Size = new System.Drawing.Size(155, 20);
-            this.currentperiodo.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 304);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Periodo actual";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Periodos
             // 

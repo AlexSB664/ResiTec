@@ -18,14 +18,14 @@
         <EntityTypeShape EntityType="ResidenciasModel.Grupos" Width="1.5" PointX="5.375" PointY="9.875" />
         <AssociationConnector Association="ResidenciasModel.FK_HorarioPresentacion_Grupos" />
         <EntityTypeShape EntityType="ResidenciasModel.Periodos" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ResidenciasModel.Proyecto_Residencia" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="ResidenciasModel.Proyecto_Residencia" Width="1.5" PointX="3" PointY="1.25" />
         <AssociationConnector Association="ResidenciasModel.FK_Alumno_Proyecto_Residencia" />
         <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno" />
         <AssociationConnector Association="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" />
         <AssociationConnector Association="ResidenciasModel.FK_HorarioPresentacion_Proyecto_Residencia" />
         <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Periodos" />
         <AssociationConnector Association="ResidenciasModel.FK_Proyecto_Residencia_Status" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

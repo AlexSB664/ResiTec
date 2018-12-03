@@ -33,5 +33,10 @@ namespace Administrador
                 }
             }
         }
+
+        private void Nuevogrupo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

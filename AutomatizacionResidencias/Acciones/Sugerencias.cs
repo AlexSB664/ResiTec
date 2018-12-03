@@ -41,6 +41,18 @@ namespace AutomatizacionResidencias.Acciones
         }
 
 
+        public List<Status> status()
+        {
+            List<Status> alumnos = new List<Status>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                alumnos = context.Status.Include("Proyecto_Residencia").ToList();
+            }
+            return alumnos;
+        }
+
+
+
         public bool salvarhorario(List<HorarioPresentacion> item,int grupoid) {
             try
             {

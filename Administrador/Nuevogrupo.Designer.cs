@@ -38,12 +38,14 @@
             // 
             // Guardar
             // 
-            this.Guardar.Location = new System.Drawing.Point(73, 139);
+            this.Guardar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Guardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Guardar.Location = new System.Drawing.Point(82, 139);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(115, 40);
             this.Guardar.TabIndex = 0;
             this.Guardar.Text = "Guardar";
-            this.Guardar.UseVisualStyleBackColor = true;
+            this.Guardar.UseVisualStyleBackColor = false;
             this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
             // 
             // Nombre
@@ -92,6 +94,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Nuevogrupo";
             this.Text = "Nuevogrupo";
+            this.Load += new System.EventHandler(this.Nuevogrupo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

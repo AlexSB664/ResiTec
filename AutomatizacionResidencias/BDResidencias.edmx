@@ -17,6 +17,8 @@
           <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
           <Property Name="Correo" Type="varchar" MaxLength="50" />
           <Property Name="NoProyecto" Type="int" />
+          <Property Name="Fecha registro" Type="date" />
+          <Property Name="Genero" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="Asesor Interno">
           <Key>
@@ -86,7 +88,7 @@
             <PropertyRef Name="No Proyecto" />
           </Key>
           <Property Name="No Proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre Proyecto" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre Proyecto" Type="varchar(max)" />
           <Property Name="Nombre de la Empresa" Type="varchar" MaxLength="50" />
           <Property Name="Nombre Asesor Externo" Type="varchar" MaxLength="50" />
           <Property Name="Cargo Asesor Externo" Type="varchar" MaxLength="50" />
@@ -97,6 +99,13 @@
           <Property Name="IdStatus" Type="int" />
           <Property Name="Periodo" Type="int" />
           <Property Name="Ultima modificacion" Type="datetime" />
+          <Property Name="Area del Proyecto" Type="varchar" MaxLength="50" />
+          <Property Name="Status Anteproyecto" Type="bit" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="50" />
+          <Property Name="Primera Evaluacion" Type="bit" Nullable="false" />
+          <Property Name="Segunda Evaluacion" Type="bit" Nullable="false" />
+          <Property Name="Tercera Evaluacion" Type="bit" Nullable="false" />
+          <Property Name="Dictamen" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -350,6 +359,8 @@
           <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NoProyecto" Type="Int32" />
           <NavigationProperty Name="Usuario" Relationship="ResidenciasModel.FK_Alumno_Usuario" FromRole="Alumno" ToRole="Usuario" />
+          <Property Name="Fecha_registro" Type="DateTime" Precision="0" />
+          <Property Name="Genero" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Proyecto_Residencia" Relationship="ResidenciasModel.FK_Alumno_Proyecto_Residencia" FromRole="Alumno" ToRole="Proyecto_Residencia" />
         </EntityType>
         <EntityType Name="Asesor_Interno">
@@ -493,7 +504,7 @@
             <PropertyRef Name="No_Proyecto" />
           </Key>
           <Property Name="No_Proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre_Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Proyecto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Nombre_de_la_Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nombre_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Cargo_Asesor_Externo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -504,6 +515,13 @@
           <Property Name="IdStatus" Type="Int32" />
           <Property Name="Periodo" Type="Int32" />
           <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
+          <Property Name="Area_del_Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status_Anteproyecto" Type="Boolean" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Primera_Evaluacion" Type="Boolean" Nullable="false" />
+          <Property Name="Segunda_Evaluacion" Type="Boolean" Nullable="false" />
+          <Property Name="Tercera_Evaluacion" Type="Boolean" Nullable="false" />
+          <Property Name="Dictamen" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Alumno" Relationship="ResidenciasModel.FK_Alumno_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="Alumno" />
           <NavigationProperty Name="Asesor_Interno" Relationship="ResidenciasModel.FK_Proyecto_Residencia_Asesor_Interno" FromRole="Proyecto_Residencia" ToRole="Asesor_Interno" />
           <NavigationProperty Name="BitacoraTransacciones" Relationship="ResidenciasModel.FK_BitacoraTransacciones_Proyecto_Residencia" FromRole="Proyecto_Residencia" ToRole="BitacoraTransacciones" />
@@ -593,6 +611,8 @@
           <EntitySetMapping Name="Alumno">
             <EntityTypeMapping TypeName="ResidenciasModel.Alumno">
               <MappingFragment StoreEntitySet="Alumno">
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Fecha_registro" ColumnName="Fecha registro" />
                 <ScalarProperty Name="NoProyecto" ColumnName="NoProyecto" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Telefono" ColumnName="Telefono" />
@@ -706,6 +726,13 @@
           <EntitySetMapping Name="Proyecto_Residencia">
             <EntityTypeMapping TypeName="ResidenciasModel.Proyecto_Residencia">
               <MappingFragment StoreEntitySet="Proyecto Residencia">
+                <ScalarProperty Name="Dictamen" ColumnName="Dictamen" />
+                <ScalarProperty Name="Tercera_Evaluacion" ColumnName="Tercera Evaluacion" />
+                <ScalarProperty Name="Segunda_Evaluacion" ColumnName="Segunda Evaluacion" />
+                <ScalarProperty Name="Primera_Evaluacion" ColumnName="Primera Evaluacion" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Status_Anteproyecto" ColumnName="Status Anteproyecto" />
+                <ScalarProperty Name="Area_del_Proyecto" ColumnName="Area del Proyecto" />
                 <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima modificacion" />
                 <ScalarProperty Name="Periodo" ColumnName="Periodo" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />

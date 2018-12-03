@@ -42,11 +42,20 @@ namespace AutomatizacionResidencias
 
                         Random r = new Random();
                         this.Usuario.Password =(r.Next(10000,99999).ToString());
+                   
+                        
                         context.Usuario.Add(this.Usuario);
+                        if (this.Proyecto_Residencia!=null) {
+                            if (this.Proyecto_Residencia.IdAsesorInterno.HasValue) {
 
-                        MessageBox.Show(this.Proyecto_Residencia.Nombre_de_la_Empresa);
+                                context.Set<Asesor_Interno>().Attach(Proyecto_Residencia.Asesor_Interno);
+
+                            }
+
+                        }
                         context.Alumno.Add(this);
                         context.SaveChanges();
+                        MessageBox.Show("Pin alumno: "+Usuario.Password);
                         NotifyObserver(out Errores);
 
                     }

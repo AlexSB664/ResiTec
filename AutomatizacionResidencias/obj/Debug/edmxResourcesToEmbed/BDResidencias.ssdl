@@ -12,6 +12,8 @@
     <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
     <Property Name="Correo" Type="varchar" MaxLength="50" />
     <Property Name="NoProyecto" Type="int" />
+    <Property Name="Fecha registro" Type="date" />
+    <Property Name="Genero" Type="varchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="Asesor Interno">
     <Key>
@@ -81,7 +83,7 @@
       <PropertyRef Name="No Proyecto" />
     </Key>
     <Property Name="No Proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre Proyecto" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre Proyecto" Type="varchar(max)" />
     <Property Name="Nombre de la Empresa" Type="varchar" MaxLength="50" />
     <Property Name="Nombre Asesor Externo" Type="varchar" MaxLength="50" />
     <Property Name="Cargo Asesor Externo" Type="varchar" MaxLength="50" />
@@ -92,6 +94,13 @@
     <Property Name="IdStatus" Type="int" />
     <Property Name="Periodo" Type="int" />
     <Property Name="Ultima modificacion" Type="datetime" />
+    <Property Name="Area del Proyecto" Type="varchar" MaxLength="50" />
+    <Property Name="Status Anteproyecto" Type="bit" Nullable="false" />
+    <Property Name="Comentario" Type="varchar" MaxLength="50" />
+    <Property Name="Primera Evaluacion" Type="bit" Nullable="false" />
+    <Property Name="Segunda Evaluacion" Type="bit" Nullable="false" />
+    <Property Name="Tercera Evaluacion" Type="bit" Nullable="false" />
+    <Property Name="Dictamen" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Status">
     <Key>

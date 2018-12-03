@@ -19,11 +19,12 @@ namespace Administrador
             InitializeComponent();
             no = Noproyecto;
             grupo = idgrupo;
+          
         }
 
         private void Nuevohorario_Load(object sender, EventArgs e)
         {
-
+            Noproyecto.Text = no.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

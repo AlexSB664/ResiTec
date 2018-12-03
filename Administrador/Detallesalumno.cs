@@ -17,7 +17,7 @@ namespace Administrador
         public static Proyectoresidencia regresidencia = new Proyectoresidencia();
         public static AsesorInterno regasesorinterno = new AsesorInterno();
         public Proyecto_Residencia proyectoresidencia = null;
-
+        public Eliminar eliminar = new Eliminar();
         public static BindingSource bindingsourceproyectos = new BindingSource();
         public static BindingSource bindingsourceasesores = new BindingSource();
         public List<Proyecto_Residencia> proyectos = new List<Proyecto_Residencia>();
@@ -28,6 +28,9 @@ namespace Administrador
         public static EdicionDatosalumno edicion = new EdicionDatosalumno();
         public static int Nopro;
         public static string Correo = null;
+
+        public eliminardatoalumno AddItemCallback;
+
         public Editardatos(string correo)
         {
             InitializeComponent();
@@ -41,6 +44,7 @@ namespace Administrador
 
 
             //Establece datos de alumno en los campos
+            Nocontrol.Text = edicion.alumno.NoControl.ToString();
             nombrealumno.Text = edicion.alumno.Nombre.ToString();
             Apellidopalumno.Text = edicion.alumno.Apellido_Paterno;
             Apellidomalumno.Text = edicion.alumno.Apellido_Materno;
@@ -56,7 +60,7 @@ namespace Administrador
                 cargoasesor.Text = edicion.alumno.Proyecto_Residencia.Cargo_Asesor_Externo;
                 correoasesorext.Text = edicion.alumno.Proyecto_Residencia.Correo_Asesor_Externo;
                 telefonoasesorext.Text = edicion.alumno.Proyecto_Residencia.Telefono_Asesor_Externo;
-
+                Area.Text = edicion.alumno.Proyecto_Residencia.Area_del_Proyecto;
 
                 if (edicion.alumno.Proyecto_Residencia.Asesor_Interno!=null) {
                     //Establece datos del asesor en los campos
@@ -102,16 +106,34 @@ namespace Administrador
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
+            string Errores = null;
             var confirmResult = MessageBox.Show("Seguro que desea eliminar", "Confirme borrado",
                                     MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                MessageBox.Show("Se elimino");
+               bool si= eliminar.Eliminaralumno(int.Parse(Correo), out Errores);
+
+                if (si==true) {
+
+                    MessageBox.Show("Se elimino");
+                    AddItemCallback();
+                    this.Close();
+
+                }
+                else {
+                    MessageBox.Show("Errores: "+Errores);
+
+                }
             }
             else
             {
                 // If 'No', do something here.
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

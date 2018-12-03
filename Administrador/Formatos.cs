@@ -24,11 +24,12 @@ namespace Administrador
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             alumno = new EdicionDatosalumno();
             alumno.buscaralumno(textBox1.Text);
            cr.establecer(alumno.alumno);
 
-            cr.HTMLToPDF("formato1");
+            cr.crearword();
 
         }
     }

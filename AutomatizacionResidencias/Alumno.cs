@@ -22,6 +22,8 @@ namespace AutomatizacionResidencias
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public Nullable<int> NoProyecto { get; set; }
+        public Nullable<System.DateTime> Fecha_registro { get; set; }
+        public string Genero { get; set; }
     
         public virtual Usuario Usuario { get; set; }
         public virtual Proyecto_Residencia Proyecto_Residencia { get; set; }

@@ -33,6 +33,7 @@ namespace AutomatizacionResidencias.Decorator
                 }catch{
                 }
 
+
                 try
                 {
                     this.alumno.Proyecto_Residencia = context.Proyecto_Residencia.FirstOrDefault(x => x.No_Proyecto == alumno.NoProyecto);
@@ -48,19 +49,28 @@ namespace AutomatizacionResidencias.Decorator
                 }
         }
 
-        public void Guardarcambios(int oldNocontrol)
+        public void Guardarcambios(int oldNocontrol,int? noproyecto,int? asesorid)
         {
 
             using (var context = new ResidenciasEntities(new AutomatizacionResidencias.Acciones.Conexion().returnconexion().ConnectionString))
             {
+                MessageBox.Show(this.alumno.Proyecto_Residencia.IdAsesorInterno.ToString());
+                /*
+                if (asesorid==null) {
+
+                    context.Asesor_Interno.Add(this.alumno.Proyecto_Residencia.Asesor_Interno);
+                    context.SaveChanges();
+
+                }
+                */
 
                 var alumnoo = context.Alumno.FirstOrDefault(x => x.NoControl == oldNocontrol);
-                MessageBox.Show(JsonConvert.SerializeObject(alumnoo));
                 alumnodiferencias = Comparar(alumnoo,this.alumno);
                 
                 var alumnoeliminar = context.Alumno.FirstOrDefault(x => x.NoControl == oldNocontrol);
-                var residencia = context.Proyecto_Residencia.FirstOrDefault(x => x.No_Proyecto == this.alumno.NoProyecto);
+                var residencia = context.Proyecto_Residencia.FirstOrDefault(x => x.No_Proyecto == noproyecto);
                 var usuario = context.Usuario.FirstOrDefault(x => x.Usuario1 == alumnoo.Correo);
+                var asesor = context.Asesor_Interno.FirstOrDefault(x=>x.IdAsesor==asesorid);
                 var usuarioeliminar = context.Usuario.FirstOrDefault(x => x.Usuario1 == alumnoo.Correo);
                 context.Alumno.Remove(alumnoeliminar);
                 context.Usuario.Remove(usuario);
@@ -70,15 +80,36 @@ namespace AutomatizacionResidencias.Decorator
                 alumnoo.Telefono = this.alumno.Telefono;
                 alumnoo.Apellido_Paterno = this.alumno.Apellido_Paterno;
                 alumnoo.Apellido_Materno = this.alumno.Apellido_Materno;
+                alumnoo.Genero = this.alumno.Genero;
+                alumno.NoProyecto = this.alumno.NoProyecto;
+                if (alumno.NoProyecto != null)
+                {
+                    residencia.Nombre_Proyecto = this.alumno.Proyecto_Residencia.Nombre_Proyecto;
+                    residencia.Cargo_Asesor_Externo = this.alumno.Proyecto_Residencia.Cargo_Asesor_Externo;
+                    residencia.Correo_Asesor_Externo = this.alumno.Proyecto_Residencia.Correo_Asesor_Externo;
+                    residencia.Nombre_Asesor_Externo = this.alumno.Proyecto_Residencia.Nombre_Asesor_Externo;
+                    residencia.Nombre_de_la_Empresa = this.alumno.Proyecto_Residencia.Nombre_de_la_Empresa;
+                    residencia.Telefono_Asesor_Externo = this.alumno.Proyecto_Residencia.Telefono_Asesor_Externo;
+                    residencia.Area_del_Proyecto = this.alumno.Proyecto_Residencia.Area_del_Proyecto;
+                    residencia.IdAsesorInterno = this.alumno.Proyecto_Residencia.IdAsesorInterno;
+                    //residencia.IdAsesorInterno = asesorid;
+                }
+                else {
 
-                if (alumno.NoProyecto!=null) { 
-                residencia.Nombre_Proyecto = this.alumno.Proyecto_Residencia.Nombre_Proyecto;
-                residencia.Cargo_Asesor_Externo = this.alumno.Proyecto_Residencia.Cargo_Asesor_Externo;
-                residencia.Correo_Asesor_Externo = this.alumno.Proyecto_Residencia.Correo_Asesor_Externo;
-                residencia.Nombre_Asesor_Externo = this.alumno.Proyecto_Residencia.Nombre_Asesor_Externo;
-                residencia.Nombre_de_la_Empresa = this.alumno.Proyecto_Residencia.Nombre_de_la_Empresa;
-                residencia.Telefono_Asesor_Externo = this.alumno.Proyecto_Residencia.Telefono_Asesor_Externo;
-            }
+
+                }
+                if (alumno.Proyecto_Residencia.Asesor_Interno != null && asesor != null)
+                {
+                    asesor.Nombre = this.alumno.Proyecto_Residencia.Asesor_Interno.Nombre;
+                    asesor.Telefono = this.alumno.Proyecto_Residencia.Asesor_Interno.Telefono;
+                    asesor.Correo = this.alumno.Proyecto_Residencia.Asesor_Interno.Correo;
+                    residencia.IdAsesorInterno = asesorid;
+                }
+                else {
+                  
+                }
+
+
 
                 usuario.Usuario1 = alumno.Correo;
                 alumnoo.Correo = this.alumno.Correo;
@@ -87,7 +118,6 @@ namespace AutomatizacionResidencias.Decorator
                 context.Usuario.Add(usuario);
 
                 context.SaveChanges();
-                MessageBox.Show(JsonConvert.SerializeObject(alumnodiferencias));
 
             }
         }
@@ -126,7 +156,9 @@ namespace AutomatizacionResidencias.Decorator
             {
                 queencontre.NoControl = nuevo.NoControl;
             }
-       
+            if (diferente<string>(original.Genero?? string.Empty,nuevo.Genero?? string.Empty)) {
+                queencontre.Genero = nuevo.Genero;
+            }
             return queencontre;
 
         }

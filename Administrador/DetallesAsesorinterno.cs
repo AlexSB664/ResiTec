@@ -16,6 +16,9 @@ namespace Administrador
 
         public Busquedaentablas sug = new Busquedaentablas();
         public Asesor_Interno asesor = new Asesor_Interno();
+        public Eliminar eliminar=new Eliminar();
+        public eliminardatoalumno AddItemCallback;
+
         public DetallesAsesorinterno(int Idasesorinterno)
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace Administrador
             Telefonoasesorinterno.Text = asesor.Telefono;
             Correoasesorinterno.Text = asesor.Correo;
 
-            proyectos = sug.Busquedadeproyectos(asesor.IdAsesor);
+            proyectos = sug.Proyectosporasesor(asesor.IdAsesor);
             proyecto();
 
         }
@@ -45,39 +48,54 @@ namespace Administrador
             dataGridView1.DataSource = source;
 
 
-            DataGridViewComboBoxColumn ColumnMonth = new DataGridViewComboBoxColumn();
-            ColumnMonth.DataPropertyName = "status";
-            ColumnMonth.HeaderText = "status";
-            ColumnMonth.Width = 120;
+          
             //ColumnMonth.DataSource = bindingSourceMonth;
-            ColumnMonth.ValueMember = "IdStatus";
-            ColumnMonth.DisplayMember = "nombre";
+          ;
             dataGridView1.Columns["Status"].Visible = false;
             // dataGridView1.Columns.Add(ColumnMonth);
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-                if (row.Cells[11].Value != null)
+            for (int i = 0; i < bindingList.Count; i++)
+            {
+                if (bindingList[i].color != null)
                 {
-                    row.DefaultCellStyle.BackColor = Color.FromName(row.Cells[11].Value.ToString()); ;
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        dataGridView1.Rows[row.Index].Cells[cell.ColumnIndex].Style.ForeColor = Color.White;
-                    }
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromName(bindingList[i].color);
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+
                 }
+            }
+
 
         }
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Seguro que desea eliminar", "Confirme borrado",
-                                    MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
-            {
-                MessageBox.Show("Se elimino");
-            }
-            else
-            {
-                // If 'No', do something here.
-            }
+
+           
+                string Errores = null;
+                var confirmResult = MessageBox.Show("Seguro que desea eliminar", "Confirme borrado",
+                                        MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    bool si = eliminar.Eliminarasesor(asesor.IdAsesor, out Errores);
+
+                    if (si == true)
+                    {
+
+                        MessageBox.Show("Se elimino");
+                        AddItemCallback();
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Errores: " + Errores);
+
+                    }
+                }
+                else
+                {
+                    // If 'No', do something here.
+                }
+            
         }
     }
 }
