@@ -22,7 +22,7 @@ namespace Administrador
         Reenviarnip re = new Reenviarnip();
         Formatos formatos = new Formatos();
         Periodos perio = new Periodos();
-        
+        Exportardatos exportar = new Exportardatos();
         public static Busquedaentablas sug = new Busquedaentablas();
         public static List<Tablaproyecto> proyectos = new List<Tablaproyecto>();
         public static List<TablaAlumno> alumnos = new List<TablaAlumno>();
@@ -513,6 +513,14 @@ namespace Administrador
             Periodos.SelectedValue = currentperiodo.Idperiodo;
             
             }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (exportar.IsDisposed) {
+                exportar = new Exportardatos();
+            }
+            exportar.Show();
+        }
     }
     public delegate void eliminardatoalumno();
     public delegate void addperiodo();

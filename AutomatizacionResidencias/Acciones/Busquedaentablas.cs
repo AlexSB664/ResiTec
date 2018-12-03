@@ -339,6 +339,40 @@ namespace AutomatizacionResidencias.Acciones
 
 
         }
+
+
+        public List<Tabladatos> Exportardatos()
+        {
+            List<Tabladatos> alumnos = new List<Tabladatos>();
+            using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
+            {
+                alumnos = (from r in context.Alumno
+                           .Include("Proyecto_Residencia")
+                           select new Tabladatos { NoControl = r.NoControl, Apellido_Materno = r.Apellido_Materno, Apellido_Paterno = r.Apellido_Paterno, Correo = r.Correo, Nombre = r.Nombre, NoProyecto = r.NoProyecto, Semestre = r.Semestre, Telefono = r.Telefono, Genero = r.Genero, Fecha_registro = r.Fecha_registro,Anteproyecto=r.Proyecto_Residencia.Status_Anteproyecto,Area=r.Proyecto_Residencia.Area_del_Proyecto,Cargo_Asesor_Externo=r.Proyecto_Residencia.Cargo_Asesor_Externo,Correo_Asesor_Externo=r.Proyecto_Residencia.Correo_Asesor_Externo,Dictamen=r.Proyecto_Residencia.Dictamen,Evalacion_1=r.Proyecto_Residencia.Primera_Evaluacion,Evaluacion_2=r.Proyecto_Residencia.Segunda_Evaluacion,Evaluacion_3=r.Proyecto_Residencia.Tercera_Evaluacion,Nombre_Asesor_Externo=r.Proyecto_Residencia.Nombre_Asesor_Externo,Nombre_de_la_Empresa=r.Proyecto_Residencia.Nombre_de_la_Empresa,Nombre_Proyecto=r.Proyecto_Residencia.Nombre_Proyecto,Telefono_Asesor_Externo=r.Proyecto_Residencia.Telefono_Asesor_Externo,Periodo=r.Proyecto_Residencia.Periodo,Status=r.Proyecto_Residencia.IdStatus,Fecha_Registro=r.Proyecto_Residencia.Fecha_Registro }).ToList();
+
+                foreach (var row in alumnos)
+                {
+                    if (row.Periodo != null)
+                    {
+                        var per = context.Periodos.FirstOrDefault(x => x.Idperiodo == row.Periodo);
+                        if (per.periodo == true)
+                        {
+                            row.Periodo_año = "JUL-DIC " + per.año;
+                        }
+                        if (per.periodo == false)
+                        {
+                            row.Periodo_año = "ENE-JUN " + per.año;
+
+                        }
+                    }
+                }
+            }
+            return alumnos;
+
+        }
+
+
+
     }
 
     public delegate void addperiodo();

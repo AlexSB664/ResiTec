@@ -39,6 +39,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.Buscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.Periodos = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -205,6 +206,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.Periodos);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.Buscar);
@@ -218,6 +220,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(133, 499);
             this.panel1.TabIndex = 19;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(12, 312);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 48);
+            this.button4.TabIndex = 22;
+            this.button4.Text = "Datos";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Periodos
             // 
@@ -650,5 +664,6 @@
         private System.Windows.Forms.TextBox genero;
         private System.Windows.Forms.TextBox Status;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button4;
     }
 }

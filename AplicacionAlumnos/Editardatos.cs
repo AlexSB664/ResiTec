@@ -97,54 +97,55 @@ namespace AplicacionAlumnos
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            //se guarda cualquier cambio hecho
+            if (validar()) {
+                //se guarda cualquier cambio hecho
 
-            edicion.alumno.Nombre = nombrealumno.Text;
-            edicion.alumno.Apellido_Paterno = Apellidopalumno.Text;
-            edicion.alumno.Apellido_Materno = Apellidomalumno.Text;
-            edicion.alumno.Correo = correoelectronicoalumno.Text;
-            edicion.alumno.Semestre =int.Parse( numsemestre.Text);
-            edicion.alumno.Telefono = numtelefonoalumno.Text;
-            edicion.alumno.Genero = Genero.Text;
+                edicion.alumno.Nombre = nombrealumno.Text;
+                edicion.alumno.Apellido_Paterno = Apellidopalumno.Text;
+                edicion.alumno.Apellido_Materno = Apellidomalumno.Text;
+                edicion.alumno.Correo = correoelectronicoalumno.Text;
+                edicion.alumno.Semestre = int.Parse(numsemestre.Text);
+                edicion.alumno.Telefono = numtelefonoalumno.Text;
+                edicion.alumno.Genero = Genero.Text;
 
-            try
-            {
-                edicion.alumno.NoProyecto = proyectoresidencia.No_Proyecto;
-                edicion.alumno.Proyecto_Residencia.Nombre_Proyecto = Nombreproyecto.Text;
-                edicion.alumno.Proyecto_Residencia.Nombre_de_la_Empresa = Nombreempresa.Text;
-                edicion.alumno.Proyecto_Residencia.Nombre_Asesor_Externo = NombreAsesorexterno.Text;
-                edicion.alumno.Proyecto_Residencia.Cargo_Asesor_Externo = cargoasesor.Text;
-                edicion.alumno.Proyecto_Residencia.Correo_Asesor_Externo = correoasesorext.Text;
-                edicion.alumno.Proyecto_Residencia.Telefono_Asesor_Externo = telefonoasesorext.Text;
-                edicion.alumno.Proyecto_Residencia.Area_del_Proyecto = Area.Text;
+                try
+                {
+                    edicion.alumno.NoProyecto = proyectoresidencia.No_Proyecto;
+                    edicion.alumno.Proyecto_Residencia.Nombre_Proyecto = Nombreproyecto.Text;
+                    edicion.alumno.Proyecto_Residencia.Nombre_de_la_Empresa = Nombreempresa.Text;
+                    edicion.alumno.Proyecto_Residencia.Nombre_Asesor_Externo = NombreAsesorexterno.Text;
+                    edicion.alumno.Proyecto_Residencia.Cargo_Asesor_Externo = cargoasesor.Text;
+                    edicion.alumno.Proyecto_Residencia.Correo_Asesor_Externo = correoasesorext.Text;
+                    edicion.alumno.Proyecto_Residencia.Telefono_Asesor_Externo = telefonoasesorext.Text;
+                    edicion.alumno.Proyecto_Residencia.Area_del_Proyecto = Area.Text;
 
+                }
+                catch { }
+                try
+                {
+                    edicion.alumno.Proyecto_Residencia.IdAsesorInterno = asesorinterno.IdAsesor;
+                    edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre = NombreAsesorinterno.Text;
+                    edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono = Telefonoasesorinterno.Text;
+                    edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo = Correoasesorinterno.Text;
+                }
+                catch (Exception ex) {
+                    edicion.alumno.Proyecto_Residencia.Asesor_Interno = new Asesor_Interno();
+
+                    edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre = NombreAsesorinterno.Text;
+                    edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono = Telefonoasesorinterno.Text;
+                    edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo = Correoasesorinterno.Text;
+
+                }
+
+
+
+
+                //se guardan los cambios a la bd
+
+                edicion.Guardarcambios(int.Parse(Correo), edicion.alumno.NoProyecto, edicion.alumno.Proyecto_Residencia.IdAsesorInterno);
+
+                MessageBox.Show("Se han guardado los cambios");
             }
-            catch { }
-            try
-            {
-                edicion.alumno.Proyecto_Residencia.IdAsesorInterno = asesorinterno.IdAsesor;
-                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre = NombreAsesorinterno.Text;
-                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono = Telefonoasesorinterno.Text;
-                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo = Correoasesorinterno.Text;
-            }
-            catch(Exception ex) {
-                edicion.alumno.Proyecto_Residencia.Asesor_Interno = new Asesor_Interno();
-
-                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Nombre = NombreAsesorinterno.Text;
-                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Telefono = Telefonoasesorinterno.Text;
-                edicion.alumno.Proyecto_Residencia.Asesor_Interno.Correo = Correoasesorinterno.Text;
-
-            }
-
-
-
-
-            //se guardan los cambios a la bd
-
-            edicion.Guardarcambios(int.Parse(Correo),edicion.alumno.NoProyecto,edicion.alumno.Proyecto_Residencia.IdAsesorInterno);
-        
-            MessageBox.Show("Se han guardado los cambios");
         }
 
         private void AsesoresInternos_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,7 +216,7 @@ namespace AplicacionAlumnos
                     {
                         try
                         {
-                            MessageBox.Show(proyecto.IdAsesorInterno.ToString());
+                            //MessageBox.Show(proyecto.IdAsesorInterno.ToString());
                             AsesoresInternos.SelectedValue = proyecto.IdAsesorInterno;
                             edicion.alumno.Proyecto_Residencia.IdAsesorInterno = proyecto.IdAsesorInterno;
                             // Cambiarasesor.Visible = true;
