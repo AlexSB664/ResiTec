@@ -47,7 +47,7 @@ namespace Administrador
             /*
             this.proyecto_ResidenciaTableAdapter.Fill(this.proyectosdeResidencia.Proyecto_Residencia);
             */
-            dataGridView1.MultiSelect = false;
+            dataGridView1.MultiSelect = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             cargarperiodos();
@@ -274,6 +274,12 @@ namespace Administrador
                 alumno();
                 buscaralumno();
             }
+            if (mostrandoasesores) {
+                asesores = sug.Asesores();
+                asesor();
+                buscarasesor();
+                
+            }
 
 
         }
@@ -291,15 +297,15 @@ namespace Administrador
 
                 if (Nombreproyecto.Text != "")
                 {
-                    proyectos = proyectos.Where(x => x.Nombre_Proyecto.Contains(Nombreproyecto.Text)).ToList();
+                    proyectos = proyectos.Where(x => (x.Nombre_Proyecto ?? string.Empty).Contains(Nombreproyecto.Text)).ToList();
                 }
                 if (Empresa.Text != "") {
-                    proyectos = proyectos.Where(x => x.Nombre_de_la_Empresa.Contains(Empresa.Text)).ToList();
+                    proyectos = proyectos.Where(x => (x.Nombre_de_la_Empresa ?? string.Empty).Contains(Empresa.Text)).ToList();
 
                 }
                 if (Area.Text != "")
                 {
-                    proyectos = proyectos.Where(x => x.Area.Contains(Area.Text)).ToList();
+                    proyectos = proyectos.Where(x => (x.Area ?? string.Empty).Contains(Area.Text)).ToList();
 
                 }
                 if (Status.Text!="") {
@@ -361,7 +367,28 @@ namespace Administrador
 
         }
 
+        public void buscarasesor()
+        {
+            int noproy;
+            int sem;
+            if (int.TryParse(AsesorId.Text, out noproy))
+            {
+                asesores = asesores.Where(x => x.IdAsesor == noproy).ToList();
+            }
+            else
+            {
 
+                if (Nombreasesorinterno.Text != "")
+                {
+                    asesores = asesores.Where(x => (x.Nombre ?? string.Empty).Contains(Nombreasesorinterno.Text)).ToList();
+                }
+                
+
+            }
+
+            asesor();
+
+        }
 
         public void seeleiminoalumno()
         {
