@@ -32,10 +32,13 @@ namespace Administrador
         public static bool mostrandoalumno = false;
         public static bool mostrandopryectos = false;
         public static bool mostrandoasesores = false;
+        Form opener;
+
         public AutomatizacionResidencias.Periodos currentperiodo = new AutomatizacionResidencias.Periodos();
-        public Administradorprincipal()
+        public Administradorprincipal(Form parentForm)
         {
             InitializeComponent();
+            opener = parentForm;
         }
 
         private void Administradorprincipal_Load(object sender, EventArgs e)
@@ -549,6 +552,17 @@ namespace Administrador
                 exportar = new Exportardatos();
             }
             exportar.Show();
+        }
+
+        private void Administradorprincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          
+        }
+
+        private void Administradorprincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            opener.Close();
+           
         }
     }
     public delegate void eliminardatoalumno();

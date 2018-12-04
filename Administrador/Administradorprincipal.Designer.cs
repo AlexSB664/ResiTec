@@ -597,6 +597,8 @@
             this.Name = "Administradorprincipal";
             this.Text = "Panel de control";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Administradorprincipal_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Administradorprincipal_FormClosed);
             this.Load += new System.EventHandler(this.Administradorprincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);

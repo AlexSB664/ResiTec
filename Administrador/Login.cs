@@ -14,6 +14,7 @@ namespace Administrador
     public partial class Login : Form
     {
         public bool login;
+        Administradorprincipal a = null;
         public Login()
         {
             InitializeComponent();
@@ -28,12 +29,27 @@ namespace Administrador
 
             if (login == true)
             {
-                Administradorprincipal a = new Administradorprincipal();
+                if (a == null)
+                {
+                    a = new Administradorprincipal(this);
+
+                }
+                if (a.IsDisposed)
+                {
+                    a = new Administradorprincipal(this);
+                }
+                // th
+                textBox1.Text = "";
+                textBox2.Text = "";
+
+                this.Visible = false;
                 a.Show();
             }
-            else {
+            else
+            {
                 MessageBox.Show("Credenciales incorrectas");
             }
+            
 
         }
 
