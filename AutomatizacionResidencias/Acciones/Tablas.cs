@@ -27,6 +27,7 @@ namespace AutomatizacionResidencias
         public string Periodo_año { get; set; }
         public string color { get; set; }
         public string statusn { get; set; }
+        public string comentario { get; set; }
         public bool Anteproyecto { get; set; }
         public bool Dictamen { get; set; }
         public bool Evalacion_1 { get; set; }
@@ -77,11 +78,14 @@ namespace AutomatizacionResidencias
         public string Periodo_año { get; set; }
         public string color { get; set; }
         public string statusn { get; set; }
+        public string status_descripcion { get; set; }
+        public string comentario { get; set; }
         public bool? Anteproyecto { get; set; }
         public bool? Dictamen { get; set; }
         public bool? Evalacion_1 { get; set; }
         public bool? Evaluacion_2 { get; set; }
         public bool? Evaluacion_3 { get; set; }
+       
     }
 
 
