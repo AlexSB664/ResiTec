@@ -14,7 +14,7 @@ namespace Administrador
     {
         public static bool periodo = false;
         AutomatizacionResidencias.Acciones.Periodos op = new AutomatizacionResidencias.Acciones.Periodos();
-        public List<AutomatizacionResidencias.Periodos> periodos = new List<AutomatizacionResidencias.Periodos>();
+        public List<AutomatizacionResidencias.TablaPeriodos> periodos = new List<AutomatizacionResidencias.TablaPeriodos>();
 
         public static Eliminar eliminar = new Eliminar();
        
@@ -73,13 +73,13 @@ namespace Administrador
 
         public void datagrid()
         {
-            var bindingList = new BindingList<AutomatizacionResidencias.Periodos>(periodos);
+            var bindingList = new BindingList<AutomatizacionResidencias.TablaPeriodos>(periodos);
 
 
             var source = new BindingSource(bindingList, null);
 
             dataGridView1.DataSource = source;
-            dataGridView1.Columns["Proyecto_Residencia"].Visible = false;
+          //  dataGridView1.Columns["Proyecto_Residencia"].Visible = false;
 
 
 

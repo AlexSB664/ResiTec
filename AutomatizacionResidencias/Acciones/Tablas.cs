@@ -130,4 +130,15 @@ namespace AutomatizacionResidencias
         public int idperiodo { get; set; }
         public string periodo { get; set; }
     }
+
+    public class TablaPeriodos
+    {
+
+        public int Idperiodo { get; set; }
+        public Nullable<int> año { get; set; }
+        public Nullable<bool> bolperiodo { get; set; }
+        public string Periodo {get;set;}
+        
+
+    }
 }

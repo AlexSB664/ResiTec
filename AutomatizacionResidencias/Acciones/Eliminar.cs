@@ -186,5 +186,69 @@ namespace AutomatizacionResidencias.Acciones
                 return false;
             }
         }
+
+
+        public bool Eliminardatosperiodo(List<Tabladatos>datoseliminar,out string errores) {
+            try {
+                using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString)) {
+
+                    foreach (var d in datoseliminar) {
+                        if (d.Asesorinterno!=null) {
+                            try
+                            {
+                                var asesor = context.Asesor_Interno.FirstOrDefault(x => x.IdAsesor == d.Asesorinterno);
+                                var proyectos = context.Proyecto_Residencia.Where(x => x.IdAsesorInterno == asesor.IdAsesor);
+
+                                foreach (var p in proyectos)
+                                {
+                                    p.IdAsesorInterno = null;
+                                }
+                                context.Asesor_Interno.Remove(asesor);
+                                context.SaveChanges();
+                            }
+                            catch { }
+                        }
+
+
+
+                        if (d.NoProyecto!=null) {
+                            try
+                            {
+                                var proyecto = context.Proyecto_Residencia.FirstOrDefault(x => x.No_Proyecto == d.NoProyecto);
+                                var horarios = context.HorarioPresentacion.Where(x => x.No_Proyecto == proyecto.No_Proyecto);
+                                var alumnos = context.Alumno.Where(x => x.NoProyecto == proyecto.No_Proyecto);
+
+                                foreach (var a in alumnos)
+                                {
+                                    a.NoProyecto = null;
+                                }
+                                context.HorarioPresentacion.RemoveRange(horarios);
+                                context.Proyecto_Residencia.Remove(proyecto);
+
+                                context.SaveChanges();
+                            }
+                            catch { }
+                        }
+                        try
+                        {
+                            var ali = context.Alumno.FirstOrDefault(x => x.NoControl == d.NoControl);
+
+                            context.Alumno.Remove(ali);
+                            context.SaveChanges();
+                        }
+                        catch { }
+
+                    }
+
+                    errores = "";
+                    return true;
+                }
+
+            } catch(Exception ex) {
+
+                errores =ex.Message;
+                return false;
+            }
+        }
     }
 }

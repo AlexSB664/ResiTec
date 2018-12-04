@@ -13,6 +13,8 @@ namespace Administrador
 {
     public partial class AgendarExpo : Form
     {
+        public List<Tablaperiodo> periodos = new List<Tablaperiodo>();
+        public AutomatizacionResidencias.Periodos currentperiodo = new AutomatizacionResidencias.Periodos();
         public static Busquedaentablas sug = new Busquedaentablas();
         public static Sugerencias sugerencias = new Sugerencias();
         public static List<HorarioPresentacion> horariossave = new List<HorarioPresentacion>();
@@ -41,11 +43,31 @@ namespace Administrador
             gruposs = sug.todosgrupos();
             proyecto();
             grupos();
+            cargarperiodos();
         }
-
+        public void cargarperiodos()
+        {
+            currentperiodo = sug.periodoactual();
+            periodos = sug.periodos();
+            periodos.Add(new Tablaperiodo { idperiodo = 0, periodo = "todos" });
+            Periodo.DataSource = periodos;
+            Periodo.DisplayMember = "periodo";
+            Periodo.ValueMember = "idperiodo";
+            Periodo.SelectedValue = currentperiodo.Idperiodo;
+        }
 
         public void proyecto()
         {
+
+            try
+            {
+                if (Periodo.Text != "todos")
+                {
+                    proyectos = proyectos.Where(x => x.Periodo_año != null).ToList();
+                    proyectos = proyectos.Where(x => x.Periodo_año.Contains(Periodo.Text)).ToList();
+                }
+            }
+            catch { }
             // var status = sug.statusdeproyectos();
             var bindingList = new BindingList<Tablaproyecto>(proyectos);
 
@@ -289,6 +311,12 @@ namespace Administrador
         private void Residenciasparaasignar_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Periodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            proyectos = sug.proyectosregistrados();
+            proyecto();
         }
     }
     public delegate void AddItemDelegate(ComboGrupo item);

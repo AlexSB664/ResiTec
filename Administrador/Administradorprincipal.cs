@@ -66,6 +66,8 @@ namespace Administrador
             var bindingList = new BindingList<TablaAsesor>(asesores);
             var source = new BindingSource(bindingList, null);
             dataGridView1.DataSource = source;
+             dataGridView1.Columns["Turno"].Visible = false;
+
         }
 
         public void proyecto() {

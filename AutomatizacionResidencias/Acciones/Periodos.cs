@@ -60,14 +60,25 @@ namespace AutomatizacionResidencias.Acciones
         }
 
 
-        public List<AutomatizacionResidencias.Periodos> listaperiodos(out string Errores) {
-            List<AutomatizacionResidencias.Periodos> pera = new List<AutomatizacionResidencias.Periodos>();
+        public List<AutomatizacionResidencias.TablaPeriodos> listaperiodos(out string Errores) {
+            List<AutomatizacionResidencias.TablaPeriodos> pera = new List<AutomatizacionResidencias.TablaPeriodos>();
             using (var context = new ResidenciasEntities(new Conexion().returnconexion().ConnectionString))
             {
                 try
                 {
-                    pera = (from row in context.Periodos select row).ToList(); ;
+                    pera = (from row in context.Periodos select new TablaPeriodos { Idperiodo=row.Idperiodo,año=row.año,bolperiodo=row.periodo}).ToList(); ;
 
+                    foreach (var p in pera) {
+                        if (p.bolperiodo == true)
+                        {
+                            p.Periodo = "JUL-DIC " ;
+                        }
+                        if (p.bolperiodo == false)
+                        {
+                            p.Periodo = "ENE-JUN " ;
+
+                        }
+                    }
                   
                    
                     Errores = "";
