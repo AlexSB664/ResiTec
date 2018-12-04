@@ -35,23 +35,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Residenciasasignadas = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Residenciasparaasignar = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.Eliminar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.grupo = new System.Windows.Forms.Label();
             this.Asignar = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Residenciasasignadas)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Residenciasparaasignar)).BeginInit();
-            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -92,13 +91,13 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(1248, 0);
+            this.label2.Location = new System.Drawing.Point(1071, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 13);
+            this.label2.Size = new System.Drawing.Size(152, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Resindencias sin asgnar";
+            this.label2.Text = "Resindencias sin asgnar          ";
             // 
             // label1
             // 
@@ -118,21 +117,13 @@
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 675);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1370, 38);
-            this.panel3.TabIndex = 3;
-            // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.Residenciasasignadas);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 129);
+            this.panel4.Controls.Add(this.Residenciasparaasignar);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(856, 129);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(514, 546);
+            this.panel4.Size = new System.Drawing.Size(514, 584);
             this.panel4.TabIndex = 4;
             // 
             // Residenciasasignadas
@@ -146,18 +137,19 @@
             this.Residenciasasignadas.Name = "Residenciasasignadas";
             this.Residenciasasignadas.ReadOnly = true;
             this.Residenciasasignadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Residenciasasignadas.Size = new System.Drawing.Size(514, 546);
+            this.Residenciasasignadas.Size = new System.Drawing.Size(778, 584);
             this.Residenciasasignadas.TabIndex = 0;
             this.Residenciasasignadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Residenciasasignadas_CellContentClick);
             this.Residenciasasignadas.DoubleClick += new System.EventHandler(this.Residenciasasignadas_DoubleClick);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.Residenciasparaasignar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(749, 129);
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.Residenciasasignadas);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 129);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(621, 546);
+            this.panel1.Size = new System.Drawing.Size(778, 584);
             this.panel1.TabIndex = 5;
             // 
             // Residenciasparaasignar
@@ -171,34 +163,20 @@
             this.Residenciasparaasignar.Name = "Residenciasparaasignar";
             this.Residenciasparaasignar.ReadOnly = true;
             this.Residenciasparaasignar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Residenciasparaasignar.Size = new System.Drawing.Size(621, 546);
+            this.Residenciasparaasignar.Size = new System.Drawing.Size(514, 584);
             this.Residenciasparaasignar.TabIndex = 1;
             this.Residenciasparaasignar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Residenciasparaasignar_CellContentClick);
             this.Residenciasparaasignar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Residenciasparaasignar_CellContentClick_1);
             this.Residenciasparaasignar.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.Residenciasparaasignar_DataBindingComplete);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.Eliminar);
-            this.panel6.Controls.Add(this.button2);
-            this.panel6.Controls.Add(this.grupo);
-            this.panel6.Controls.Add(this.Asignar);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(514, 129);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(235, 546);
-            this.panel6.TabIndex = 6;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
-            this.panel6.DoubleClick += new System.EventHandler(this.panel6_DoubleClick);
             // 
             // Eliminar
             // 
             this.Eliminar.BackColor = System.Drawing.Color.Red;
             this.Eliminar.BackgroundImage = global::Administrador.Properties.Resources.delete;
             this.Eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Eliminar.Location = new System.Drawing.Point(63, 409);
+            this.Eliminar.Location = new System.Drawing.Point(3, 199);
             this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(96, 78);
+            this.Eliminar.Size = new System.Drawing.Size(69, 65);
             this.Eliminar.TabIndex = 32;
             this.Eliminar.UseVisualStyleBackColor = false;
             this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
@@ -207,9 +185,9 @@
             // 
             this.button2.BackgroundImage = global::Administrador.Properties.Resources._1__3ihG_PMKFRk_TGX6x8rOw;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(63, 293);
+            this.button2.Location = new System.Drawing.Point(3, 110);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 86);
+            this.button2.Size = new System.Drawing.Size(69, 62);
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -217,7 +195,7 @@
             // grupo
             // 
             this.grupo.AutoSize = true;
-            this.grupo.Location = new System.Drawing.Point(89, 150);
+            this.grupo.Location = new System.Drawing.Point(17, 19);
             this.grupo.Name = "grupo";
             this.grupo.Size = new System.Drawing.Size(34, 13);
             this.grupo.TabIndex = 1;
@@ -226,13 +204,25 @@
             // 
             // Asignar
             // 
-            this.Asignar.Location = new System.Drawing.Point(58, 214);
+            this.Asignar.Location = new System.Drawing.Point(0, 59);
             this.Asignar.Name = "Asignar";
-            this.Asignar.Size = new System.Drawing.Size(101, 28);
+            this.Asignar.Size = new System.Drawing.Size(72, 28);
             this.Asignar.TabIndex = 0;
             this.Asignar.Text = "<<";
             this.Asignar.UseVisualStyleBackColor = true;
             this.Asignar.Click += new System.EventHandler(this.Asignar_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.grupo);
+            this.panel7.Controls.Add(this.button2);
+            this.panel7.Controls.Add(this.Asignar);
+            this.panel7.Controls.Add(this.Eliminar);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel7.Location = new System.Drawing.Point(778, 129);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(78, 584);
+            this.panel7.TabIndex = 33;
             // 
             // AgendarExpo
             // 
@@ -240,10 +230,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1370, 713);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgendarExpo";
@@ -257,22 +246,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.Residenciasasignadas)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Residenciasparaasignar)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView Residenciasasignadas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView Residenciasparaasignar;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button Asignar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
@@ -281,5 +269,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Eliminar;
+        private System.Windows.Forms.Panel panel7;
     }
 }
