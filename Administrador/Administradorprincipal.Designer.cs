@@ -333,16 +333,16 @@
             this.Pannelalumno.Controls.Add(this.nombrealumnob);
             this.Pannelalumno.Controls.Add(this.Nombrealumno);
             this.Pannelalumno.Controls.Add(this.Apellidolabel);
-            this.Pannelalumno.Location = new System.Drawing.Point(344, 3);
+            this.Pannelalumno.Location = new System.Drawing.Point(326, 4);
             this.Pannelalumno.Name = "Pannelalumno";
-            this.Pannelalumno.Size = new System.Drawing.Size(282, 54);
+            this.Pannelalumno.Size = new System.Drawing.Size(333, 54);
             this.Pannelalumno.TabIndex = 2;
             this.Pannelalumno.Visible = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(749, 2);
+            this.label13.Location = new System.Drawing.Point(477, 2);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 13);
             this.label13.TabIndex = 26;
@@ -350,22 +350,22 @@
             // 
             // genero
             // 
-            this.genero.Location = new System.Drawing.Point(750, 28);
+            this.genero.Location = new System.Drawing.Point(469, 28);
             this.genero.Name = "genero";
             this.genero.Size = new System.Drawing.Size(50, 20);
             this.genero.TabIndex = 25;
             // 
             // Nocontrolb
             // 
-            this.Nocontrolb.Location = new System.Drawing.Point(12, 29);
+            this.Nocontrolb.Location = new System.Drawing.Point(4, 31);
             this.Nocontrolb.Name = "Nocontrolb";
-            this.Nocontrolb.Size = new System.Drawing.Size(147, 20);
+            this.Nocontrolb.Size = new System.Drawing.Size(94, 20);
             this.Nocontrolb.TabIndex = 23;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 0);
+            this.label6.Location = new System.Drawing.Point(17, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 24;
@@ -373,15 +373,15 @@
             // 
             // apellidomalumno
             // 
-            this.apellidomalumno.Location = new System.Drawing.Point(514, 29);
+            this.apellidomalumno.Location = new System.Drawing.Point(309, 29);
             this.apellidomalumno.Name = "apellidomalumno";
-            this.apellidomalumno.Size = new System.Drawing.Size(147, 20);
+            this.apellidomalumno.Size = new System.Drawing.Size(89, 20);
             this.apellidomalumno.TabIndex = 21;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(552, 0);
+            this.label5.Location = new System.Drawing.Point(313, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 22;
@@ -389,7 +389,7 @@
             // 
             // semestre
             // 
-            this.semestre.Location = new System.Drawing.Point(679, 29);
+            this.semestre.Location = new System.Drawing.Point(413, 28);
             this.semestre.Name = "semestre";
             this.semestre.Size = new System.Drawing.Size(50, 20);
             this.semestre.TabIndex = 19;
@@ -397,7 +397,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(678, 0);
+            this.label7.Location = new System.Drawing.Point(412, 2);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 13);
             this.label7.TabIndex = 20;
@@ -405,15 +405,15 @@
             // 
             // Noproyectoalumno
             // 
-            this.Noproyectoalumno.Location = new System.Drawing.Point(818, 28);
+            this.Noproyectoalumno.Location = new System.Drawing.Point(525, 28);
             this.Noproyectoalumno.Name = "Noproyectoalumno";
-            this.Noproyectoalumno.Size = new System.Drawing.Size(147, 20);
+            this.Noproyectoalumno.Size = new System.Drawing.Size(103, 20);
             this.Noproyectoalumno.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(856, 2);
+            this.label4.Location = new System.Drawing.Point(541, 2);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 14;
@@ -421,22 +421,22 @@
             // 
             // Apellidopalumnob
             // 
-            this.Apellidopalumnob.Location = new System.Drawing.Point(353, 29);
+            this.Apellidopalumnob.Location = new System.Drawing.Point(205, 28);
             this.Apellidopalumnob.Name = "Apellidopalumnob";
-            this.Apellidopalumnob.Size = new System.Drawing.Size(147, 20);
+            this.Apellidopalumnob.Size = new System.Drawing.Size(98, 20);
             this.Apellidopalumnob.TabIndex = 17;
             // 
             // nombrealumnob
             // 
-            this.nombrealumnob.Location = new System.Drawing.Point(181, 29);
+            this.nombrealumnob.Location = new System.Drawing.Point(104, 29);
             this.nombrealumnob.Name = "nombrealumnob";
-            this.nombrealumnob.Size = new System.Drawing.Size(147, 20);
+            this.nombrealumnob.Size = new System.Drawing.Size(95, 20);
             this.nombrealumnob.TabIndex = 15;
             // 
             // Nombrealumno
             // 
             this.Nombrealumno.AutoSize = true;
-            this.Nombrealumno.Location = new System.Drawing.Point(226, 0);
+            this.Nombrealumno.Location = new System.Drawing.Point(124, 0);
             this.Nombrealumno.Name = "Nombrealumno";
             this.Nombrealumno.Size = new System.Drawing.Size(44, 13);
             this.Nombrealumno.TabIndex = 16;
@@ -445,7 +445,7 @@
             // Apellidolabel
             // 
             this.Apellidolabel.AutoSize = true;
-            this.Apellidolabel.Location = new System.Drawing.Point(391, 0);
+            this.Apellidolabel.Location = new System.Drawing.Point(211, 2);
             this.Apellidolabel.Name = "Apellidolabel";
             this.Apellidolabel.Size = new System.Drawing.Size(83, 13);
             this.Apellidolabel.TabIndex = 18;
@@ -454,8 +454,8 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.panelasesorinterno);
-            this.panel3.Controls.Add(this.Periodo);
             this.panel3.Controls.Add(this.Pannelalumno);
+            this.panel3.Controls.Add(this.Periodo);
             this.panel3.Controls.Add(this.panelproyecto);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(133, 0);

@@ -86,7 +86,9 @@ namespace Administrador
 
            AutomatizacionResidencias.Decorator.Status  regst = new AutomatizacionResidencias.Decorator.Status();
             regst.Registrardatos(JsonConvert.SerializeObject(new AutomatizacionResidencias.Status {Nombre=this.nombre,Descripcion=this.descripcion,Color=this.color}),out Errores);
-            MessageBox.Show(Errores);
+            status = op.status();
+            datagrid();
+            //  MessageBox.Show(Errores);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

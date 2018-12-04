@@ -168,12 +168,6 @@
     <Compile Include="Reenviarnip.Designer.cs">
       <DependentUpon>Reenviarnip.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarStatus.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegistrarStatus.Designer.cs">
-      <DependentUpon>RegistrarStatus.cs</DependentUpon>
-    </Compile>
     <Compile Include="Status.cs">
       <SubType>Form</SubType>
     </Compile>
